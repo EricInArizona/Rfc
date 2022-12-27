@@ -1,0 +1,300 @@
+RFC 8446 - The Transport Layer Security
+ (TLS) Protocol Version 1.3
+
+Section 1.
+Introduction
+
+   The primary goal of TLS is to provide a secure
+ channel between two
+   communicating peers; the only requirement
+ from the underlying
+   transport is a reliable, in-order data stream.
+  Specifically, the
+   secure channel should provide the following
+ properties:
+
+   -  Authentication: The server side of the
+ channel is always
+      authenticated; the client side is optionally
+ authenticated.
+      Authentication can happen via asymmetric
+ cryptography (e.g., RSA
+      [<a href="https://datatracker.ietf.org/doc/html/rfc8446#ref-RSA" title="&quot;A Method for Obtaining Digital Signatures and Public-Key Cryptosystems&quot;">
+RSA</a>], the Elliptic Curve Digital Signature
+ Algorithm (ECDSA)
+      [<a href="https://datatracker.ietf.org/doc/html/rfc8446#ref-ECDSA" title="&quot;Public Key Cryptography for the Financial Services Industry: The Elliptic Curve Digital Signature Algorithm (ECDSA)&quot;">
+ECDSA</a>], or the Edwards-Curve Digital
+ Signature Algorithm (EdDSA)
+      [<a href="https://datatracker.ietf.org/doc/html/rfc8032" title="&quot;Edwards-Curve Digital Signature Algorithm (EdDSA)&quot;">
+RFC8032</a>]) or a symmetric pre-shared key (PSK).
+
+   -  Confidentiality: Data sent over the channel
+ after establishment is
+      only visible to the endpoints.  TLS does
+ not hide the length of
+      the data it transmits, though endpoints
+ are able to pad TLS
+      records in order to obscure lengths and
+ improve protection against
+      traffic analysis techniques.
+
+   -  Integrity: Data sent over the channel
+after establishment cannot
+      be modified by attackers without detection.
+
+   These properties should be true even in the
+ face of an attacker who
+   has complete control of the network, as
+ described in
+[<a href="https://datatracker.ietf.org/doc/html/rfc3552" title="&quot;
+Guidelines for Writing RFC Text on Security
+ Considerations&quot;">RFC3552</a>].  See
+   <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E">
+Appendix E</a> for a more complete statement
+ of the relevant security
+   properties.
+
+   TLS consists of two primary components:
+
+   -  A handshake protocol
+ (<a href="https://datatracker.ietf.org/doc/html/rfc8446#section-4">
+Section 4</a>) that authenticates the
+      communicating parties, negotiates
+ cryptographic modes and
+      parameters, and establishes shared
+ keying material.  The handshake
+      protocol is designed to resist tampering;
+an active attacker
+      should not be able to force the peers to
+ negotiate different
+      parameters than they would if the
+ connection were not under
+      attack.
+
+   -  A record protocol
+(<a href="https://datatracker.ietf.org/doc/html/rfc8446#section-5">
+Section 5</a>) that uses the parameters
+ established
+      by the handshake protocol to protect
+ traffic between the
+      communicating peers.  The record
+ protocol divides traffic up into
+      a series of records, each of which is
+ independently protected
+      using the traffic keys.
+
+   TLS is application protocol independent;
+ higher-level protocols can
+   layer on top of TLS transparently.  The
+ TLS standard, however, does
+   not specify how protocols add security
+ with TLS; how to initiate TLS
+   handshaking and how to interpret the
+ authentication certificates
+   exchanged are left to the judgment of the
+ designers and implementors
+   of protocols that run on top of TLS.
+
+   This document defines TLS version 1.3.
+  While TLS 1.3 is not directly
+   compatible with previous versions, all
+ versions of TLS incorporate a
+   versioning mechanism which allows clients
+ and servers to
+   interoperably negotiate a common version
+ if one is supported by both
+   peers.
+
+   This document supersedes and obsoletes
+ previous versions of TLS,
+   including version 1.2
+[<a href="https://datatracker.ietf.org/doc/html/rfc5246" title="&quot;The Transport Layer Security (TLS) Protocol Version 1.2&quot;">
+RFC5246</a>].  It also obsoletes the TLS ticket
+  mechanism defined in
+[<a href="https://datatracker.ietf.org/doc/html/rfc5077" title="&quot;Transport Layer Security (TLS) Session Resumption without Server-Side State&quot;">
+RFC5077</a>] and replaces it with the mechanism
+   defined in
+<a href="https://datatracker.ietf.org/doc/html/rfc8446#section-2.2">
+Section 2.2</a>.  Because TLS 1.3 changes
+ the way keys are
+   derived, it updates
+[<a href="https://datatracker.ietf.org/doc/html/rfc5705" title="&quot;Keying Material Exporters for Transport Layer Security (TLS)&quot;">RFC5705</a>] as described in <a href="https://datatracker.ietf.org/doc/html/rfc8446#section-7.5">
+Section 7.5</a>.  It also
+   changes how Online Certificate Status Protocol
+ (OCSP) messages are
+   carried and therefore updates
+[<a href="https://datatracker.ietf.org/doc/html/rfc6066" title="&quot;Transport Layer Security (TLS) Extensions: Extension Definitions&quot;">RFC6066</a>] and obsoletes [<a href="https://datatracker.ietf.org/doc/html/rfc6961" title="&quot;
+The Transport Layer Security (TLS) Multiple
+ Certificate Status Request Extension&quot;">
+RFC6961</a>] as
+   described in
+<a href="https://datatracker.ietf.org/doc/html/rfc8446#section-4.4.2.1">
+Section 4.4.2.1</a>.
+
+1.1.  Conventions and Terminology
+
+
+   The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+   "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+   "OPTIONAL" in this document are to be interpreted as described in
+   <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a> [<a href="https://datatracker.ietf.org/doc/html/rfc2119" title="&quot;Key words for use in RFCs to Indicate Requirement Levels&quot;">RFC2119</a>] [<a href="https://datatracker.ietf.org/doc/html/rfc8174" title="&quot;Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words&quot;">RFC8174</a>] when, and only when, they appear in all
+   capitals, as shown here.
+
+   The following terms are used:
+
+   client:  The endpoint initiating the TLS connection.
+
+   connection:  A transport-layer connection between two endpoints.
+
+   endpoint:  Either the client or server of the connection.
+
+   handshake:  An initial negotiation between client and server that
+      establishes the parameters of their subsequent interactions
+      within TLS.
+
+   peer:  An endpoint.  When discussing a particular endpoint, "peer"
+      refers to the endpoint that is not the primary subject of
+      discussion.
+
+
+   receiver:  An endpoint that is receiving records.
+
+   sender:  An endpoint that is transmitting records.
+
+   server:  The endpoint that did not initiate the TLS connection.
+
+section-1.2
+Major Differences from TLS 1.2
+
+   The following is a list of the major
+ functional differences between
+   TLS 1.2 and TLS 1.3.  It is not intended to
+ be exhaustive, and there
+   are many minor differences.
+
+   -  The list of supported symmetric encryption
+ algorithms has been
+      pruned of all algorithms that are
+ considered legacy.  Those that
+      remain are all Authenticated Encryption
+with Associated Data
+      (AEAD) algorithms.  The cipher suite
+ concept has been changed to
+      separate the authentication and key
+ exchange mechanisms from the
+      record protection algorithm (including
+ secret key length) and a
+      hash to be used with both the key
+ derivation function and
+      handshake message authentication code (MAC).
+
+   -  A zero round-trip time (0-RTT) mode was
+ added, saving a round trip
+      at connection setup for some application
+ data, at the cost of
+      certain security properties.
+
+   -  Static RSA and Diffie-Hellman cipher
+ suites have been removed; all
+      public-key based key exchange mechanisms
+ now provide forward
+      secrecy.
+
+   -  All handshake messages after the
+ ServerHello are now encrypted.
+      The newly introduced EncryptedExtensions
+ message allows various
+      extensions previously sent in the
+ clear in the ServerHello to also
+      enjoy confidentiality protection.
+
+   -  The key derivation functions have been
+ redesigned.  The new design
+      allows easier analysis by cryptographers
+ due to their improved key
+      separation properties.  The HMAC-based
+ Extract-and-Expand Key
+      Derivation Function (HKDF) is used as
+an underlying primitive.
+
+   -  The handshake state machine has been
+ significantly restructured to
+      be more consistent and to remove
+ superfluous messages such as
+      ChangeCipherSpec (except when needed
+ for middlebox compatibility).
+
+   -  Elliptic curve algorithms are now in
+ the base spec, and new
+      signature algorithms, such as EdDSA,
+ are included.  TLS 1.3
+      removed point format negotiation in
+favor of a single point format
+      for each curve.
+
+
+   -  Other cryptographic improvements were
+ made, including changing the
+      RSA padding to use the RSA Probabilistic
+ Signature Scheme
+      (RSASSA-PSS), and the removal of
+ compression, the Digital
+      Signature Algorithm (DSA), and custom
+Ephemeral Diffie-Hellman
+      (DHE) groups.
+
+   -  The TLS 1.2 version negotiation mechanism
+ has been deprecated in
+      favor of a version list in an extension.
+  This increases
+      compatibility with existing servers
+ that incorrectly implemented
+      version negotiation.
+
+   -  Session resumption with and without
+ server-side state as well as
+      the PSK-based cipher suites of earlier
+ TLS versions have been
+      replaced by a single new PSK exchange.
+
+   -  References have been updated to point
+ to the updated versions of
+      RFCs, as appropriate (e.g.,
+<a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a> rather than <a href="https://datatracker.ietf.org/doc/html/rfc3280">
+RFC 3280</a>).
+
+section-1.3
+Updates Affecting TLS 1.2
+
+   This document defines several changes that
+ optionally affect
+   implementations of TLS 1.2, including those
+ which do not also support
+   TLS 1.3:
+
+   -  A version downgrade protection mechanism
+ is described in
+      <a href="https://datatracker.ietf.org/doc/html/rfc8446#section-4.1.3">
+Section 4.1.3</a>.
+
+   -  RSASSA-PSS signature schemes are defined
+ in <a href="https://datatracker.ietf.org/doc/html/rfc8446#section-4.2.3">
+Section 4.2.3</a>.
+
+   -  The "supported_versions" ClientHello
+ extension can be used to
+      negotiate the version of TLS to use, in
+ preference to the
+      legacy_version field of the ClientHello.
+
+   -  The "signature_algorithms_cert" extension
+ allows a client to
+      indicate which signature algorithms it
+ can validate in X.509
+      certificates.
+
+   Additionally, this document clarifies some
+ compliance requirements
+   for earlier versions of TLS; see
+<a href="https://datatracker.ietf.org/doc/html/rfc8446#section-9.3">
+Section 9.3</a>.

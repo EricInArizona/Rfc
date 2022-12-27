@@ -1,0 +1,533 @@
+RFC 8446
+Appendix B
+Protocol Data Structures and Constant Values
+
+
+   This appendix provides the normative protocol
+ types and the
+   definitions for constants.  Values listed
+ as "_RESERVED" were used in
+   previous versions of TLS and are listed
+ here for completeness.
+   TLS 1.3 implementations MUST NOT send them
+ but might receive them
+   from older TLS implementations.
+
+B.1  Record Layer
+
+      enum {
+          invalid(0),
+          change_cipher_spec(20),
+          alert(21),
+          handshake(22),
+          application_data(23),
+          heartbeat(24),  /* <a href="https://datatracker.ietf.org/doc/html/rfc6520">RFC 6520</a> */
+          (255)
+      } ContentType;
+
+      struct {
+          ContentType type;
+          ProtocolVersion legacy_record_version;
+          uint16 length;
+          opaque fragment[TLSPlaintext.length];
+      } TLSPlaintext;
+
+      struct {
+          opaque content[TLSPlaintext.length];
+          ContentType type;
+          uint8 zeros[length_of_padding];
+      } TLSInnerPlaintext;
+
+      struct {
+          ContentType opaque_type = application_data; /* 23 */
+          ProtocolVersion legacy_record_version = 0x0303; /* TLS v1.2 */
+          uint16 length;
+          opaque encrypted_record[TLSCiphertext.length];
+      } TLSCiphertext;
+
+
+B.2.  Alert Messages
+
+      enum { warning(1), fatal(2), (255) } AlertLevel;
+
+      enum {
+          close_notify(0),
+          unexpected_message(10),
+          bad_record_mac(20),
+          decryption_failed_RESERVED(21),
+          record_overflow(22),
+          decompression_failure_RESERVED(30),
+          handshake_failure(40),
+          no_certificate_RESERVED(41),
+          bad_certificate(42),
+          unsupported_certificate(43),
+          certificate_revoked(44),
+          certificate_expired(45),
+          certificate_unknown(46),
+          illegal_parameter(47),
+          unknown_ca(48),
+          access_denied(49),
+          decode_error(50),
+          decrypt_error(51),
+          export_restriction_RESERVED(60),
+          protocol_version(70),
+          insufficient_security(71),
+          internal_error(80),
+          inappropriate_fallback(86),
+          user_canceled(90),
+          no_renegotiation_RESERVED(100),
+          missing_extension(109),
+          unsupported_extension(110),
+          certificate_unobtainable_RESERVED(111),
+          unrecognized_name(112),
+          bad_certificate_status_response(113),
+          bad_certificate_hash_value_RESERVED(114),
+          unknown_psk_identity(115),
+          certificate_required(116),
+          no_application_protocol(120),
+          (255)
+      } AlertDescription;
+
+      struct {
+          AlertLevel level;
+          AlertDescription description;
+      } Alert;
+
+
+
+
+B.3  Handshake Protocol
+
+      enum {
+          hello_request_RESERVED(0),
+          client_hello(1),
+          server_hello(2),
+          hello_verify_request_RESERVED(3),
+          new_session_ticket(4),
+          end_of_early_data(5),
+          hello_retry_request_RESERVED(6),
+          encrypted_extensions(8),
+          certificate(11),
+          server_key_exchange_RESERVED(12),
+          certificate_request(13),
+          server_hello_done_RESERVED(14),
+          certificate_verify(15),
+          client_key_exchange_RESERVED(16),
+          finished(20),
+          certificate_url_RESERVED(21),
+          certificate_status_RESERVED(22),
+          supplemental_data_RESERVED(23),
+          key_update(24),
+          message_hash(254),
+          (255)
+      } HandshakeType;
+
+      struct {
+          HandshakeType msg_type;    /* handshake type */
+          uint24 length;             /* bytes in message */
+          select (Handshake.msg_type) {
+              case client_hello:          ClientHello;
+              case server_hello:          ServerHello;
+              case end_of_early_data:     EndOfEarlyData;
+              case encrypted_extensions:  EncryptedExtensions;
+              case certificate_request:   CertificateRequest;
+              case certificate:           Certificate;
+              case certificate_verify:    CertificateVerify;
+              case finished:              Finished;
+              case new_session_ticket:    NewSessionTicket;
+              case key_update:            KeyUpdate;
+          };
+      } Handshake;
+
+
+
+
+
+B.3.1
+Key Exchange Messages
+
+    uint16 ProtocolVersion;
+    opaque Random[32];
+
+    uint8 CipherSuite[2];    /* Cryptographic suite selector */
+
+    struct {
+        ProtocolVersion legacy_version = 0x0303;    /* TLS v1.2 */
+        Random random;
+        opaque legacy_session_id&lt;0..32&gt;;
+        CipherSuite cipher_suites&lt;2..2^16-2&gt;;
+        opaque legacy_compression_methods&lt;1..2^8-1&gt;;
+        Extension extensions&lt;8..2^16-1&gt;;
+    } ClientHello;
+
+    struct {
+        ProtocolVersion legacy_version = 0x0303;    /* TLS v1.2 */
+        Random random;
+        opaque legacy_session_id_echo&lt;0..32&gt;;
+        CipherSuite cipher_suite;
+        uint8 legacy_compression_method = 0;
+        Extension extensions&lt;6..2^16-1&gt;;
+    } ServerHello;
+
+
+
+    struct {
+        ExtensionType extension_type;
+        opaque extension_data&lt;0..2^16-1&gt;;
+    } Extension;
+
+    enum {
+        server_name(0),                             /* <a href="https://datatracker.ietf.org/doc/html/rfc6066">RFC 6066</a> */
+        max_fragment_length(1),                     /* <a href="https://datatracker.ietf.org/doc/html/rfc6066">RFC 6066</a> */
+        status_request(5),                          /* <a href="https://datatracker.ietf.org/doc/html/rfc6066">RFC 6066</a> */
+        supported_groups(10),                       /* <a href="https://datatracker.ietf.org/doc/html/rfc8422">RFC 8422</a>, 7919 */
+        signature_algorithms(13),                   /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        use_srtp(14),                               /* <a href="https://datatracker.ietf.org/doc/html/rfc5764">RFC 5764</a> */
+        heartbeat(15),                              /* <a href="https://datatracker.ietf.org/doc/html/rfc6520">RFC 6520</a> */
+        application_layer_protocol_negotiation(16), /* <a href="https://datatracker.ietf.org/doc/html/rfc7301">RFC 7301</a> */
+        signed_certificate_timestamp(18),           /* <a href="https://datatracker.ietf.org/doc/html/rfc6962">RFC 6962</a> */
+        client_certificate_type(19),                /* <a href="https://datatracker.ietf.org/doc/html/rfc7250">RFC 7250</a> */
+        server_certificate_type(20),                /* <a href="https://datatracker.ietf.org/doc/html/rfc7250">RFC 7250</a> */
+        padding(21),                                /* <a href="https://datatracker.ietf.org/doc/html/rfc7685">RFC 7685</a> */
+        RESERVED(40),                               /* Used but never
+                                                       assigned */
+        pre_shared_key(41),                         /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        early_data(42),                             /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        supported_versions(43),                     /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        cookie(44),                                 /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        psk_key_exchange_modes(45),                 /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        RESERVED(46),                               /* Used but never
+                                                       assigned */
+        certificate_authorities(47),                /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        oid_filters(48),                            /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        post_handshake_auth(49),                    /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        signature_algorithms_cert(50),              /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        key_share(51),                              /* <a href="https://datatracker.ietf.org/doc/html/rfc8446">RFC 8446</a> */
+        (65535)
+    } ExtensionType;
+
+    struct {
+        NamedGroup group;
+        opaque key_exchange&lt;1..2^16-1&gt;;
+    } KeyShareEntry;
+
+    struct {
+        KeyShareEntry client_shares&lt;0..2^16-1&gt;;
+    } KeyShareClientHello;
+
+    struct {
+        NamedGroup selected_group;
+    } KeyShareHelloRetryRequest;
+
+
+
+    struct {
+        KeyShareEntry server_share;
+    } KeyShareServerHello;
+
+    struct {
+        uint8 legacy_form = 4;
+        opaque X[coordinate_length];
+        opaque Y[coordinate_length];
+    } UncompressedPointRepresentation;
+
+    enum { psk_ke(0), psk_dhe_ke(1), (255) } PskKeyExchangeMode;
+
+    struct {
+        PskKeyExchangeMode ke_modes&lt;1..255&gt;;
+    } PskKeyExchangeModes;
+
+    struct {} Empty;
+
+    struct {
+        select (Handshake.msg_type) {
+            case new_session_ticket:   uint32 max_early_data_size;
+            case client_hello:         Empty;
+            case encrypted_extensions: Empty;
+        };
+    } EarlyDataIndication;
+
+    struct {
+        opaque identity&lt;1..2^16-1&gt;;
+        uint32 obfuscated_ticket_age;
+    } PskIdentity;
+
+    opaque PskBinderEntry&lt;32..255&gt;;
+
+    struct {
+        PskIdentity identities&lt;7..2^16-1&gt;;
+        PskBinderEntry binders&lt;33..2^16-1&gt;;
+    } OfferedPsks;
+
+    struct {
+        select (Handshake.msg_type) {
+            case client_hello: OfferedPsks;
+            case server_hello: uint16 selected_identity;
+        };
+    } PreSharedKeyExtension;
+
+
+
+B.3.1.1
+Version Extension
+
+      struct {
+          select (Handshake.msg_type) {
+              case client_hello:
+                   ProtocolVersion versions&lt;2..254&gt;;
+
+              case server_hello: /* and HelloRetryRequest */
+                   ProtocolVersion selected_version;
+          };
+      } SupportedVersions;
+
+
+
+B.3.1.2
+Cookie Extension
+
+      struct {
+          opaque cookie&lt;1..2^16-1&gt;;
+      } Cookie;
+
+
+B.3.1.3
+Signature Algorithm Extension
+
+      enum {
+          /* RSASSA-PKCS1-v1_5 algorithms */
+          rsa_pkcs1_sha256(0x0401),
+          rsa_pkcs1_sha384(0x0501),
+          rsa_pkcs1_sha512(0x0601),
+
+          /* ECDSA algorithms */
+          ecdsa_secp256r1_sha256(0x0403),
+          ecdsa_secp384r1_sha384(0x0503),
+          ecdsa_secp521r1_sha512(0x0603),
+
+          /* RSASSA-PSS algorithms with public key OID rsaEncryption */
+          rsa_pss_rsae_sha256(0x0804),
+          rsa_pss_rsae_sha384(0x0805),
+          rsa_pss_rsae_sha512(0x0806),
+
+          /* EdDSA algorithms */
+          ed25519(0x0807),
+          ed448(0x0808),
+
+          /* RSASSA-PSS algorithms with public key OID RSASSA-PSS */
+          rsa_pss_pss_sha256(0x0809),
+          rsa_pss_pss_sha384(0x080a),
+          rsa_pss_pss_sha512(0x080b),
+
+          /* Legacy algorithms */
+          rsa_pkcs1_sha1(0x0201),
+          ecdsa_sha1(0x0203),
+
+          /* Reserved Code Points */
+          obsolete_RESERVED(0x0000..0x0200),
+          dsa_sha1_RESERVED(0x0202),
+          obsolete_RESERVED(0x0204..0x0400),
+          dsa_sha256_RESERVED(0x0402),
+          obsolete_RESERVED(0x0404..0x0500),
+          dsa_sha384_RESERVED(0x0502),
+          obsolete_RESERVED(0x0504..0x0600),
+          dsa_sha512_RESERVED(0x0602),
+          obsolete_RESERVED(0x0604..0x06FF),
+          private_use(0xFE00..0xFFFF),
+          (0xFFFF)
+      } SignatureScheme;
+
+      struct {
+          SignatureScheme supported_signature_algorithms&lt;2..2^16-2&gt;;
+      } SignatureSchemeList;
+
+
+
+B.3.1.4
+Supported Groups Extension
+
+      enum {
+          unallocated_RESERVED(0x0000),
+
+          /* Elliptic Curve Groups (ECDHE) */
+          obsolete_RESERVED(0x0001..0x0016),
+          secp256r1(0x0017), secp384r1(0x0018), secp521r1(0x0019),
+          obsolete_RESERVED(0x001A..0x001C),
+          x25519(0x001D), x448(0x001E),
+
+          /* Finite Field Groups (DHE) */
+          ffdhe2048(0x0100), ffdhe3072(0x0101), ffdhe4096(0x0102),
+          ffdhe6144(0x0103), ffdhe8192(0x0104),
+
+          /* Reserved Code Points */
+          ffdhe_private_use(0x01FC..0x01FF),
+          ecdhe_private_use(0xFE00..0xFEFF),
+          obsolete_RESERVED(0xFF01..0xFF02),
+          (0xFFFF)
+      } NamedGroup;
+
+      struct {
+          NamedGroup named_group_list&lt;2..2^16-1&gt;;
+      } NamedGroupList;
+
+   Values within "obsolete_RESERVED" ranges are used in previous
+   versions of TLS and MUST NOT be offered or negotiated by TLS 1.3
+   implementations.  The obsolete curves have various known/theoretical
+   weaknesses or have had very little usage, in some cases only due to
+   unintentional server configuration issues.  They are no longer
+   considered appropriate for general use and should be assumed to be
+   potentially unsafe.  The set of curves specified here is sufficient
+   for interoperability with all currently deployed and properly
+   configured TLS implementations.
+
+
+
+B.3.2
+Server Parameters Messages
+
+      opaque DistinguishedName&lt;1..2^16-1&gt;;
+
+      struct {
+          DistinguishedName authorities&lt;3..2^16-1&gt;;
+      } CertificateAuthoritiesExtension;
+
+      struct {
+          opaque certificate_extension_oid&lt;1..2^8-1&gt;;
+          opaque certificate_extension_values&lt;0..2^16-1&gt;;
+      } OIDFilter;
+
+      struct {
+          OIDFilter filters&lt;0..2^16-1&gt;;
+      } OIDFilterExtension;
+
+      struct {} PostHandshakeAuth;
+
+      struct {
+          Extension extensions&lt;0..2^16-1&gt;;
+      } EncryptedExtensions;
+
+      struct {
+          opaque certificate_request_context&lt;0..2^8-1&gt;;
+          Extension extensions&lt;2..2^16-1&gt;;
+      } CertificateRequest;
+
+
+
+B.3.3
+Authentication Messages
+
+      enum {
+          X509(0),
+          OpenPGP_RESERVED(1),
+          RawPublicKey(2),
+          (255)
+      } CertificateType;
+
+      struct {
+          select (certificate_type) {
+              case RawPublicKey:
+                /* From <a href="https://datatracker.ietf.org/doc/html/rfc7250">RFC 7250</a> ASN.1_subjectPublicKeyInfo */
+                opaque ASN1_subjectPublicKeyInfo&lt;1..2^24-1&gt;;
+
+              case X509:
+                opaque cert_data&lt;1..2^24-1&gt;;
+          };
+          Extension extensions&lt;0..2^16-1&gt;;
+      } CertificateEntry;
+
+      struct {
+          opaque certificate_request_context&lt;0..2^8-1&gt;;
+          CertificateEntry certificate_list&lt;0..2^24-1&gt;;
+      } Certificate;
+
+      struct {
+          SignatureScheme algorithm;
+          opaque signature&lt;0..2^16-1&gt;;
+      } CertificateVerify;
+
+      struct {
+          opaque verify_data[Hash.length];
+      } Finished;
+
+B.3.4
+Ticket Establishment
+
+
+      struct {
+          uint32 ticket_lifetime;
+          uint32 ticket_age_add;
+          opaque ticket_nonce&lt;0..255&gt;;
+          opaque ticket&lt;1..2^16-1&gt;;
+          Extension extensions&lt;0..2^16-2&gt;;
+      } NewSessionTicket;
+
+
+B.3.5
+Updating Keys
+
+      struct {} EndOfEarlyData;
+
+      enum {
+          update_not_requested(0), update_requested(1), (255)
+      } KeyUpdateRequest;
+
+      struct {
+          KeyUpdateRequest request_update;
+      } KeyUpdate;
+
+
+
+B.4
+Cipher Suites
+
+   A symmetric cipher suite defines the pair of the AEAD algorithm and
+   hash algorithm to be used with HKDF.  Cipher suite names follow the
+   naming convention:
+
+      CipherSuite TLS_AEAD_HASH = VALUE;
+
+      +-----------+------------------------------------------------+
+      | Component | Contents                                       |
+      +-----------+------------------------------------------------+
+      | TLS       | The string "TLS"                               |
+      |           |                                                |
+      | AEAD      | The AEAD algorithm used for record protection  |
+      |           |                                                |
+      | HASH      | The hash algorithm used with HKDF              |
+      |           |                                                |
+      | VALUE     | The two-byte ID assigned for this cipher suite |
+      +-----------+------------------------------------------------+
+
+   This specification defines the following cipher suites for use with
+   TLS 1.3.
+
+              +------------------------------+-------------+
+              | Description                  | Value       |
+              +------------------------------+-------------+
+              | TLS_AES_128_GCM_SHA256       | {0x13,0x01} |
+              |                              |             |
+              | TLS_AES_256_GCM_SHA384       | {0x13,0x02} |
+              |                              |             |
+              | TLS_CHACHA20_POLY1305_SHA256 | {0x13,0x03} |
+              |                              |             |
+              | TLS_AES_128_CCM_SHA256       | {0x13,0x04} |
+              |                              |             |
+              | TLS_AES_128_CCM_8_SHA256     | {0x13,0x05} |
+              +------------------------------+-------------+
+
+
+
+   The corresponding AEAD algorithms AEAD_AES_128_GCM, AEAD_AES_256_GCM,
+   and AEAD_AES_128_CCM are defined in [<a href="https://datatracker.ietf.org/doc/html/rfc5116" title="&quot;An Interface and Algorithms for Authenticated Encryption&quot;">RFC5116</a>].
+   AEAD_CHACHA20_POLY1305 is defined in [<a href="https://datatracker.ietf.org/doc/html/rfc8439" title="&quot;ChaCha20 and Poly1305 for IETF Protocols&quot;">RFC8439</a>].  AEAD_AES_128_CCM_8
+   is defined in [<a href="https://datatracker.ietf.org/doc/html/rfc6655" title="&quot;AES-CCM Cipher Suites for Transport Layer Security (TLS)&quot;">RFC6655</a>].  The corresponding hash algorithms are
+   defined in [<a href="https://datatracker.ietf.org/doc/html/rfc8446#ref-SHS" title="&quot;Secure Hash Standard (SHS)&quot;">SHS</a>].
+
+   Although TLS 1.3 uses the same cipher suite space as previous
+   versions of TLS, TLS 1.3 cipher suites are defined differently, only
+   specifying the symmetric ciphers, and cannot be used for TLS 1.2.
+   Similarly, cipher suites for TLS 1.2 and lower cannot be used with
+   TLS 1.3.
+
+   New cipher suite values are assigned by IANA as described in
+rfc8446#section-11">Section 11</a>.

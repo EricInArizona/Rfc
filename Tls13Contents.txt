@@ -1,0 +1,154 @@
+RFC 8446 - The Transport Layer Security
+ (TLS) Protocol Version 1.3
+
+Table of Contents
+
+Introduction  page-6
+Conventions and Terminology ................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-7">7</a>
+Major Differences from TLS 1.2 .............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-8">8</a>
+
+1.3 Updates Affecting TLS 1.2 ..................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-9">9</a>
+
+2. Protocol Overview ..............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-10">10</a>
+2.1 Incorrect DHE Share .......................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-14">14</a>
+2.2. Resumption and Pre-Shared Key (PSK) .......................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-15">15</a>
+2.3. 0-RTT Data ................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-17">17</a>
+
+3. Presentation Language ..........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-19">19</a>
+3.1. Basic Block Size ..........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-19">19</a>
+3.2. Miscellaneous .............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-20">20</a>
+3.3. Numbers ...................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-20">20</a>
+3.4. Vectors ...................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-20">20</a>
+3.5. Enumerateds ...............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-21">21</a>
+3.6. Constructed Types .........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-22">22</a>
+3.7. Constants .................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-23">23</a>
+3.8. Variants ..................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-23">23</a>
+
+4. Handshake Protocol .............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-24">24</a>
+4.1. Key Exchange Messages .....................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-25">25</a>
+4.1.1. Cryptographic Negotiation ..........................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-26">26</a>
+4.1.2. Client Hello .......................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-27">27</a>
+4.1.3. Server Hello .......................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-31">31</a>
+4.1.4. Hello Retry Request ................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-33">33</a>
+
+4.2. Extensions ................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-35">35</a>
+4.2.1. Supported Versions .................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-39">39</a>
+4.2.2. Cookie .............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-40">40</a>
+4.2.3. Signature Algorithms ...............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-41">41</a>
+4.2.4. Certificate Authorities ............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-45">45</a>
+4.2.5. OID Filters ........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-45">45</a>
+4.2.6. Post-Handshake Client Authentication ...............<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-47">47</a>
+4.2.7. Supported Groups ...................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-47">47</a>
+4.2.8. Key Share ..........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-48">48</a>
+4.2.9. Pre-Shared Key Exchange Modes ......................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-51">51</a>
+4.2.10. Early Data Indication .............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-52">52</a>
+4.2.11. Pre-Shared Key Extension ..........................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-55">55</a>
+
+
+4.3. Server Parameters .........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-59">59</a>
+4.3.1. Encrypted Extensions ...............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-60">60</a>
+4.3.2. Certificate Request ................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-60">60</a>
+4.4. Authentication Messages ...................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-61">61</a>
+4.4.1. The Transcript Hash ................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-63">63</a>
+4.4.2. Certificate ........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-64">64</a>
+4.4.3. Certificate Verify .................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-69">69</a>
+4.4.4. Finished ...........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-71">71</a>
+
+4.5. End of Early Data .........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-72">72</a>
+
+4.6. Post-Handshake Messages ...................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-73">73</a>
+4.6.1. New Session Ticket Message .........................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-73">73</a>
+4.6.2. Post-Handshake Authentication ......................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-75">75</a>
+4.6.3. Key and Initialization Vector Update ...............<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-76">76</a>
+
+5. Record Protocol ................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-77">77</a>
+5.1. Record Layer ..............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-78">78</a>
+5.2. Record Payload Protection .................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-80">80</a>
+5.3. Per-Record Nonce ..........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-82">82</a>
+5.4. Record Padding ............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-83">83</a>
+5.5. Limits on Key Usage .......................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-84">84</a>
+
+6. Alert Protocol .................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-85">85</a>
+6.1. Closure Alerts ............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-87">87</a>
+6.2. Error Alerts ..............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-88">88</a>
+
+7. Cryptographic Computations .....................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-90">90</a>
+7.1. Key Schedule ..............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-91">91</a>
+7.2. Updating Traffic Secrets ..................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-94">94</a>
+7.3. Traffic Key Calculation ...................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-95">95</a>
+7.4. (EC)DHE Shared Secret Calculation .........................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-95">95</a>
+7.4.1. Finite Field Diffie-Hellman ........................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-95">95</a>
+7.4.2. Elliptic Curve Diffie-Hellman ......................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-96">96</a>
+7.5. Exporters .................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-97">97</a>
+
+8. 0-RTT and Anti-Replay ..........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-98">98</a>
+8.1. Single-Use Tickets ........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-99">99</a>
+8.2 Client Hello Recording ....................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-99">99</a>
+8.3. Freshness Checks .........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-101">101</a>
+
+9. Compliance Requirements .......................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-102">102</a>
+9.1. Mandatory-to-Implement Cipher Suites .....................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-102">102</a>
+9.2. Mandatory-to-Implement Extensions ........................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-103">103</a>
+9.3. Protocol Invariants ......................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-104">104</a>
+
+10. Security Considerations ......................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-106">106</a>
+
+11. IANA Considerations ..........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-106">106</a>
+12. References ...................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-109">109</a>
+12.1. Normative References ....................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-109">109</a>
+12.2. Informative References ..................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-112">112</a>
+
+Appendix A. State Machine ........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-120">120</a>
+A.1. Client ....................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-120">120</a>
+A.2. Server ....................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-121">121</a>
+
+Appendix B. Protocol Data Structures and
+Constant Values page 122
+B.1. Record Layer ..............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-122">122</a>
+B.2. Alert Messages ............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-123">123</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-B.3">B.3</a>. Handshake Protocol ........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-124">124</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-B.3.1">B.3.1</a>. Key Exchange Messages .................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-125">125</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-B.3.2">B.3.2</a>. Server Parameters Messages ............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-131">131</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-B.3.3">B.3.3</a>. Authentication Messages ...............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-132">132</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-B.3.4">B.3.4</a>. Ticket Establishment ..................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-132">132</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-B.3.5">B.3.5</a>. Updating Keys .........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-133">133</a>
+
+appendix-B.4  Cipher Suites .............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-133">133</a>
+
+
+
+Appendix C. Implementation Notes .................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-134">134</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-C.1">C.1</a>. Random Number Generation and Seeding ......................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-134">134</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-C.2">C.2</a>. Certificates and Authentication ...........................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-135">135</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-C.3">C.3</a>. Implementation Pitfalls ...................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-135">135</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-C.4">C.4</a>. Client Tracking Prevention ................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-137">137</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-C.5">C.5</a>. Unauthenticated Operation .................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-137">137</a>
+
+Appendix D. Backward Compatibility ...............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-138">138</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-D.1">D.1</a>. Negotiating with an Older Server ..........................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-139">139</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-D.2">D.2</a>. Negotiating with an Older Client ..........................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-139">139</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-D.3">D.3</a>. 0-RTT Backward Compatibility ..............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-140">140</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-D.4">D.4</a>. Middlebox Compatibility Mode ..............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-140">140</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-D.5">D.5</a>. Security Restrictions Related to Backward Compatibility ...<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-141">141</a>
+
+Appendix E. Overview of Security Properties ......................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-142">142</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.1">E.1</a>. Handshake .................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-142">142</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.1.1">E.1.1</a>. Key Derivation and HKDF ...............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-145">145</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.1.2">E.1.2</a>. Client Authentication .................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-146">146</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.1.3">E.1.3</a>. 0-RTT .................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-146">146</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.1.4">E.1.4</a>. Exporter Independence .................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-146">146</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.1.5">E.1.5</a>. Post-Compromise Security ..............................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-146">146</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.1.6">E.1.6</a>. External References ...................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-147">147</a>
+
+appendix-E.2. Record Layer ..............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-147">147</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.2.1">E.2.1</a>. External References ...................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-148">148</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.3">E.3</a>. Traffic Analysis ..........................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-148">148</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.4">E.4</a>. Side-Channel Attacks ......................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-149">149</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.5">E.5</a>. Replay Attacks on 0-RTT ...................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-150">150</a>
+       <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.5.1">E.5.1</a>. Replay and Exporters ..................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-151">151</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.6">E.6</a>. PSK Identity Exposure .....................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-152">152</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.7">E.7</a>. Sharing PSKs ..............................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-152">152</a>
+     <a href="https://datatracker.ietf.org/doc/html/rfc8446#appendix-E.8">E.8</a>. Attacks on Static RSA .....................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-152">152</a>
+
+   Contributors .....................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-153">153</a>
+   Author's Address .................................................<a href="https://datatracker.ietf.org/doc/html/rfc8446#page-160">160</a>

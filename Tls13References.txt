@@ -1,0 +1,677 @@
+RFC 8446 - The Transport Layer Security
+(TLS) Protocol Version 1.3
+
+Section 12
+References
+
+Section 12.1
+Normative References
+
+   [<a id="ref-DH76">DH76</a>]     Diffie, W.
+ and M. Hellman, "New directions in
+              cryptography", IEEE Transactions on
+ Information
+              Theory, Vol. 22 No. 6, pp. 644-654,
+              DOI 10.1109/TIT.1976.1055638,
+ November 1976.
+
+   [<a id="ref-ECDSA">ECDSA</a>]    American
+ National Standards Institute, "Public Key
+              Cryptography for the Financial
+ Services Industry: The
+              Elliptic Curve Digital Signature
+ Algorithm (ECDSA)",
+              ANSI ANS X9.62-2005, November 2005.
+
+   [<a id="ref-GCM">GCM</a>]      Dworkin, M.,
+ "Recommendation for Block Cipher Modes of
+              Operation: Galois/Counter Mode (GCM)
+ and GMAC",
+              NIST Special Publication 800-38D,
+              DOI 10.6028/NIST.SP.800-38D, November 2007.
+
+   [<a id="ref-RFC2104">RFC2104</a>]  Krawczyk,
+ H., Bellare, M., and R. Canetti, "HMAC: Keyed-
+              Hashing for Message Authentication",
+RFC 2104,
+              DOI 10.17487/RFC2104, February 1997,
+              &lt;
+
+   [<a id="ref-RFC2119">RFC2119</a>]  Bradner,
+ S., "Key words for use in RFCs to Indicate
+              Requirement Levels", <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>, <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>,
+              DOI 10.17487/RFC2119, March 1997,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc2119">https://www.rfc-editor.org/info/rfc2119</a>&gt;.
+
+   [<a id="ref-RFC5116">RFC5116</a>]  McGrew,
+ D., "An Interface and Algorithms for Authenticated
+       Encryption", <a href="https://datatracker.ietf.org/doc/html/rfc5116">RFC 5116</a>, DOI 10.17487/RFC5116, January 2008,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc5116">https://www.rfc-editor.org/info/rfc5116</a>&gt;.
+
+   [<a id="ref-RFC5280">RFC5280</a>]  Cooper,
+ D., Santesson, S., Farrell, S., Boeyen, S.,
+              Housley, R., and W. Polk,
+ "Internet X.509 Public Key
+    Infrastructure Certificate and Certificate
+ Revocation List
+              (CRL) Profile", <a href="https://datatracker.ietf.org/doc/html/rfc5280">RFC 5280</a>, DOI 10.17487/RFC5280, May 2008,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc5280">https://www.rfc-editor.org/info/rfc5280</a>&gt;.
+
+   [<a id="ref-RFC5705">RFC5705</a>]  Rescorla,
+ E., "Keying Material Exporters for Transport
+              Layer Security (TLS)", <a href="https://datatracker.ietf.org/doc/html/rfc5705">RFC 5705</a>, DOI 10.17487/RFC5705,
+              March 2010, &lt;<a href="https://www.rfc-editor.org/info/rfc5705">https://www.rfc-editor.org/info/rfc5705</a>&gt;.
+
+   [<a id="ref-RFC5756">RFC5756</a>]  Turner,
+ S., Brown, D., Yiu, K., Housley, R., and T. Polk,
+     "Updates for RSAES-OAEP and RSASSA-PSS 
+Algorithm
+              Parameters", <a href="https://datatracker.ietf.org/doc/html/rfc5756">RFC 5756</a>, DOI 10.17487/RFC5756, January 2010,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc5756">https://www.rfc-editor.org/info/rfc5756</a>&gt;.
+
+
+   [<a id="ref-RFC5869">RFC5869</a>]  Krawczyk,
+ H. and P. Eronen, "HMAC-based Extract-and-Expand
+              Key Derivation Function (HKDF)", <a href="https://datatracker.ietf.org/doc/html/rfc5869">RFC 5869</a>,
+              DOI 10.17487/RFC5869, May 2010,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc5869">https://www.rfc-editor.org/info/rfc5869</a>&gt;.
+
+   [<a id="ref-RFC6066">RFC6066</a>]  Eastlake
+ 3rd, D., "Transport Layer Security (TLS)
+              Extensions: Extension Definitions", <a href="https://datatracker.ietf.org/doc/html/rfc6066">RFC 6066</a>,
+              DOI 10.17487/RFC6066, January 2011,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc6066">https://www.rfc-editor.org/info/rfc6066</a>&gt;.
+
+   [<a id="ref-RFC6655">RFC6655</a>]  McGrew,
+ D. and D. Bailey, "AES-CCM Cipher Suites for
+              Transport Layer Security (TLS)", <a href="https://datatracker.ietf.org/doc/html/rfc6655">RFC 6655</a>,
+              DOI 10.17487/RFC6655, July 2012,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc6655">https://www.rfc-editor.org/info/rfc6655</a>&gt;.
+
+   [<a id="ref-RFC6960">RFC6960</a>]  Santesson,
+ S., Myers, M., Ankney, R., Malpani, A.,
+              Galperin, S., and C. Adams,
+ "X.509 Internet Public Key
+     Infrastructure Online Certificate Status
+ Protocol - OCSP",
+              <a href="https://datatracker.ietf.org/doc/html/rfc6960">RFC 6960</a>, DOI 10.17487/RFC6960, June 2013,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc6960">https://www.rfc-editor.org/info/rfc6960</a>&gt;.
+
+   [<a id="ref-RFC6961">RFC6961</a>]  Pettersen,
+ Y., "The Transport Layer Security (TLS)
+     Multiple Certificate Status Request Extension", <a href="https://datatracker.ietf.org/doc/html/rfc6961">RFC 6961</a>,
+              DOI 10.17487/RFC6961, June 2013,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc6961">https://www.rfc-editor.org/info/rfc6961</a>&gt;.
+
+   [<a id="ref-RFC6962">RFC6962</a>]  Laurie,
+ B., Langley, A., and E. Kasper, "Certificate
+         Transparency", <a href="https://datatracker.ietf.org/doc/html/rfc6962">RFC 6962</a>, DOI 10.17487/RFC6962, June 2013,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc6962">https://www.rfc-editor.org/info/rfc6962</a>&gt;.
+
+   [<a id="ref-RFC6979">RFC6979</a>]  Pornin,
+ T., "Deterministic Usage of the Digital Signature
+      Algorithm (DSA) and Elliptic Curve
+ Digital Signature
+        Algorithm (ECDSA)", <a href="https://datatracker.ietf.org/doc/html/rfc6979">RFC 6979</a>, DOI 10.17487/RFC6979,
+              August 2013, &lt;<a href="https://www.rfc-editor.org/info/rfc6979">https://www.rfc-editor.org/info/rfc6979</a>&gt;.
+
+   [<a id="ref-RFC7301">RFC7301</a>]  Friedl,
+ S., Popov, A., Langley, A., and E. Stephan,
+     "Transport Layer Security (TLS)
+ Application-Layer Protocol
+    Negotiation Extension", <a href="https://datatracker.ietf.org/doc/html/rfc7301">RFC 7301</a>, DOI 10.17487/RFC7301,
+              July 2014, &lt;<a href="https://www.rfc-editor.org/info/rfc7301">https://www.rfc-editor.org/info/rfc7301</a>&gt;.
+
+   [<a id="ref-RFC7507">RFC7507</a>]  Moeller,
+ B. and A. Langley, "TLS Fallback Signaling Cipher
+     Suite Value (SCSV) for Preventing
+ Protocol Downgrade
+              Attacks", <a href="https://datatracker.ietf.org/doc/html/rfc7507">RFC 7507</a>, DOI 10.17487/RFC7507, April 2015,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc7507">https://www.rfc-editor.org/info/rfc7507</a>&gt;.
+
+   [<a id="ref-RFC7748">RFC7748</a>]  Langley,
+ A., Hamburg, M., and S. Turner, "Elliptic Curves
+     for Security", <a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>, DOI 10.17487/RFC7748,
+              January 2016, &lt;<a href="https://www.rfc-editor.org/info/rfc7748">https://www.rfc-editor.org/info/rfc7748</a>&gt;.
+
+
+   [<a id="ref-RFC7919">RFC7919</a>]  Gillmor,
+ D., "Negotiated Finite Field Diffie-Hellman
+    Ephemeral Parameters for Transport Layer
+ Security (TLS)",
+              <a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>, DOI 10.17487/RFC7919, August 2016,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc7919">https://www.rfc-editor.org/info/rfc7919</a>&gt;.
+
+   [<a id="ref-RFC8017">RFC8017</a>]  Moriarty,
+ K., Ed., Kaliski, B., Jonsson, J., and A. Rusch,
+   "PKCS #1: RSA Cryptography Specifications
+ Version 2.2",
+              <a href="https://datatracker.ietf.org/doc/html/rfc8017">RFC 8017</a>, DOI 10.17487/RFC8017, November 2016,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc8017">https://www.rfc-editor.org/info/rfc8017</a>&gt;.
+
+   [<a id="ref-RFC8032">RFC8032</a>]  Josefsson,
+ S. and I. Liusvaara, "Edwards-Curve Digital
+       Signature Algorithm (EdDSA)", <a href="https://datatracker.ietf.org/doc/html/rfc8032">RFC 8032</a>,
+              DOI 10.17487/RFC8032, January 2017,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc8032">https://www.rfc-editor.org/info/rfc8032</a>&gt;.
+
+   [<a id="ref-RFC8126">RFC8126</a>]  Cotton,
+ M., Leiba, B., and T. Narten, "Guidelines for
+    Writing an IANA Considerations Section in RFCs", <a href="https://datatracker.ietf.org/doc/html/bcp26">BCP 26</a>,
+              <a href="https://datatracker.ietf.org/doc/html/rfc8126">RFC 8126</a>, DOI 10.17487/RFC8126, June 2017,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc8126">https://www.rfc-editor.org/info/rfc8126</a>&gt;.
+
+   [<a id="ref-RFC8174">RFC8174</a>]  Leiba,
+ B., "Ambiguity of Uppercase vs Lowercase in
+         <a href="https://datatracker.ietf.org/
+doc/html/rfc2119">RFC 2119</a> Key Words",
+ <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>, <a href="https://datatracker.ietf.org/doc/html/rfc8174">RFC 8174</a>,
+              DOI 10.17487/RFC8174, May 2017,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc8174">https://www.rfc-editor.org/info/rfc8174</a>&gt;.
+
+   [<a id="ref-RFC8439">RFC8439</a>]  Nir, Y.
+ and A. Langley, "ChaCha20 and Poly1305 for IETF
+              Protocols", <a href="https://datatracker.ietf.org/doc/html/rfc8439">RFC 8439</a>, DOI 10.17487/RFC8439, June 2018,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc8439">https://www.rfc-editor.org/info/rfc8439</a>&gt;.
+
+   [<a id="ref-SHS">SHS</a>]      Dang, Q.,
+ "Secure Hash Standard (SHS)", National Institute
+              of Standards and Technology report,
+              DOI 10.6028/NIST.FIPS.180-4, August 2015.
+
+   [<a id="ref-X690">X690</a>]     ITU-T,
+ "Information technology -- ASN.1 encoding rules:
+   Specification of Basic Encoding Rules (BER), Canonical
+   Encoding Rules (CER) and Distinguished Encoding Rules
+  (DER)", ISO/IEC 8825-1:2015, November 2015.
+
+
+
+
+//////////////////////////////////
+section-12.2
+Informative References
+
+
+   [<a id="ref-AEAD-LIMITS">AEAD-LIMITS</a>]
+              Luykx, A. and K. Paterson, "Limits
+ on Authenticated
+              Encryption Use in TLS", August 2017,
+              &lt;<a href="http://www.isg.rhul.ac.uk/~kp/TLS-AEbounds.pdf">http://www.isg.rhul.ac.uk/~kp/TLS-AEbounds.pdf</a>&gt;.
+
+   [<a id="ref-BBFGKZ16">BBFGKZ16</a>]
+              Bhargavan, K., Brzuska, C.,
+ Fournet, C., Green, M.,
+              Kohlweiss, M., and S. Zanella-Beguelin,
+ "Downgrade
+              Resilience in Key-Exchange Protocols", Proceedings of IEEE
+              Symposium on Security and Privacy (San Jose),
+              DOI 10.1109/SP.2016.37, May 2016.
+
+   [<a id="ref-BBK17">BBK17</a>]    Bhargavan, K.,
+ Blanchet, B., and N. Kobeissi, "Verified
+              Models and Reference Implementations
+ for the TLS 1.3
+              Standard Candidate", Proceedings
+ of IEEE Symposium on
+              Security and Privacy (San Jose), DOI 10.1109/SP.2017.26,
+              May 2017.
+
+   [<a id="ref-BDFKPPRSZZ16">BDFKPPRSZZ16</a>]
+              Bhargavan, K., Delignat-Lavaud,
+ A., Fournet, C.,
+              Kohlweiss, M., Pan, J., Protzenko,
+ J., Rastogi, A., Swamy,
+              N., Zanella-Beguelin, S., and J. Zinzindohoue,
+              "Implementing and Proving the TLS
+ 1.3 Record Layer",
+              Proceedings of IEEE Symposium on Security and Privacy (San
+              Jose), May 2017, &lt;<a href="https://eprint.iacr.org/2016/1178">https://eprint.iacr.org/2016/1178</a>&gt;.
+
+   [<a id="ref-Ben17a">Ben17a</a>]   Benjamin, D., "Presentation before the TLS WG at
+              IETF 100", November 2017,
+              &lt;<a href="https://datatracker.ietf.org/meeting/100/materials/slides-100-tls-sessa-tls13/">https://datatracker.ietf.org/meeting/100/materials/</a>
+              <a href="https://datatracker.ietf.org/meeting/100/materials/slides-100-tls-sessa-tls13/">slides-100-tls-sessa-tls13/</a>&gt;.
+
+   [<a id="ref-Ben17b">Ben17b</a>]   Benjamin,
+ D., "Additional TLS 1.3 results from Chrome",
+   message to the TLS mailing list, 18 December 2017,
+              &lt;<a href="https://www.ietf.org/mail-archive/web/tls/current/msg25168.html">https://www.ietf.org/mail-archive/web/tls/current/</a>
+              <a href="https://www.ietf.org/mail-archive/web/tls/current/msg25168.html">msg25168.html</a>&gt;.
+
+   [<a id="ref-Blei98">Blei98</a>]
+   Bleichenbacher, D.,
+ "Chosen Ciphertext Attacks against
+       Protocols Based on RSA Encryption Standard PKCS #1",
+              Proceedings of CRYPTO '98, 1998.
+
+   [<a id="ref-BMMRT15">BMMRT15</a>]
+  Badertscher, C., Matt, C., Maurer, U.,
+ Rogaway, P., and B.
+    Tackmann, "Augmented Secure Channels and
+ the Goal of the
+    TLS 1.3 Record Layer", ProvSec 2015, September 2015,
+              &lt;<a href="https://eprint.iacr.org/2015/394">https://eprint.iacr.org/2015/394</a>&gt;.
+
+
+   [<a id="ref-BT16">BT16</a>]     Bellare, M.
+ and B. Tackmann, "The Multi-User Security of
+     Authenticated Encryption: AES-GCM in TLS 1.3", Proceedings
+              of CRYPTO 2016, July 2016,
+              &lt;<a href="https://eprint.iacr.org/2016/564">https://eprint.iacr.org/2016/564</a>&gt;.
+
+   [<a id="ref-CCG16">CCG16</a>]    Cohn-Gordon,
+ K., Cremers, C., and L. Garratt, "On
+        Post-compromise Security", IEEE Computer Security
+              Foundations Symposium, DOI 10.1109/CSF.2016.19, July 2015.
+
+   [<a id="ref-CHECKOWAY">CHECKOWAY</a>]
+              Checkoway, S., Maskiewicz, J.,
+ Garman, C., Fried, J.,
+      Cohney, S., Green, M., Heninger, N.,
+ Weinmann, R.,
+      Rescorla, E., and H. Shacham,
+ "A Systematic Analysis of
+    the Juniper Dual EC Incident", Proceedings of the 2016 ACM
+         SIGSAC Conference on Computer and Communications Security
+              - CCS '16, DOI 10.1145/2976749.2978395, October 2016.
+
+   [<a id="ref-CHHSV17">CHHSV17</a>]  Cremers,
+ C., Horvat, M., Hoyland, J., Scott, S., and T.
+              van der Merwe,
+ "Awkward Handshake: Possible mismatch of
+     client/server view on client authentication in
+     post-handshake mode in Revision 18", message to the TLS
+              mailing list, 10 February 2017, &lt;<a href="https://www.ietf.org/mail-archive/web/tls/current/msg22382.html">https://www.ietf.org/</a>
+              <a href="https://www.ietf.org/mail-archive/web/tls/current/msg22382.html">mail-archive/web/tls/current/msg22382.html</a>&gt;.
+
+   [<a id="ref-CHSV16">CHSV16</a>]   Cremers,
+ C., Horvat, M., Scott, S., and T. van der Merwe,
+    "Automated Analysis and Verification of TLS 1.3: 0-RTT,
+              Resumption and Delayed Authentication", Proceedings of
+              IEEE Symposium on Security and Privacy (San Jose),
+              DOI 10.1109/SP.2016.35, May 2016,
+              &lt;<a href="https://ieeexplore.ieee.org/document/7546518/">https://ieeexplore.ieee.org/document/7546518/</a>&gt;.
+
+   [<a id="ref-CK01">CK01</a>]     Canetti, R.
+ and H. Krawczyk, "Analysis of Key-Exchange
+     Protocols and Their Use for Building 
+Secure Channels",
+              Proceedings of Eurocrypt 2001,
+              DOI 10.1007/3-540-44987-6_28, April 2001.
+
+   [<a id="ref-CLINIC">CLINIC</a>]   Miller,
+ B., Huang, L., Joseph, A., and J. Tygar,
+ "I Know
+   Why You Went to the Clinic: Risks and
+ Realization of HTTPS
+   Traffic Analysis", Privacy Enhancing
+ Technologies, pp.
+              143-163, DOI 10.1007/978-3-319-08506-7_8, 2014.
+
+   [<a id="ref-DFGS15">DFGS15</a>]   Dowling,
+ B., Fischlin, M., Guenther, F., and D. Stebila,
+              "A Cryptographic Analysis of the
+ TLS 1.3 Handshake
+              Protocol Candidates", Proceedings
+ of ACM CCS 2015,
+              October 2015, &lt;<a href="https://eprint.iacr.org/2015/914">https://eprint.iacr.org/2015/914</a>&gt;.
+
+
+   [<a id="ref-DFGS16">DFGS16</a>]   Dowling, B.,
+ Fischlin, M., Guenther, F., and D. Stebila,
+    "A Cryptographic Analysis of the TLS 1.3
+ Full and Pre-shared Key Handshake Protocol",
+ TRON 2016,
+              February 2016, &lt;<a href="https://eprint.iacr.org/2016/081">https://eprint.iacr.org/2016/081</a>&gt;.
+
+   [<a id="ref-DOW92">DOW92</a>]    Diffie, W.,
+ van Oorschot, P., and M. Wiener,
+   "Authentication and authenticated key exchanges", Designs,
+              Codes and Cryptography, DOI 10.1007/BF00124891, June 1992.
+
+   [<a id="ref-DSS">DSS</a>] 
+     National Institute of Standards and 
+Technology, U.S.
+    Department of Commerce, "Digital Signature
+ Standard (DSS)", NIST FIPS PUB 186-4, DOI
+ 10.6028/NIST.FIPS.186-4,
+              July 2013.
+
+   [<a id="ref-FG17">FG17</a>]     Fischlin, M.
+ and F. Guenther, "Replay Attacks on Zero
+    Round-Trip Time: The Case of the TLS 1.3
+ Handshake Candidates", Proceedings of EuroS&amp;P 2017, April 2017,
+              &lt;<a href="https://eprint.iacr.org/2017/082">https://eprint.iacr.org/2017/082</a>&gt;.
+
+   [<a id="ref-FGSW16">FGSW16</a>]   Fischlin,
+ M., Guenther, F., Schmidt, B., and B. Warinschi,
+    "Key Confirmation in Key Exchange: A
+ Formal Treatment and
+      Implications for TLS 1.3", Proceedings of IEEE Symposium
+              on Security and Privacy (San Jose),
+              DOI 10.1109/SP.2016.34, May 2016,
+              &lt;<a href="https://ieeexplore.ieee.org/document/7546517/">https://ieeexplore.ieee.org/document/7546517/</a>&gt;.
+
+   [<a id="ref-FW15">FW15</a>]     Weimer, F.,
+ "Factoring RSA Keys With TLS Perfect Forward
+              Secrecy", September 2015.
+
+   [<a id="ref-HCJC16">HCJC16</a>]   Husak, M.,
+ Cermak, M., Jirsik, T., and P. Celeda, "HTTPS
+     traffic analysis and client identification
+ using passive SSL/TLS fingerprinting",
+ EURASIP Journal on Information
+              Security, Vol. 2016, DOI 10.1186/s13635-016-0030-7,
+              February 2016.
+
+   [<a id="ref-HGFS15">HGFS15</a>]   Hlauschek,
+ C., Gruber, M., Fankhauser, F., and C. Schanes,
+     "Prying Open Pandora's Box: KCI Attacks
+ against TLS",
+              Proceedings of USENIX Workshop on Offensive Technologies,
+              August 2015.
+
+   [<a id="ref-IEEE1363">IEEE1363</a>]
+     IEEE, "IEEE Standard Specifications for
+ Public Key
+              Cryptography", IEEE Std. 1363-2000,
+              DOI 10.1109/IEEESTD.2000.92292.
+
+
+   [<a id="ref-JSS15">JSS15</a>]    Jager, T.,
+ Schwenk, J., and J. Somorovsky, "On the
+              Security of TLS 1.3 and QUIC
+ Against Weaknesses in PKCS#1
+     v1.5 Encryption", Proceedings of ACM CCS 2015,
+              DOI 10.1145/2810103.2813657, October 2015,
+              &lt;<a href="https://www.nds.rub.de/media/nds/veroeffentlichungen/2015/08/21/Tls13QuicAttacks.pdf">https://www.nds.rub.de/media/nds/</a>
+              <a href="https://www.nds.rub.de/media/nds/veroeffentlichungen/2015/08/21/Tls13QuicAttacks.pdf">veroeffentlichungen/2015/08/21/Tls13QuicAttacks.pdf</a>&gt;.
+
+   [<a id="ref-KEYAGREEMENT">KEYAGREEMENT</a>]
+              Barker, E., Chen, L., Roginsky, A., Vassilev, A., and R.
+   Davis, "Recommendation for Pair-Wise Key
+ Establishment
+    Schemes Using Discrete Logarithm Cryptography", National
+              Institute of Standards and Technology,
+              DOI 10.6028/NIST.SP.800-56Ar3, April 2018.
+
+   [<a id="ref-Kraw10">Kraw10</a>]   Krawczyk, H.,
+ "Cryptographic Extraction and Key
+    Derivation: The HKDF Scheme", Proceedings of CRYPTO 2010,
+              August 2010, &lt;<a href="https://eprint.iacr.org/2010/264">https://eprint.iacr.org/2010/264</a>&gt;.
+
+   [<a id="ref-Kraw16">Kraw16</a>]   Krawczyk,
+ H., "A Unilateral-to-Mutual Authentication
+  Compiler for Key Exchange (with Applications
+ to Client
+       Authentication in TLS 1.3", Proceedings of ACM CCS 2016,
+              October 2016, &lt;<a href="https://eprint.iacr.org/2016/711">https://eprint.iacr.org/2016/711</a>&gt;.
+
+   [<a id="ref-KW16">KW16</a>]     Krawczyk,
+ H. and H. Wee, "The OPTLS Protocol and TLS 1.3",
+              Proceedings of EuroS&amp;P 2016, March 2016,
+              &lt;<a href="https://eprint.iacr.org/2015/978">https://eprint.iacr.org/2015/978</a>&gt;.
+
+   [<a id="ref-LXZFH16">LXZFH16</a>]  Li, X.,
+ Xu, J., Zhang, Z., Feng, D., and H. Hu, 
+"Multiple Handshakes Security of TLS 1.3
+ Candidates", Proceedings of
+              IEEE Symposium on Security and Privacy (San Jose),
+              DOI 10.1109/SP.2016.36, May 2016,
+              &lt;<a href="https://ieeexplore.ieee.org/document/7546519/">https://ieeexplore.ieee.org/document/7546519/</a>&gt;.
+
+   [<a id="ref-Mac17">Mac17</a>]    MacCarthaigh,
+ C., "Security Review of TLS1.3 0-RTT",
+              March 2017, &lt;<a href="https://github.com/tlswg/tls13-spec/issues/1001">https://github.com/tlswg/tls13-spec/</a>
+              <a href="https://github.com/tlswg/tls13-spec/issues/1001">issues/1001</a>&gt;.
+
+   [<a id="ref-PS18">PS18</a>]     Patton, C.
+ and T. Shrimpton, "Partially specified
+   channels: The TLS 1.3 record layer without
+ elision", 2018,
+              &lt;<a href="https://eprint.iacr.org/2018/634">https://eprint.iacr.org/2018/634</a>&gt;.
+
+   [<a id="ref-PSK-FINISHED">PSK-FINISHED</a>]
+              Scott, S., Cremers, C., Horvat,
+ M., and T. van der Merwe,
+    "Revision 10: possible attack if client
+ authentication is
+   allowed during PSK", message to the TLS
+ mailing list,
+              31 October 2015, &lt;<a href="https://www.ietf.org/mail-archive/web/tls/current/msg18215.html">https://www.ietf.org/</a>
+              <a href="https://www.ietf.org/mail-archive/web/tls/current/msg18215.html">mail-archive/web/tls/current/msg18215.html</a>&gt;.
+
+
+   [<a id="ref-REKEY">REKEY</a>]    Abdalla, M.
+ and M. Bellare, "Increasing the Lifetime of a
+     Key: A Comparative Analysis of the
+ Security of Re-keying
+      Techniques", ASIACRYPT 2000, DOI 10.1007/3-540-44448-3_42,
+              October 2000.
+
+   [<a id="ref-Res17a">Res17a</a>]   Rescorla, E.,
+ "Preliminary data on Firefox TLS 1.3
+     Middlebox experiment", message to the TLS mailing list,
+              5 December 2017, &lt;<a href="https://www.ietf.org/mail-archive/web/tls/current/msg25091.html">https://www.ietf.org/</a>
+              <a href="https://www.ietf.org/mail-archive/web/tls/current/msg25091.html">mail-archive/web/tls/current/msg25091.html</a>&gt;.
+
+   [<a id="ref-Res17b">Res17b</a>]   Rescorla, E.,
+ "More compatibility measurement results",
+              message to the TLS mailing list, 22 December 2017,
+              &lt;<a href="https://www.ietf.org/mail-archive/web/tls/current/msg25179.html">https://www.ietf.org/mail-archive/web/tls/current/</a>
+              <a href="https://www.ietf.org/mail-archive/web/tls/current/msg25179.html">msg25179.html</a>&gt;.
+
+   [<a id="ref-RFC3552">RFC3552</a>]  Rescorla, E.
+ and B. Korver, "Guidelines for Writing RFC
+       Text on Security Considerations", <a href="https://datatracker.ietf.org/doc/html/bcp72">BCP 72</a>, <a href="https://datatracker.ietf.org/doc/html/rfc3552">RFC 3552</a>,
+              DOI 10.17487/RFC3552, July 2003,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc3552">https://www.rfc-editor.org/info/rfc3552</a>&gt;.
+
+   [<a id="ref-RFC4086">RFC4086</a>]  Eastlake 3rd, D., Schiller, J., and S. Crocker,
+   "Randomness Requirements for Security", <a href="https://datatracker.ietf.org/doc/html/bcp106">BCP 106</a>, <a href="https://datatracker.ietf.org/doc/html/rfc4086">RFC 4086</a>,
+              DOI 10.17487/RFC4086, June 2005,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc4086">https://www.rfc-editor.org/info/rfc4086</a>&gt;.
+
+   [<a id="ref-RFC4346">RFC4346</a>]  Dierks, T.
+ and E. Rescorla,
+ "The Transport Layer Security
+     (TLS) Protocol Version 1.1", <a href="https://datatracker.ietf.org/doc/html/rfc4346">RFC 4346</a>,
+              DOI 10.17487/RFC4346, April 2006,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc4346">https://www.rfc-editor.org/info/rfc4346</a>&gt;.
+
+   [<a id="ref-RFC4366">RFC4366</a>] 
+ Blake-Wilson, S., Nystrom, M., Hopwood, D.,
+ Mikkelsen, J.,
+         and T. Wright,
+ "Transport Layer Security (TLS)
+              Extensions", <a href="https://datatracker.ietf.org/doc/html/rfc4366">RFC 4366</a>, DOI 10.17487/RFC4366, April 2006,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc4366">https://www.rfc-editor.org/info/rfc4366</a>&gt;.
+
+   [<a id="ref-RFC4492">RFC4492</a>] 
+ Blake-Wilson, S., Bolyard, N., Gupta, V., Hawk,
+ C., and B.
+              Moeller,
+ "Elliptic Curve Cryptography (ECC) Cipher Suites
+              for Transport Layer Security (TLS)", <a href="https://datatracker.ietf.org/doc/html/rfc4492">RFC 4492</a>,
+              DOI 10.17487/RFC4492, May 2006,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc4492">https://www.rfc-editor.org/info/rfc4492</a>&gt;.
+
+   [<a id="ref-RFC5077">RFC5077</a>]  Salowey, J., Zhou, H., Eronen, P., and H. Tschofenig,
+    "Transport Layer Security (TLS) Session
+ Resumption without
+              Server-Side State", <a href="https://datatracker.ietf.org/doc/html/rfc5077">RFC 5077</a>, DOI 10.17487/RFC5077,
+              January 2008, &lt;<a href="https://www.rfc-editor.org/info/rfc5077">https://www.rfc-editor.org/info/rfc5077</a>&gt;.
+
+
+   [<a id="ref-RFC5246">RFC5246</a>]  Dierks, T.
+ and E. Rescorla,
+ "The Transport Layer Security
+    (TLS) Protocol Version 1.2", <a href="https://datatracker.ietf.org/doc/html/rfc5246">RFC 5246</a>,
+              DOI 10.17487/RFC5246, August 2008,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc5246">https://www.rfc-editor.org/info/rfc5246</a>&gt;.
+
+   [<a id="ref-RFC5764">RFC5764</a>]  McGrew, D.
+ and E. Rescorla, "Datagram Transport Layer
+      Security (DTLS) Extension to Establish Keys for the Secure
+              Real-time Transport Protocol (SRTP)", <a href="https://datatracker.ietf.org/doc/html/rfc5764">RFC 5764</a>,
+              DOI 10.17487/RFC5764, May 2010,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc5764">https://www.rfc-editor.org/info/rfc5764</a>&gt;.
+
+   [<a id="ref-RFC5929">RFC5929</a>]  Altman,
+ J., Williams, N., and L. Zhu,
+ "Channel Bindings
+         for TLS", <a href="https://datatracker.ietf.org/doc/html/rfc5929">RFC 5929</a>, DOI 10.17487/RFC5929, July 2010,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc5929">https://www.rfc-editor.org/info/rfc5929</a>&gt;.
+
+   [<a id="ref-RFC6091">RFC6091</a>]
+  Mavrogiannopoulos, N. and D. Gillmor,
+ "Using OpenPGP Keys
+    for Transport Layer Security (TLS)
+ Authentication",
+              <a href="https://datatracker.ietf.org/doc/html/rfc6091">RFC 6091</a>, DOI 10.17487/RFC6091, February 2011,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc6091">https://www.rfc-editor.org/info/rfc6091</a>&gt;.
+
+   [<a id="ref-RFC6101">RFC6101</a>] 
+ Freier, A., Karlton, P., and P. Kocher,
+ "The Secure
+  Sockets Layer (SSL) Protocol Version 3.0",
+ <a href="https://datatracker.ietf.org/doc/html/rfc6101">RFC 6101</a>,
+              DOI 10.17487/RFC6101, August 2011,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc6101">https://www.rfc-editor.org/info/rfc6101</a>&gt;.
+
+   [<a id="ref-RFC6176">RFC6176</a>]  Turner,
+ S. and T. Polk,
+ "Prohibiting Secure Sockets Layer
+     (SSL) Version 2.0", <a href="https://datatracker.ietf.org/doc/html/rfc6176">RFC 6176</a>, DOI 10.17487/RFC6176,
+              March 2011, &lt;<a href="https://www.rfc-editor.org/info/rfc6176">https://www.rfc-editor.org/info/rfc6176</a>&gt;.
+
+   [<a id="ref-RFC6347">RFC6347</a>]  Rescorla, E.
+ and N. Modadugu,
+ "Datagram Transport Layer
+              Security Version 1.2", <a href="https://datatracker.ietf.org/doc/html/rfc6347">RFC 6347</a>, DOI 10.17487/RFC6347,
+              January 2012, &lt;<a href="https://www.rfc-editor.org/info/rfc6347">https://www.rfc-editor.org/info/rfc6347</a>&gt;.
+
+   [<a id="ref-RFC6520">RFC6520</a>]
+  Seggelmann, R., Tuexen, M., and M. Williams,
+ "Transport
+   Layer Security (TLS) and Datagram Transport Layer Security
+              (DTLS) Heartbeat Extension", <a href="https://datatracker.ietf.org/doc/html/rfc6520">RFC 6520</a>,
+              DOI 10.17487/RFC6520, February 2012,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc6520">https://www.rfc-editor.org/info/rfc6520</a>&gt;.
+
+   [<a id="ref-RFC7230">RFC7230</a>]  Fielding,
+ R., Ed. and J. Reschke, Ed.,
+ "Hypertext Transfer
+   Protocol (HTTP/1.1): Message Syntax and Routing",
+              <a href="https://datatracker.ietf.org/doc/html/rfc7230">RFC 7230</a>, DOI 10.17487/RFC7230, June 2014,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc7230">https://www.rfc-editor.org/info/rfc7230</a>&gt;.
+
+
+   [<a id="ref-RFC7250">RFC7250</a>]  Wouters,
+ P., Ed., Tschofenig, H., Ed., Gilmore, J.,
+          Weiler, S., and T. Kivinen,
+ "Using Raw Public Keys in
+    Transport Layer Security (TLS) and Datagram Transport
+              Layer Security (DTLS)", <a href="https://datatracker.ietf.org/doc/html/rfc7250">RFC 7250</a>, DOI 10.17487/RFC7250,
+              June 2014, &lt;<a href="https://www.rfc-editor.org/info/rfc7250">https://www.rfc-editor.org/info/rfc7250</a>&gt;.
+
+   [<a id="ref-RFC7465">RFC7465</a>]  Popov, A.,
+ "Prohibiting RC4 Cipher Suites", <a href="https://datatracker.ietf.org/doc/html/rfc7465">RFC 7465</a>,
+        DOI 10.17487/RFC7465, February 2015,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc7465">https://www.rfc-editor.org/info/rfc7465</a>&gt;.
+
+   [<a id="ref-RFC7568">RFC7568</a>]  Barnes,
+ R., Thomson, M., Pironti, A., and A. Langley,
+     "Deprecating Secure Sockets Layer Version 3.0", <a href="https://datatracker.ietf.org/doc/html/rfc7568">RFC 7568</a>,
+              DOI 10.17487/RFC7568, June 2015,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc7568">https://www.rfc-editor.org/info/rfc7568</a>&gt;.
+
+   [<a id="ref-RFC7627">RFC7627</a>]
+  Bhargavan, K., Ed., Delignat-Lavaud, A., Pironti, A.,
+        Langley, A., and M. Ray,
+ "Transport Layer Security (TLS)
+   Session Hash and Extended Master Secret Extension",
+              <a href="https://datatracker.ietf.org/doc/html/rfc7627">RFC 7627</a>, DOI 10.17487/RFC7627, September 2015,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc7627">https://www.rfc-editor.org/info/rfc7627</a>&gt;.
+
+   [<a id="ref-RFC7685">RFC7685</a>]  Langley,
+ A., "A Transport Layer Security (TLS) ClientHello
+         Padding Extension", <a href="https://datatracker.ietf.org/doc/html/rfc7685">RFC 7685</a>, DOI 10.17487/RFC7685,
+              October 2015, &lt;<a href="https://www.rfc-editor.org/info/rfc7685">https://www.rfc-editor.org/info/rfc7685</a>&gt;.
+
+   [<a id="ref-RFC7924">RFC7924</a>]
+  Santesson, S. and H. Tschofenig,
+ "Transport Layer Security
+    (TLS) Cached Information Extension", <a href="https://datatracker.ietf.org/doc/html/rfc7924">RFC 7924</a>,
+              DOI 10.17487/RFC7924, July 2016,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc7924">https://www.rfc-editor.org/info/rfc7924</a>&gt;.
+
+   [<a id="ref-RFC8305">RFC8305</a>] 
+ Schinazi, D. and T. Pauly,
+ "Happy Eyeballs Version 2:
+     Better Connectivity Using Concurrency", <a href="https://datatracker.ietf.org/doc/html/rfc8305">RFC 8305</a>,
+              DOI 10.17487/RFC8305, December 2017,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc8305">https://www.rfc-editor.org/info/rfc8305</a>&gt;.
+
+   [<a id="ref-RFC8422">RFC8422</a>]  Nir,
+ Y., Josefsson, S., and M. Pegourie-Gonnard,
+ "Elliptic
+    Curve Cryptography (ECC) Cipher Suites
+ for Transport Layer
+     Security (TLS) Versions 1.2 and Earlier", <a href="https://datatracker.ietf.org/doc/html/rfc8422">RFC 8422</a>,
+              DOI 10.17487/RFC8422, August 2018,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc8422">https://www.rfc-editor.org/info/rfc8422</a>&gt;.
+
+   [<a id="ref-RFC8447">RFC8447</a>]  Salowey,
+ J. and S. Turner,
+ "IANA Registry Updates for TLS
+              and DTLS", <a href="https://datatracker.ietf.org/doc/html/rfc8447">RFC 8447</a>, DOI 10.17487/RFC8447, August 2018,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc8447">https://www.rfc-editor.org/info/rfc8447</a>&gt;.
+
+   [<a id="ref-RFC8449">RFC8449</a>]  Thomson,
+ M., "Record Size Limit Extension for TLS",
+              <a href="https://datatracker.ietf.org/doc/html/rfc8449">RFC 8449</a>, DOI 10.17487/RFC8449, August 2018,
+              &lt;<a href="https://www.rfc-editor.org/info/rfc8449">https://www.rfc-editor.org/info/rfc8449</a>&gt;.
+
+
+
+   [<a id="ref-RSA">RSA</a>]      Rivest, R.,
+ Shamir, A., and L. Adleman,
+ "A Method for
+    Obtaining Digital Signatures and Public-Key
+    Cryptosystems", Communications of the ACM, Vol. 21 No. 2,
+              pp. 120-126, DOI 10.1145/359340.359342, February 1978.
+
+   [<a id="ref-SIGMA">SIGMA</a>]    Krawczyk, H.,
+ "SIGMA: The 'SIGn-and-MAc' Approach to
+   Authenticated Diffie-Hellman and its Use
+ in the IKE
+           Protocols", Proceedings of CRYPTO 2003,
+              DOI 10.1007/978-3-540-45146-4_24, August 2003.
+
+   [<a id="ref-SLOTH">SLOTH</a>]    Bhargavan, K.
+ and G. Leurent,
+ "Transcript Collision
+   Attacks: Breaking Authentication in TLS,
+ IKE, and SSH",
+       Network and Distributed System Security
+              Symposium (NDSS 2016), DOI 10.14722/ndss.2016.23418,
+              February 2016.
+
+   [<a id="ref-SSL2">SSL2</a>]     Hickman, K.,
+ "The SSL Protocol", February 1995.
+
+   [<a id="ref-TIMING">TIMING</a>]   Boneh, D. and D. Brumley, "Remote Timing Attacks Are
+              Practical", USENIX Security Symposium, August 2003.
+
+   [<a id="ref-TLS13-TRACES">TLS13-TRACES</a>]
+         Thomson, M.,
+ "Example Handshake Traces for TLS 1.3", Work
+       in Progress, <a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-tls13-vectors-06">draft-ietf-tls-tls13-vectors-06</a>, July 2018.
+
+   [<a id="ref-X501">X501</a>]     ITU-T,
+ "Information Technology - Open Systems
+   Interconnection - The Directory: Models", ITU-T X.501,
+       October 2016, &lt;<a href="https://www.itu.int/rec/T-REC-X.501/en">https://www.itu.int/rec/T-REC-X.501/en</a>&gt;.
+
