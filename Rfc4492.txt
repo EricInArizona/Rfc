@@ -1656,10 +1656,13 @@ Client Key Exchange
             } ecdh_public;
         } ClientECDiffieHellmanPublic;
 
-======
-   ecdh_Yc:   Contains the client's ephemeral ECDH public key as a byte
-      string ECPoint.point, which may represent an elliptic curve point
-      in uncompressed or compressed format.  Here, the format MUST
+
+   ecdh_Yc:   Contains the client's ephemeral
+ ECDH public key as a byte
+      string ECPoint.point, which may represent
+ an elliptic curve point
+      in uncompressed or compressed format.
+  Here, the format MUST
       conform to what the server has requested through a Supported Point
       Formats Extension if this extension was used, and MUST be
       uncompressed if this extension was not used.
@@ -1678,124 +1681,167 @@ Client Key Exchange
    in the ClientKeyExchange message using the format defined above.
 
 
-
-
-
-<span class="grey">Blake-Wilson, et al.         Informational                     [Page 24]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-25"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc4492">RFC 4492</a>               ECC Cipher Suites for TLS                May 2006</span>
-
-
    Actions of the receiver:
 
    The server retrieves the client's ephemeral ECDH public key from the
    ClientKeyExchange message and checks that it is on the same elliptic
    curve as the server's ECDH key.
 
-<span class="h3"><a class="selflink" id="section-5.8" href="https://datatracker.ietf.org/doc/html/rfc4492#section-5.8">5.8</a>.  Certificate Verify</span>
+
+section-5.8
+Certificate Verify
 
    When this message is sent:
 
-   This message is sent when the client sends a client certificate
-   containing a public key usable for digital signatures, e.g., when the
-   client is authenticated using the ECDSA_sign mechanism.
+   This message is sent when the client sends
+ a client certificate
+   containing a public key usable for
+ digital signatures, e.g., when the
+   client is authenticated using the
+ ECDSA_sign mechanism.
 
    Meaning of the message:
 
-   This message contains a signature that proves possession of the
-   private key corresponding to the public key in the client's
+   This message contains a signature
+ that proves possession of the
+   private key corresponding to the public
+ key in the client's
    Certificate message.
 
    Structure of this message:
 
-   The TLS CertificateVerify message and the underlying Signature type
-   are defined in [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-2" title="&quot;The TLS Protocol Version 1.0&quot;">2</a>] and [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-3" title="&quot;The Transport Layer Security (TLS) Protocol Version 1.1&quot;">3</a>], and the latter is extended here in
-   <a href="https://datatracker.ietf.org/doc/html/rfc4492#section-5.4">Section 5.4</a>.  For the ecdsa case, the signature field in the
-   CertificateVerify message contains an ECDSA signature computed over
-   handshake messages exchanged so far, exactly similar to
-   CertificateVerify with other signing algorithms in [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-2" title="&quot;The TLS Protocol Version 1.0&quot;">2</a>] and [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-3" title="&quot;The Transport Layer Security (TLS) Protocol Version 1.1&quot;">3</a>]:
+   The TLS CertificateVerify message and the
+ underlying Signature type
+   are defined in [The TLS Protocol Version 1.0]
+ and [The Transport Layer Security (TLS)
+ Protocol Version 1.1], and the latter is
+ extended here in
+  Section 5.4.  For the ecdsa case, the
+ signature field in the
+   CertificateVerify message contains an
+ ECDSA signature computed over
+   handshake messages exchanged so far,
+ exactly similar to
+   CertificateVerify with other signing
+ algorithms in [The TLS Protocol Version 1.0]
+ and [The Transport Layer Security (TLS)
+ Protocol Version 1.1]:
 
         CertificateVerify.signature.sha_hash
             SHA(handshake_messages);
 
-   ECDSA signatures are computed as described in <a href="https://datatracker.ietf.org/doc/html/rfc4492#section-5.10">Section 5.10</a>, and SHA
-   in the above template for sha_hash accordingly may denote a hash
-   algorithm other than SHA-1.  As per ANSI X9.62, an ECDSA signature
-   consists of a pair of integers, r and s.  The digitally-signed
-   element is encoded as an opaque vector &lt;0..2^16-1&gt;, the contents of
-   which are the DER encoding [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-9" title="&quot;Information technology - ASN.1 encoding rules: Specification of Basic Encoding Rules (BER), Canonical Encoding Rules (CER) and Distinguished Encoding Rules (DER)&quot;">9</a>] corresponding to the following ASN.1
-   notation [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-8" title="&quot;Information technology - Abstract Syntax Notation One (ASN.1): Specification of basic notation&quot;">8</a>].
+   ECDSA signatures are computed as described
+ in <Section 5.10, and SHA
+   in the above template for sha_hash
+ accordingly may denote a hash
+   algorithm other than SHA-1.  As per ANSI
+ X9.62, an ECDSA signature
+   consists of a pair of integers, r and s.
+  The digitally-signed
+   element is encoded as an opaque vector
+ &lt;0..2^16-1&gt;, the contents of
+   which are the DER encoding [Information
+ technology - ASN.1 encoding rules:
+Specification of Basic Encoding Rules (BER),
+ Canonical Encoding Rules (CER) and
+ Distinguished Encoding Rules (DER)]
+ corresponding to the following ASN.1
+   notation [Information technology - Abstract
+ Syntax Notation One (ASN.1): Specification
+ of basic notation].
 
         Ecdsa-Sig-Value ::= SEQUENCE {
             r       INTEGER,
             s       INTEGER
         }
 
-
-
-
-
-
-
-<span class="grey">Blake-Wilson, et al.         Informational                     [Page 25]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-26"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc4492">RFC 4492</a>               ECC Cipher Suites for TLS                May 2006</span>
-
-
    Actions of the sender:
 
-   The client computes its signature over all handshake messages sent or
-   received starting at client hello and up to but not including this
-   message.  It uses the private key corresponding to its certified
-   public key to compute the signature, which is conveyed in the format
+   The client computes its signature over all
+ handshake messages sent or
+   received starting at client hello and up
+ to but not including this
+   message.  It uses the private key
+ corresponding to its certified
+   public key to compute the signature,
+ which is conveyed in the format
    defined above.
 
    Actions of the receiver:
 
-   The server extracts the client's signature from the CertificateVerify
-   message, and verifies the signature using the public key it received
+   The server extracts the client's
+signature from the CertificateVerify
+   message, and verifies the signature using
+ the public key it received
    in the client's Certificate message.
 
-<span class="h3"><a class="selflink" id="section-5.9" href="https://datatracker.ietf.org/doc/html/rfc4492#section-5.9">5.9</a>.  Elliptic Curve Certificates</span>
 
-   X.509 certificates containing ECC public keys or signed using ECDSA
-   MUST comply with [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-14" title="&quot;Algorithms and Identifiers for the Internet X.509 Public Key Infrastructure Certificate and Certificate Revocation List (CRL) Profile&quot;">14</a>] or another RFC that replaces or extends it.
-   Clients SHOULD use the elliptic curve domain parameters recommended
-   in ANSI X9.62 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-7" title="&quot;Public Key Cryptography For The Financial Services Industry: The Elliptic Curve Digital Signature Algorithm (ECDSA)&quot;">7</a>], FIPS 186-2 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-11" title="&quot;Digital Signature Standard&quot;">11</a>], and SEC 2 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-13" title="&quot;Recommended Elliptic Curve Domain Parameters&quot;">13</a>].
+section-5.9
+Elliptic Curve Certificates
 
-<span class="h3"><a class="selflink" id="section-5.10" href="https://datatracker.ietf.org/doc/html/rfc4492#section-5.10">5.10</a>.  ECDH, ECDSA, and RSA Computations</span>
+   X.509 certificates containing ECC public
+ keys or signed using ECDSA
+   MUST comply with [Algorithms and Identifiers
+ for the Internet X.509 Public Key
+ Infrastructure Certificate and Certificate
+ Revocation List (CRL) Profile] or another
+ RFC that replaces or extends it.
+   Clients SHOULD use the elliptic curve
+ domain parameters recommended
+   in ANSI X9.62 [Public Key Cryptography
+ For The Financial Services Industry: The
+ Elliptic Curve Digital Signature Algorithm
+ (ECDSA)], FIPS 186-2 [Digital Signature
+ Standard], and SEC 2 [Recommended Elliptic
+ Curve Domain Parameters].
 
-   All ECDH calculations (including parameter and key generation as well
-   as the shared secret calculation) are performed according to [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-6" title="&quot;Standard Specifications for Public Key Cryptography&quot;">6</a>]
-   using the ECKAS-DH1 scheme with the identity map as key derivation
-   function (KDF), so that the premaster secret is the x-coordinate of
-   the ECDH shared secret elliptic curve point represented as an octet
-   string.  Note that this octet string (Z in IEEE 1363 terminology) as
-   output by FE2OSP, the Field Element to Octet String Conversion
-   Primitive, has constant length for any given field; leading zeros
+
+section-5.10
+ECDH, ECDSA, and RSA Computations
+
+   All ECDH calculations (including parameter
+ and key generation as well
+   as the shared secret calculation) are
+ performed according to [Standard
+ Specifications for Public Key Cryptography]
+   using the ECKAS-DH1 scheme with the
+ identity map as key derivation
+   function (KDF), so that the premaster
+ secret is the x-coordinate of
+   the ECDH shared secret elliptic curve
+ point represented as an octet
+   string.  Note that this octet string
+ (Z in IEEE 1363 terminology) as
+   output by FE2OSP, the Field Element to
+ Octet String Conversion
+   Primitive, has constant length for any
+ given field; leading zeros
    found in this octet string MUST NOT be truncated.
 
-   (Note that this use of the identity KDF is a technicality.  The
-   complete picture is that ECDH is employed with a non-trivial KDF
-   because TLS does not directly use the premaster secret for anything
-   other than for computing the master secret.  As of TLS 1.0 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-2" title="&quot;The TLS Protocol Version 1.0&quot;">2</a>] and
-   1.1 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-3" title="&quot;The Transport Layer Security (TLS) Protocol Version 1.1&quot;">3</a>], this means that the MD5- and SHA-1-based TLS PRF serves as a
-   KDF; it is conceivable that future TLS versions or new TLS extensions
-   introduced in the future may vary this computation.)
+   (Note that this use of the identity KDF is
+ a technicality.  The
+   complete picture is that ECDH is employed
+ with a non-trivial KDF
+   because TLS does not directly use the
+ premaster secret for anything
+   other than for computing the master secret.
+  As of TLS 1.0 [The TLS Protocol Version
+ 1.0] and 1.1 [The Transport Layer Security
+ (TLS) Protocol Version 1.1], this means
+ that the MD5- and SHA-1-based TLS PRF serves as
+ a KDF; it is conceivable that future TLS
+ versions or new TLS extensions
+   introduced in the future may vary this
+ computation.)
 
-   All ECDSA computations MUST be performed according to ANSI X9.62 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-7" title="&quot;Public Key Cryptography For The Financial Services Industry: The Elliptic Curve Digital Signature Algorithm (ECDSA)&quot;">7</a>]
+   All ECDSA computations MUST be performed
+ according to ANSI X9.62 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-7" title="&quot;Public Key Cryptography For The Financial Services Industry: The Elliptic Curve Digital Signature Algorithm (ECDSA)&quot;">7</a>]
    or its successors.  Data to be signed/verified is hashed, and the
    result run directly through the ECDSA algorithm with no additional
    hashing.  The default hash function is SHA-1 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-10" title="&quot;Secure Hash Standard&quot;">10</a>], and sha_size (see
    Sections <a href="https://datatracker.ietf.org/doc/html/rfc4492#section-5.4">5.4</a> and <a href="https://datatracker.ietf.org/doc/html/rfc4492#section-5.8">5.8</a>) is 20.  However, an alternative hash function,
    such as one of the new SHA hash functions specified in FIPS 180-2
    [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-10" title="&quot;Secure Hash Standard&quot;">10</a>], may be used instead if the certificate containing the EC public
-
-
-
-<span class="grey">Blake-Wilson, et al.         Informational                     [Page 26]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-27"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc4492">RFC 4492</a>               ECC Cipher Suites for TLS                May 2006</span>
 
 
    key explicitly requires use of another hash function.  (The mechanism
@@ -1808,7 +1854,10 @@ Client Key Exchange
    All RSA signatures must be generated and verified according to PKCS#1
    [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-12" title="&quot;PKCS#1: RSA Encryption Standard version 1.5&quot;">12</a>] block type 1.
 
-<span class="h2"><a class="selflink" id="section-6" href="https://datatracker.ietf.org/doc/html/rfc4492#section-6">6</a>.  Cipher Suites</span>
+
+
+section-6
+Cipher Suites
 
    The table below defines new ECC cipher suites that use the key
    exchange algorithms specified in <a href="https://datatracker.ietf.org/doc/html/rfc4492#section-2">Section 2</a>.
