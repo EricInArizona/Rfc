@@ -1,22 +1,28 @@
 RFC 2631 - Diffie-Hellman Key Agreement Method
 
 Request for Comments: 2631                                    RTFM Inc.
-Category: Standards Track                                     June 1999
 
 
 Diffie-Hellman Key Agreement Method
 
 Status of this Memo
 
-   This document specifies an Internet standards track protocol for the
-   Internet community, and requests discussion and suggestions for
-   improvements.  Please refer to the current edition of the "Internet
-   Official Protocol Standards" (STD 1) for the standardization state
-   and status of this protocol.  Distribution of this memo is unlimited.
+   This document specifies an Internet
+standards track protocol for the
+   Internet community, and requests
+ discussion and suggestions for
+   improvements.  Please refer to the
+ current edition of the "Internet
+   Official Protocol Standards" (STD 1) for
+ the standardization state
+   and status of this protocol.
+  Distribution of this memo is unlimited.
 
 Copyright Notice
 
    Copyright (C) The Internet Society (1999).  All Rights Reserved.
+
+
 
 Abstract
 
@@ -320,7 +326,7 @@ Public Key Validation
  is to prevent a small
    subgroup attack [LAW98] on the sender's
  key pair. If Ephemeral-Static
-   mode is used, this check may not be 
+   mode is used, this check may not be
 necessary. See also [P1363] for
    more information on Public Key validation.
 
@@ -763,5 +769,3 @@ Acknowledgement
 
    Funding for the RFC Editor function is currently provided by the
    Internet Society.
-
-

@@ -2,6 +2,7 @@ RFC 7919 - Negotiated Finite Field
 Diffie-Hellman Ephemeral Parameters for
 Transport Layer Security (TLS)
 
+
 Request for Comments: 7919                                          ACLU
 Updates:
 rfc 2246: TLS 1.0
@@ -688,7 +689,7 @@ IANA Considerations
  Security (TLS) RFC4492] and updated by
  [Elliptic Curve Cryptography (ECC) Brainpool
  Curves for Transport Layer Security (TLS) RFC7027)
- to the "Supported Groups Registry". 
+ to the "Supported Groups Registry".
 
  This document expands the semantics of
  this registry to include
@@ -733,7 +734,7 @@ IANA Considerations
  extension as
    "supported_groups" and added a
  reference to this document in the
-   "ExtensionType Values" registry. 
+   "ExtensionType Values" registry.
 
 
 
@@ -819,7 +820,7 @@ Negotiation Resistance to Active Attacks
   This could cause the
       server to negotiate a weaker group
  than desired, but again, should
-      be caught by the check in the 
+      be caught by the check in the
 Finished message.
 
 
@@ -854,7 +855,7 @@ Group Strength Considerations
 
    [ENISA] provides rough estimates of
  group resistance to attack and
-   recommends that forward-looking 
+   recommends that forward-looking
 implementations ("future systems")
    should use FFDHE group sizes of at
  least 3072 bits.  ffdhe3072 is
@@ -863,7 +864,7 @@ implementations ("future systems")
    Other sources (e.g., [Recommendation for
  Key Management - Part 1: General NIST)
  estimate the security levels of the
-   Discrete Log (DLOG) problem to be 
+   Discrete Log (DLOG) problem to be
 slightly more difficult than
    [Algorithms, Key Sizes and Parameters
  Report - 2014 ENISA].  This document's
@@ -889,7 +890,7 @@ Finite Field DHE Only
  Cipher Suites for Transport Layer
  Security (TLS) RFC4492.
 
-   Measured by computational cost to the 
+   Measured by computational cost to the
 TLS peers, ECDHE appears today
    to offer a much stronger key exchange
  mechanism than FFDHE.
@@ -917,7 +918,7 @@ Deprecating Weak Groups
  if the cryptanalysis has
    changed.  Implementations that require
  strong confidentiality and
-   integrity guarantees should avoid 
+   integrity guarantees should avoid
 using deprecated groups and should
    be updated when the estimated security
  margins are updated.
@@ -942,7 +943,7 @@ Choice of Groups
       groups like MODP768 that are
  unacceptable for secure TLS traffic.
 
-   o  Mixing group parameters across 
+   o  Mixing group parameters across
 multiple implementations leaves
       open the possibility of some sort
  of cross-protocol attack.  This
@@ -975,7 +976,7 @@ Replay Attacks from Non-negotiated FFDHE
 
    [SECURE-RESUMPTION], [CROSS-PROTOCOL],
  and [SSL3-ANALYSIS] all show a
-   malicious peer using a bad FFDHE group 
+   malicious peer using a bad FFDHE group
 to maneuver a client into
    selecting a premaster secret of the
  peer's choice, which can be
@@ -986,7 +987,7 @@ to maneuver a client into
 
    To prevent this attack (barring the
  session hash fix documented in
-   [Transport Layer Security (TLS) 
+   [Transport Layer Security (TLS)
 Session Hash and Extended Master Secret
  Extension RFC7627), a client would need
  not only to implement this document,
@@ -1040,55 +1041,82 @@ Forward Secrecy
  attacking the dh_Ys or dh_Yc
    ephemeral key shares.
 
-   If the goal is to provide forward secrecy, attention should be paid
-   to all parts of the cipher suite selection process, both key exchange
+   If the goal is to provide forward
+ secrecy, attention should be paid
+   to all parts of the cipher suite selection
+ process, both key exchange
    and symmetric cipher choice.
 
-<span class="h3"><a class="selflink" id="section-8.9" href="https://datatracker.ietf.org/doc/html/rfc7919#section-8.9">8.9</a>.  False Start</span>
-
-   Clients capable of TLS False Start [<a href="https://datatracker.ietf.org/doc/html/rfc7918" title="&quot;Transport Layer Security (TLS) False Start&quot;">RFC7918</a>] may receive a proposed
-   FFDHE group from a server that is attacker controlled.  In
-   particular, the attacker can modify the ClientHello to strip the
-   proposed FFDHE groups, which may cause the server to offer a weaker
 
 
+section-8.9
+False Start
 
-<span class="grey">Gillmor                      Standards Track                   [Page 15]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-16"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
-
-
-   FFDHE group than it should, and this will not be detected until
-   receipt of the server's Finished message.  This could cause a client
-   using the False Start protocol modification to send data encrypted
+   Clients capable of TLS False Start
+ [Transport Layer Security (TLS) False
+ Start RFC7918] may receive a proposed
+   FFDHE group from a server that is
+attacker controlled.  In
+   particular, the attacker can modify
+ the ClientHello to strip the
+   proposed FFDHE groups, which may cause
+ the server to offer a weaker
+   FFDHE group than it should, and this
+ will not be detected until
+   receipt of the server's Finished message.
+  This could cause a client
+   using the False Start protocol
+ modification to send data encrypted
    under a weak key agreement.
 
-   Clients should have their own classification of FFDHE groups that are
-   "cryptographically strong" in the same sense described in the
-   description of symmetric ciphers in [<a href="https://datatracker.ietf.org/doc/html/rfc7918" title="&quot;Transport Layer Security (TLS) False Start&quot;">RFC7918</a>] and SHOULD offer at
-   least one of these in the initial handshake if they contemplate using
-   the False Start protocol modification with an FFDHE cipher suite.
+   Clients should have their own
+ classification of FFDHE groups that are
+   "cryptographically strong" in the same
+ sense described in the
+   description of symmetric ciphers in
+ [Transport Layer Security (TLS) False
+ Start RFC 7918] and SHOULD offer at
+   least one of these in the initial
+ handshake if they contemplate using
+   the False Start protocol modification
+ with an FFDHE cipher suite.
 
-   Compatible clients performing a full handshake MUST NOT use the False
-   Start protocol modification if the server selects an FFDHE cipher
-   suite but sends a group that is not cryptographically strong from the
+   Compatible clients performing a full
+ handshake MUST NOT use the False
+   Start protocol modification if the
+ server selects an FFDHE cipher
+   suite but sends a group that is not
+ cryptographically strong from the
    client's perspective.
 
-<span class="h2"><a class="selflink" id="section-9" href="https://datatracker.ietf.org/doc/html/rfc7919#section-9">9</a>.  Privacy Considerations</span>
 
-<span class="h3"><a class="selflink" id="section-9.1" href="https://datatracker.ietf.org/doc/html/rfc7919#section-9.1">9.1</a>.  Client Fingerprinting</span>
 
-   This extension provides a few additional bits of information to
-   distinguish between classes of TLS clients (e.g., see
-   [<a href="https://datatracker.ietf.org/doc/html/rfc7919#ref-PANOPTICLICK">PANOPTICLICK</a>]).  To minimize this sort of fingerprinting, clients
-   SHOULD support all named groups at or above their minimum security
-   threshold.  New groups SHOULD NOT be added to the "Supported Groups
-   Registry" without consideration of the cost of browser
+section-9
+Privacy Considerations
+
+section-9.1
+Client Fingerprinting
+
+   This extension provides a few additional
+ bits of information to
+   distinguish between classes of TLS
+ clients (e.g., see
+   [PANOPTICLICK]).  To minimize this sort
+ of fingerprinting, clients
+   SHOULD support all named groups at
+ or above their minimum security
+   threshold.  New groups SHOULD NOT be
+ added to the "Supported Groups
+   Registry" without consideration of the
+ cost of browser
    fingerprinting.
 
-<span class="h2"><a class="selflink" id="section-10" href="https://datatracker.ietf.org/doc/html/rfc7919#section-10">10</a>.  References</span>
 
-<span class="h3"><a class="selflink" id="section-10.1" href="https://datatracker.ietf.org/doc/html/rfc7919#section-10.1">10.1</a>.  Normative References</span>
+section-10
+References
+
+section-10.1
+Normative References
 
    [<a id="ref-RFC2119">RFC2119</a>]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>, <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>,
@@ -1108,12 +1136,6 @@ Forward Secrecy
 
 
 
-
-<span class="grey">Gillmor                      Standards Track                   [Page 16]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-17"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
-
-
    [<a id="ref-RFC5246">RFC5246</a>]  Dierks, T. and E. Rescorla, "The Transport Layer Security
               (TLS) Protocol Version 1.2", <a href="https://datatracker.ietf.org/doc/html/rfc5246">RFC 5246</a>,
               DOI 10.17487/RFC5246, August 2008,
@@ -1123,7 +1145,9 @@ Forward Secrecy
               Layer Security (TLS) False Start", DOI 10.17487/RFC7918,
               June 2016, &lt;<a href="https://www.rfc-editor.org/info/rfc7918">http://www.rfc-editor.org/info/rfc7918</a>&gt;.
 
-<span class="h3"><a class="selflink" id="section-10.2" href="https://datatracker.ietf.org/doc/html/rfc7919#section-10.2">10.2</a>.  Informative References</span>
+
+section-10.2
+Informative References
 
    [<a id="ref-CROSS-PROTOCOL">CROSS-PROTOCOL</a>]
               Mavrogiannopolous, N., Vercauteren, F., Velichkov, V., and
@@ -1161,13 +1185,6 @@ Forward Secrecy
               <a href="https://datatracker.ietf.org/doc/html/rfc2246">RFC 2246</a>, DOI 10.17487/RFC2246, January 1999,
               &lt;<a href="https://www.rfc-editor.org/info/rfc2246">http://www.rfc-editor.org/info/rfc2246</a>&gt;.
 
-
-
-
-
-<span class="grey">Gillmor                      Standards Track                   [Page 17]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-18"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
 
 
    [<a id="ref-RFC3526">RFC3526</a>]  Kivinen, T. and M. Kojo, "More Modular Exponential (MODP)
@@ -1218,68 +1235,63 @@ Forward Secrecy
 
 
 
+Appendix A.  Supported Groups Registry
+(Formerly "EC Named Curve Registry")
 
 
+   Each description below indicates the
+ group itself, its derivation,
+   its expected strength (estimated roughly
+ from guidelines in
+   [ECRYPTII]), and whether it is recommended
+for use in TLS key
+   exchange at the given security level.  It is
+ not recommended to add
+   further finite field groups to the
+ "Supported Groups Registry"; any
+   attempt to do so should consider
+Section 9.1.
 
-<span class="grey">Gillmor                      Standards Track                   [Page 18]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-19"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
+   The primes in these finite field groups
+ are all safe primes; that is,
+   a prime p is a safe prime when q = (p-1)/2 is
+ also prime.  Where e is
+   the base of the natural logarithm and
+ square brackets denote the
+   floor operation, the groups that initially
+ populate this registry are
+   derived for a given bit length b by
+ finding the lowest positive
+   integer X that creates a safe prime
+ p where:
 
+    p = 2^b - 2^{b-64} + {[2^{b-130} e] + X }
+     * 2^64 - 1
 
-<span class="h2"><a class="selflink" id="appendix-A" href="https://datatracker.ietf.org/doc/html/rfc7919#appendix-A">Appendix A</a>.  Supported Groups Registry (Formerly "EC Named Curve</span>
-             Registry")
-
-   Each description below indicates the group itself, its derivation,
-   its expected strength (estimated roughly from guidelines in
-   [<a href="https://datatracker.ietf.org/doc/html/rfc7919#ref-ECRYPTII">ECRYPTII</a>]), and whether it is recommended for use in TLS key
-   exchange at the given security level.  It is not recommended to add
-   further finite field groups to the "Supported Groups Registry"; any
-   attempt to do so should consider <a href="https://datatracker.ietf.org/doc/html/rfc7919#section-9.1">Section 9.1</a>.
-
-   The primes in these finite field groups are all safe primes; that is,
-   a prime p is a safe prime when q = (p-1)/2 is also prime.  Where e is
-   the base of the natural logarithm and square brackets denote the
-   floor operation, the groups that initially populate this registry are
-   derived for a given bit length b by finding the lowest positive
-   integer X that creates a safe prime p where:
-
-    p = 2^b - 2^{b-64} + {[2^{b-130} e] + X } * 2^64 - 1
-
-   New additions of FFDHE groups to this registry may use this same
-   derivation (e.g., with different bit lengths) or may choose their
-   parameters in a different way, but they must be clear about how the
+   New additions of FFDHE groups to this
+ registry may use this same
+   derivation (e.g., with different bit
+ lengths) or may choose their
+   parameters in a different way, but they
+ must be clear about how the
    parameters were derived.
 
-   New additions of FFDHE groups MUST use a safe prime as the modulus to
-   enable the inexpensive peer verification described in <a href="https://datatracker.ietf.org/doc/html/rfc7919#section-5.1">Section 5.1</a>.
+   New additions of FFDHE groups MUST use
+ a safe prime as the modulus to
+   enable the inexpensive peer verification
+ described in <Section 5.1.
 
-<span class="h3"><a class="selflink" id="appendix-A.1" href="https://datatracker.ietf.org/doc/html/rfc7919#appendix-A.1">A.1</a>.  ffdhe2048</span>
 
-   The 2048-bit group has registry value 256 and is calculated from the
+appendix-A.1
+ffdhe2048
+
+   The 2048-bit group has registry value
+256 and is calculated from the
    following formula:
 
    The modulus is:
 
    p = 2^2048 - 2^1984 + {[2^1918 * e] + 560316 } * 2^64 - 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Gillmor                      Standards Track                   [Page 19]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-20"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
 
 
    The hexadecimal representation of p is:
@@ -1317,11 +1329,16 @@ Forward Secrecy
    The estimated symmetric-equivalent strength of this group is 103
    bits.
 
-   Peers using ffdhe2048 that want to optimize their key exchange with a
-   short exponent (<a href="https://datatracker.ietf.org/doc/html/rfc7919#section-5.2">Section 5.2</a>) should choose a secret key of at least
+   Peers using ffdhe2048 that want to optimize
+ their key exchange with a
+   short exponent (Section 5.2) should
+ choose a secret key of at least
    225 bits.
 
-<span class="h3"><a class="selflink" id="appendix-A.2" href="https://datatracker.ietf.org/doc/html/rfc7919#appendix-A.2">A.2</a>.  ffdhe3072</span>
+
+
+appendix-A.2
+ffdhe3072
 
    The 3072-bit prime has registry value 257 and is calculated from the
    following formula:
@@ -1329,13 +1346,6 @@ Forward Secrecy
    The modulus is:
 
    p = 2^3072 - 2^3008 + {[2^2942 * e] + 2625351} * 2^64 - 1
-
-
-
-
-<span class="grey">Gillmor                      Standards Track                   [Page 20]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-21"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
 
 
    The hexadecimal representation of p is:
@@ -1389,12 +1399,8 @@ Forward Secrecy
 
 
 
-<span class="grey">Gillmor                      Standards Track                   [Page 21]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-22"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
-
-
-<span class="h3"><a class="selflink" id="appendix-A.3" href="https://datatracker.ietf.org/doc/html/rfc7919#appendix-A.3">A.3</a>.  ffdhe4096</span>
+appendix-A.3
+ffdhe4096
 
    The 4096-bit group has registry value 258 and is calculated from the
    following formula:
@@ -1432,24 +1438,6 @@ Forward Secrecy
 
    The group size is: q = (p-1)/2
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Gillmor                      Standards Track                   [Page 22]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-23"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
-
-
    The hexadecimal representation of q is:
 
     7FFFFFFF FFFFFFFF D6FC2A2C 515DA54D 57EE2B10 139E9E78
@@ -1482,7 +1470,10 @@ Forward Secrecy
    short exponent (<a href="https://datatracker.ietf.org/doc/html/rfc7919#section-5.2">Section 5.2</a>) should choose a secret key of at least
    325 bits.
 
-<span class="h3"><a class="selflink" id="appendix-A.4" href="https://datatracker.ietf.org/doc/html/rfc7919#appendix-A.4">A.4</a>.  ffdhe6144</span>
+
+
+appendix-A.4
+ffdhe6144
 
    The 6144-bit group has registry value 259 and is calculated from the
    following formula:
@@ -1490,20 +1481,6 @@ Forward Secrecy
    The modulus is:
 
    p = 2^6144 - 2^6080 + {[2^6014 * e] + 15705020} * 2^64 - 1
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Gillmor                      Standards Track                   [Page 23]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-24"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
 
 
    The hexadecimal representation of p is:
@@ -1544,23 +1521,6 @@ Forward Secrecy
    The generator is: g = 2
 
    The group size is: q = (p-1)/2
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Gillmor                      Standards Track                   [Page 24]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-25"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
-
 
    The hexadecimal representation of q is:
 
@@ -1606,19 +1566,8 @@ Forward Secrecy
 
 
 
-
-
-
-
-
-
-
-<span class="grey">Gillmor                      Standards Track                   [Page 25]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-26"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
-
-
-<span class="h3"><a class="selflink" id="appendix-A.5" href="https://datatracker.ietf.org/doc/html/rfc7919#appendix-A.5">A.5</a>.  ffdhe8192</span>
+appendix-A.5
+ffdhe8192
 
    The 8192-bit group has registry value 260 and is calculated from the
    following formula:
@@ -1626,52 +1575,6 @@ Forward Secrecy
    The modulus is:
 
    p = 2^8192 - 2^8128 + {[2^8062 * e] + 10965728} * 2^64 - 1
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Gillmor                      Standards Track                   [Page 26]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-27"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
 
 
    The hexadecimal representation of p is:
@@ -1724,12 +1627,6 @@ Forward Secrecy
 
 
 
-
-<span class="grey">Gillmor                      Standards Track                   [Page 27]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-28"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
-
-
    The group size is: q = (p-1)/2
 
    The hexadecimal representation of q is:
@@ -1777,13 +1674,6 @@ Forward Secrecy
     7D7D5F0E 2EB8D43F 17BA0F7C 60FF437F 535DFEF2 9833BF86
     CBE88EA4 FBD4221E 84117283 54FA30A7 008F154A 41C7FC46
     6B4645DB E2E32126 7FFFFFFF FFFFFFFF
-
-
-
-
-<span class="grey">Gillmor                      Standards Track                   [Page 28]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-29"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7919">RFC 7919</a>                Negotiated FFDHE for TLS             August 2016</span>
 
 
    The estimated symmetric-equivalent strength of this group is 192

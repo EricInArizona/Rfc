@@ -1,0 +1,44 @@
+List of RFC documents for a reference for
+TLS.
+
+RFC 2104
+HMAC: Keyed-Hashing for Message Authentication
+
+RFC 2631
+Diffie-Hellman Key Agreement Method
+
+RFC 4366
+See RFC 6066.
+Transport Layer Security (TLS) Extensions
+
+RFC 4492
+Elliptic Curve Cryptography (ECC)
+Cipher Suites for Transport Layer Security (TLS)
+
+RFC 5869
+HMAC-based Extract-and-Expand Key Derivation
+Function (HKDF)
+
+RFC 6066
+Transport Layer Security (TLS) Extensions:
+Extension Definitions
+
+RFC 6090
+Fundamental Elliptic Curve Cryptography
+Algorithms
+
+RFC 7627
+Transport Layer Security (TLS) Session Hash
+and Extended Master Secret Extension
+
+RFC 7748
+Elliptic Curves for Security
+
+RFC 7919
+Negotiated Finite Field
+Diffie-Hellman Ephemeral Parameters for
+Transport Layer Security (TLS)
+
+RFC 8446
+The Transport Layer Security
+(TLS) Protocol Version 1.3

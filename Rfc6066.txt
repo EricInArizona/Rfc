@@ -1,8 +1,6 @@
 RFC 6066 - Transport Layer Security (TLS)
 Extensions: Extension Definitions
 
-=====
-
 Request for Comments: 6066                                        Huawei
 Obsoletes: rfc 4366
 
@@ -14,14 +12,14 @@ Abstract
    This document provides specifications for
  existing TLS extensions.
    It is a companion document for
- <a href="https://datatracker.ietf.org/doc/html/rfc5246">
-RFC 5246</a>, "The Transport Layer
+RFC 5246, "The Transport Layer
    Security (TLS) Protocol Version 1.2".
 The extensions specified are
    server_name, max_fragment_length,
  client_certificate_url,
    trusted_ca_keys, truncated_hmac, and
  status_request.
+
 
 Status of This Memo
 
@@ -105,34 +103,26 @@ Introduction
 
    The Transport Layer Security (TLS) Protocol
  Version 1.2 is specified
-   in
-[<a href="https://datatracker.ietf.org/doc/html/rfc5246">
-RFC5246</a>].  That specification includes
+   in [RFC5246].  That specification includes
  the framework for
    extensions to TLS, considerations in
  designing such extensions (see
-   <a href="https://datatracker.ietf.org/doc/html/rfc5246#section-7.4.1.4">
-Section&nbsp;7.4.1.4 of [RFC5246]</a>),
+   Section 7.4.1.4 of [RFC5246]),
  and IANA Considerations for the
    allocation of new extension code points;
  however, it does not specify
    any particular extensions other than
 Signature Algorithms (see
-   <a href="https://datatracker.ietf.org/doc/html/rfc5246#section-7.4.1.4.1">
-Section&nbsp;7.4.1.4.1 of [RFC5246]</a>).
+   Section 7.4.1.4.1 of [RFC5246]).
 
    This document provides the specifications
  for existing TLS
    extensions.  It is, for the most part,
  the adaptation and editing of
    material from
-<a href="https://datatracker.ietf.org/doc/html/rfc4366">
-RFC 4366</a>, which covered TLS extensions
+RFC 4366, which covered TLS extensions
  for TLS 1.0
-(<a href="https://datatracker.ietf.org/doc/html/rfc2246">
-RFC</a>
-   <a href="https://datatracker.ietf.org/doc/html/rfc2246">2246</a>) and TLS 1.1 (<a href="https://datatracker.ietf.org/doc/html/rfc4346">
-RFC 4346</a>).
+(RFC 2246) and TLS 1.1 (RFC 4346).
 
 
 section-1.1
@@ -494,7 +484,7 @@ Section</a>
  name at the application layer.
 
 
-======
+
 section-4
 Maximum Fragment Length Negotiation
 
@@ -569,17 +559,15 @@ Maximum Fragment Length Negotiation
  that the record layer may
    process without fragmentation (that is,
  the maximum value of
-   TLSPlaintext.length; see 
-<a href="https://datatracker.ietf.org/doc/html/rfc5246#section-6.2.1">
-[RFC5246], Section&nbsp;6.2.1</a>).
+   TLSPlaintext.length; see
+[RFC5246], Section 6.2.1.
   Note that the
    output of the record layer may be larger.
   For example, if the
    negotiated length is 2^9=512, then, when
  using currently defined
-   cipher suites (those defined in 
-[<a href="https://datatracker.ietf.org/doc/html/rfc5246">RFC5246</a>] and [<a href="https://datatracker.ietf.org/doc/html/rfc2712">
-RFC2712</a>]) and null
+   cipher suites (those defined in
+[RFC5246] and [RFC2712]) and null
    compression, the record-layer output can
  be at most 805 bytes: 5
    bytes of headers, 512 bytes of application
@@ -603,20 +591,28 @@ RFC2712</a>]) and null
 section-5
 Client Certificate URLs
 
-
-   Without this extension, TLS specifies that when client authentication
-   is performed, client certificates are sent by clients to servers
-   during the TLS handshake.  It may be desirable for constrained
-   clients to send certificate URLs in place of certificates, so that
-   they do not need to store their certificates and can therefore save
+   Without this extension, TLS specifies
+ that when client authentication
+   is performed, client certificates are
+ sent by clients to servers
+   during the TLS handshake.  It may be
+ desirable for constrained
+   clients to send certificate URLs in
+ place of certificates, so that
+   they do not need to store their
+ certificates and can therefore save
    memory.
 
-   In order to negotiate sending certificate URLs to a server, clients
-   MAY include an extension of type "client_certificate_url" in the
-   (extended) client hello.  The "extension_data" field of this
+   In order to negotiate sending certificate
+ URLs to a server, clients
+   MAY include an extension of type
+ "client_certificate_url" in the
+   (extended) client hello.  The
+ "extension_data" field of this
    extension SHALL be empty.
 
-   (Note that it is necessary to negotiate the use of client certificate
+   (Note that it is necessary to negotiate
+ the use of client certificate
    URLs in order to avoid "breaking" existing TLS servers.)
 
    Servers that receive an extended client hello containing a
