@@ -80,44 +80,64 @@ Introduction
    Since the initial standardization of
  Elliptic Curve Cryptography (ECC
    [Fundamental Elliptic Curve Cryptography
- Algorithms&quot;">RFC6090</a>]) in [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-SEC1" title="&quot;SEC 1: Elliptic Curve Cryptography&quot;">SEC1</a>], there has been significant progress related to
-   both efficiency and security of curves and implementations.  Notable
-   examples are algorithms protected against certain side-channel
-   attacks, various "special" prime shapes that allow faster modular
-   arithmetic, and a larger set of curve models from which to choose.
-   There is also concern in the community regarding the generation and
-   potential weaknesses of the curves defined by NIST [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-NIST" title="&quot;Recommended Elliptic Curves for Federal Government Use&quot;">NIST</a>].
+ Algorithms RFC6090]) in [SEC 1: Elliptic Curve
+ Cryptography SEC1], there has been 
+significant progress related to
+   both efficiency and security of curves
+ and implementations.  Notable
+   examples are algorithms protected
+ against certain side-channel
+   attacks, various "special" prime shapes
+ that allow faster modular
+   arithmetic, and a larger set of curve
+ models from which to choose.
+   There is also concern in the community
+ regarding the generation and
+   potential weaknesses of the curves
+ defined by NIST [Recommended Elliptic
+ Curves for Federal Government Use NIST].
 
-   This memo specifies two elliptic curves ("curve25519" and "curve448")
-   that lend themselves to constant-time implementation and an
-   exception-free scalar multiplication that is resistant to a wide
-   range of side-channel attacks, including timing and cache attacks.
-   They are Montgomery curves (where v^2 = u^3 + A*u^2 + u) and thus
-   have birationally equivalent Edwards versions.  Edwards curves
-   support the fastest (currently known) complete formulas for the
-   elliptic-curve group operations, specifically the Edwards curve
-   x^2 + y^2 = 1 + d*x^2*y^2 for primes p when p = 3 mod 4, and the
-   twisted Edwards curve -x^2 + y^2 = 1 + d*x^2*y^2 when p = 1 mod 4.
-   The maps to/from the Montgomery curves to their (twisted) Edwards
+   This memo specifies two elliptic curves
+ ("curve25519" and "curve448")
+   that lend themselves to constant-time
+ implementation and an
+   exception-free scalar multiplication that
+ is resistant to a wide
+   range of side-channel attacks, including
+ timing and cache attacks.
+   They are Montgomery curves 
+(where v^2 = u^3 + A*u^2 + u) and thus
+   have birationally equivalent Edwards
+ versions.  Edwards curves
+   support the fastest (currently known)
+ complete formulas for the
+   elliptic-curve group operations,
+ specifically the Edwards curve
+   x^2 + y^2 = 1 + d*x^2*y^2 for primes
+ p when p = 3 mod 4, and the
+   twisted Edwards curve -x^2 + y^2 =
+ 1 + d*x^2*y^2 when p = 1 mod 4.
+   The maps to/from the Montgomery curves
+ to their (twisted) Edwards
    equivalents are also given.
 
-
-
-<span class="grey">Langley, et al.               Informational                     [Page 2]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-3"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-   This memo also specifies how these curves can be used with the
+   This memo also specifies how these
+ curves can be used with the
    Diffie-Hellman protocol for key agreement.
 
-<span class="h2"><a class="selflink" id="section-2" href="https://datatracker.ietf.org/doc/html/rfc7748#section-2">2</a>.  Requirements Language</span>
+
+
+section-2
+Requirements Language
 
    The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
    "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
    document are to be interpreted as described in <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a> [<a href="https://datatracker.ietf.org/doc/html/rfc2119" title="&quot;Key words for use in RFCs to Indicate Requirement Levels&quot;">RFC2119</a>].
 
-<span class="h2"><a class="selflink" id="section-3" href="https://datatracker.ietf.org/doc/html/rfc7748#section-3">3</a>.  Notation</span>
+
+
+section-3
+Notation
 
    Throughout this document, the following notation is used:
 
@@ -153,20 +173,11 @@ Introduction
 
 
 
+section-4
+Recommended Curves
 
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                     [Page 3]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-4"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-<span class="h2"><a class="selflink" id="section-4" href="https://datatracker.ietf.org/doc/html/rfc7748#section-4">4</a>.  Recommended Curves</span>
-
-<span class="h3"><a class="selflink" id="section-4.1" href="https://datatracker.ietf.org/doc/html/rfc7748#section-4.1">4.1</a>.  Curve25519</span>
+section-4.1
+Curve25519
 
    For the ~128-bit security level, the prime 2^255 - 19 is recommended
    for performance on a wide range of architectures.  Few primes of the
@@ -210,16 +221,6 @@ Introduction
    Y(P)  463168356949264781694283940034751631413079938662562256157830336
       03165251855960
 
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                     [Page 4]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-5"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
    The birational maps are:
 
      (u, v) = ((1+y)/(1-y), sqrt(-486664)*u/x)
@@ -229,7 +230,10 @@ Introduction
    [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-curve25519">curve25519</a>], and the equivalent twisted Edwards curve is equal to
    the one defined in [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-ed25519" title="&quot;High-Speed High-Security Signatures&quot;">ed25519</a>].
 
-<span class="h3"><a class="selflink" id="section-4.2" href="https://datatracker.ietf.org/doc/html/rfc7748#section-4.2">4.2</a>.  Curve448</span>
+
+
+section-4.2
+Curve448
 
    For the ~224-bit security level, the prime 2^448 - 2^224 - 1 is
    recommended for performance on a wide range of architectures.  This
@@ -265,15 +269,6 @@ Introduction
       0x8335dc163bb124b65129c96fde933d8d723a70aadc873d6d54a7bb0d
 
    cofactor  4
-
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                     [Page 5]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-6"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
 
 
    X(P)  345397493039729516374008604150537410266655260075183290216406970
@@ -322,17 +317,8 @@ Introduction
 
 
 
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                     [Page 6]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-7"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-<span class="h2"><a class="selflink" id="section-5" href="https://datatracker.ietf.org/doc/html/rfc7748#section-5">5</a>.  The X25519 and X448 Functions</span>
+section-5
+The X25519 and X448 Functions
 
    The "X25519" and "X448" functions perform scalar multiplication on
    the Montgomery form of the above curves.  (This is used when
@@ -380,14 +366,6 @@ Introduction
    &lt;CODE ENDS&gt;
 
 
-
-
-
-<span class="grey">Langley, et al.               Informational                     [Page 7]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-8"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
    Scalars are assumed to be randomly generated bytes.  For X25519, in
    order to decode 32 random bytes as an integer scalar, set the three
    least significant bits of the first byte and the most significant bit
@@ -422,26 +400,6 @@ Introduction
    in GF(p), i.e., they are performed modulo p.  The constant a24 is
    (486662 - 2) / 4 = 121665 for curve25519/X25519 and (156326 - 2) / 4
    = 39081 for curve448/X448.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                     [Page 8]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-9"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
 
 
    x_1 = u
@@ -487,19 +445,6 @@ Introduction
    zero.
 
 
-
-
-
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                     [Page 9]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-10"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
    The cswap function SHOULD be implemented in constant time (i.e.,
    independent of the swap argument).  For example, this can be done as
    follows:
@@ -513,7 +458,10 @@ Introduction
    Where mask(swap) is the all-1 or all-0 word of the same length as x_2
    and x_3, computed, e.g., as mask(swap) = 0 - swap.
 
-<span class="h3"><a class="selflink" id="section-5.1" href="https://datatracker.ietf.org/doc/html/rfc7748#section-5.1">5.1</a>.  Side-Channel Considerations</span>
+
+
+section-5.1
+Side-Channel Considerations
 
    X25519 and X448 are designed so that fast, constant-time
    implementations are easier to produce.  The procedure above ensures
@@ -533,30 +481,8 @@ Introduction
    research closely.
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 10]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-11"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-<span class="h3"><a class="selflink" id="section-5.2" href="https://datatracker.ietf.org/doc/html/rfc7748#section-5.2">5.2</a>.  Test Vectors</span>
+section-5.2
+Test Vectors
 
    Two types of tests are provided.  The first is a pair of test vectors
    for each function that consist of expected outputs for the given
@@ -592,24 +518,6 @@ Introduction
    Output u-coordinate:
      95cbde9476e8907d7aade45cb4b873f88b595a68799fa152e6f8f7647aac7957
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 11]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-12"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
 
 
    X448:
@@ -651,23 +559,6 @@ Introduction
      ad1b3ee3a5700df34321d62077e63633c575c1c954514e99da7c179d
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 12]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-13"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
    The second type of test vector consists of the result of calling the
    function in question a specified number of times.  Initially, set k
    and u to be the following values:
@@ -706,27 +597,11 @@ Introduction
 
 
 
+section-6
+Diffie-Hellman
 
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 13]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-14"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-<span class="h2"><a class="selflink" id="section-6" href="https://datatracker.ietf.org/doc/html/rfc7748#section-6">6</a>.  Diffie-Hellman</span>
-
-<span class="h3"><a class="selflink" id="section-6.1" href="https://datatracker.ietf.org/doc/html/rfc7748#section-6.1">6.1</a>.  Curve25519</span>
+section-6.1
+Curve25519
 
    The X25519 function can be used in an Elliptic Curve Diffie-Hellman
    (ECDH) protocol as follows:
@@ -770,17 +645,8 @@ Introduction
 
 
 
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 14]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-15"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-<span class="h3"><a class="selflink" id="section-6.2" href="https://datatracker.ietf.org/doc/html/rfc7748#section-6.2">6.2</a>.  Curve448</span>
+section-6.2
+Curve448
 
    The X448 function can be used in an ECDH protocol very much like the
    X25519 function.
@@ -827,15 +693,6 @@ Introduction
    [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-bruteforce">bruteforce</a>].
 
 
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 15]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-16"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
    The ~224-bit security level of curve448 is a trade-off between
    performance and paranoia.  Large quantum computers, if ever created,
    will break both curve25519 and curve448, and reasonable projections
@@ -873,7 +730,12 @@ Introduction
    implementation that follows the design in this text would
    successfully produce a shared key.
 
-<span class="h2"><a class="selflink" id="section-8" href="https://datatracker.ietf.org/doc/html/rfc7748#section-8">8</a>.  References</span>
+
+
+section-8
+References</span>
+
+
 
 <span class="h3"><a class="selflink" id="section-8.1" href="https://datatracker.ietf.org/doc/html/rfc7748#section-8.1">8.1</a>.  Normative References</span>
 

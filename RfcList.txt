@@ -15,6 +15,14 @@ RFC 4492
 Elliptic Curve Cryptography (ECC)
 Cipher Suites for Transport Layer Security (TLS)
 
+RFC 5077
+Transport Layer Security (TLS) Session
+Resumption without Server-Side State
+
+RFC 5246
+The Transport Layer Security (TLS) Protocol
+Version 1.2
+
 RFC 5869
 HMAC-based Extract-and-Expand Key Derivation
 Function (HKDF)
@@ -30,6 +38,10 @@ Algorithms
 RFC 7627
 Transport Layer Security (TLS) Session Hash
 and Extended Master Secret Extension
+
+RFC 7685
+A Transport Layer Security (TLS) ClientHello
+Padding Extension
 
 RFC 7748
 Elliptic Curves for Security
