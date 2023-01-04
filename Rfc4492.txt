@@ -1,10 +1,8 @@
 RFC 4492 - Elliptic Curve Cryptography (ECC)
 Cipher Suites for Transport Layer Security (TLS)
 
-Request for Comments: 4492                                       SafeNet
+====
 
-Elliptic Curve Cryptography (ECC) Cipher
-Suites for Transport Layer Security (TLS)
 
 Status of This Memo
 
@@ -80,9 +78,7 @@ Introduction
  smaller key sizes.  This is
    illustrated in the following table,
  based on
-[<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-18" title="&quot;
-Selecting Cryptographic Key Sizes
-, which gives
+[Selecting Cryptographic Key Sizes], which gives
    approximate comparable key sizes for
  symmetric- and asymmetric-key
    cryptosystems based on the best-known
@@ -107,9 +103,9 @@ Selecting Cryptographic Key Sizes
    This document describes additions to
  TLS to support ECC, applicable
    both to TLS Version 1.0
-[<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-2" title="&quot;The TLS Protocol Version 1.0&quot;">2</a>] and to TLS Version 1.1 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-3" title="&quot;
-The Transport Layer Security (TLS) Protocol
- Version 1.1&quot;">3</a>].  In
+[The TLS Protocol Version 1.0] and to TLS
+ Version 1.1 [The Transport Layer Security
+ (TLS) Protocol Version 1.1].  In
    particular, it defines
 
    o  the use of the Elliptic Curve
@@ -124,40 +120,30 @@ The Transport Layer Security (TLS) Protocol
 
    The remainder of this document is
  organized as follows.
-<a href="https://datatracker.ietf.org/doc/html/rfc4492#
-section-2">Section 2</a>
-   provides an overview of ECC-based key
+Section 2 provides an overview of ECC-based key
  exchange algorithms for TLS.
-   <a href="https://datatracker.ietf.org/doc/html/rfc4492#section-3">
-Section 3</a> describes the use of ECC
+ Section 3 describes the use of ECC
  certificates for client
    authentication.  TLS extensions that
  allow a client to negotiate the
    use of specific curves and point formats
  are presented in
-<a href="https://datatracker.ietf.org/doc/html/rfc4492#
-section-4">Section 4</a>.
-   <a href="https://datatracker.ietf.org/doc/html/rfc4492#section-5">
-Section 5</a> specifies various data
+Section 4.  Section 5 specifies various data
  structures needed for an ECC-based
    handshake, their encoding in TLS
  messages, and the processing of
    those messages.
-<a href="https://datatracker.ietf.org/doc/html/rfc4492#section-6">
-Section 6</a> defines new ECC-based
+Section 6 defines new ECC-based
  cipher suites and
    identifies a small subset of these
  as recommended for all
    implementations of this specification.
-  <a href="https://datatracker.ietf.org/doc/html/rfc4492#section-7">
-Section 7</a> discusses security
+  Section 7 discusses security
    considerations.
-<a href="https://datatracker.ietf.org/doc/html/rfc4492#section-8">
-Section 8</a> describes IANA considerations
+Section 8 describes IANA considerations
  for the name
    spaces created by this document.
-<a href="https://datatracker.ietf.org/doc/html/rfc4492#section-9">
-Section 9</a> gives acknowledgements.
+Section 9 gives acknowledgements.
 
    This is followed by the lists of normative
  and informative references
@@ -168,14 +154,10 @@ Section 9</a> gives acknowledgements.
 
    Implementation of this specification
  requires familiarity with TLS
-   [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-2" title="&quot;
-The TLS Protocol Version 1.0&quot;">2</a>][3],
- TLS extensions
- [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-4" title="&quot;
-Transport Layer Security (TLS) Extensions
-and ECC
-[<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-5" title="&quot;
-Elliptic Curve Cryptography
+   [The TLS Protocol Version 1.0][3],
+ TLS extensions Transport Layer Security (TLS)
+ Extensions and ECC
+[Elliptic Curve Cryptography
 Public Key Cryptography For The Financial
  Services Industry: The Elliptic Curve Digital
  Signature Algorithm (ECDSA)
@@ -215,25 +197,29 @@ compute the TLS premaster secret,
  and DH_anon (see
 The TLS Protocol Version 1.0
 The Transport Layer Security (TLS) Protocol
- Version 1.1
-, respectively.
+ Version 1.1, respectively.
 
           Key
           Exchange
           Algorithm           Description
           ---------           -----------
 
-          ECDH_ECDSA          Fixed ECDH with ECDSA-signed certificates.
+          ECDH_ECDSA          Fixed ECDH with
+ ECDSA-signed certificates.
 
-          ECDHE_ECDSA         Ephemeral ECDH with ECDSA signatures.
+          ECDHE_ECDSA         Ephemeral ECDH
+with ECDSA signatures.
 
-          ECDH_RSA            Fixed ECDH with RSA-signed certificates.
+          ECDH_RSA            Fixed ECDH with
+ RSA-signed certificates.
 
-          ECDHE_RSA           Ephemeral ECDH with RSA signatures.
+          ECDHE_RSA           Ephemeral ECDH
+ with RSA signatures.
 
-          ECDH_anon           Anonymous ECDH, no signatures.
+          ECDH_anon           Anonymous ECDH,
+ no signatures.
 
-                     Table 2: ECC Key Exchange Algorithms
+ Table 2: ECC Key Exchange Algorithms
 
    The ECDHE_ECDSA and ECDHE_RSA key exchange
  mechanisms provide forward
@@ -714,7 +700,7 @@ and processing of these
  handshakes negotiating a new
    session.
 
-
+=====
 section-5
 Data Structures and Computations
 

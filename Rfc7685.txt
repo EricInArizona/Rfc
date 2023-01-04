@@ -124,7 +124,7 @@ Padding Extension
 
    The client MUST fill the padding
  extension completely with zero
-   bytes, although the padding 
+   bytes, although the padding
 extension_data field may be empty.
 
    The server MUST NOT echo the extension.
@@ -213,5 +213,3 @@ Author's Address
    Google Inc
 
    Email: agl@google.com
-
-

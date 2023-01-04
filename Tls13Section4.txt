@@ -2018,8 +2018,7 @@ resumption.  Servers SHOULD NOT
 establishment.  In this mode, the
       client and server MUST supply "key_share"
  values as described in
-      <a href="https://datatracker.ietf.org/doc/html/rfc8446#section-4.2.8">
-Section 4.2.8</a>.
+Section 4.2.8.
 
    Any future values that are allocated
  must ensure that the transmitted
