@@ -717,7 +717,7 @@ retained in the ServerHello,
  with an "illegal_parameter"
    alert if the value changes.
 
-
+=====
 section-4.2
 Extensions
 
@@ -1647,24 +1647,19 @@ now negotiated independently
  support for the
       corresponding named curve, defined
  in either FIPS 186-4
-[<a href="https://datatracker.ietf.org/doc/html/rfc8446#ref-DSS" title="&quot;
-Digital Signature Standard (DSS)&quot;">
-DSS</a>] or
-      [<a href="https://datatracker.ietf.org/doc/html/rfc7748" title="&quot;Elliptic Curves for Security&quot;">
-RFC7748</a>].  Values 0xFE00 through 0xFEFF
+[Digital Signature Standard (DSS)] or
+      [Elliptic Curves for Security RFC7748].
+  Values 0xFE00 through 0xFEFF
 are reserved for
       Private Use
-[<a href="https://datatracker.ietf.org/doc/html/rfc8126" title="">
-RFC8126</a>].
+[RFC8126].
 
    Finite Field Groups (DHE):  Indicates
  support for the corresponding
       finite field group, defined in
-[<a href="https://datatracker.ietf.org/doc/html/rfc7919" title="&quot;
-Negotiated Finite Field Diffie-Hellman
+[Negotiated Finite Field Diffie-Hellman
  Ephemeral Parameters for Transport Layer
- Security (TLS)&quot;">
-RFC7919</a>].  Values 0x01FC through
+ Security (TLS) RFC7919].  Values 0x01FC through
       0x01FF are reserved for Private Use.
 
    Items in named_group_list are ordered
@@ -1694,7 +1689,7 @@ learned from a successfully
    regardless of whether they are
 currently supported by the client.
 
-
+====
 section-4.2.8
 Key Share
 
