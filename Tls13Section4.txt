@@ -1702,8 +1702,7 @@ Key Share
    group selection from the server, at the
  cost of an additional round
    trip (see
-<a href="https://datatracker.ietf.org/doc/html/rfc8446#section-4.1.4">
-Section 4.1.4</a>).
+Section 4.1.4).
 
       struct {
           NamedGroup group;
@@ -1718,15 +1717,12 @@ Section 4.1.4</a>).
       are determined by the specified group
  and its corresponding
       definition.  Finite Field Diffie-Hellman
- [<a href="https://datatracker.ietf.org/doc/html/rfc8446#ref-DH76" title="&quot;New directions in cryptography&quot;">
-DH76</a>] parameters are
+ [New directions in cryptography DH76]
+ parameters are
       described in
-<a href="https://datatracker.ietf.org/doc/html/rfc8446#section-4.2.8.1">
-Section 4.2.8.1</a>; Elliptic Curve Diffie-Hellman
+Section 4.2.8.1; Elliptic Curve Diffie-Hellman
       parameters are described in
-<a href="https://datatracker.ietf.org/doc/html/rfc8446#section-4.2.8.2">
-Section 4.2.8.2</a>.
-
+Section 4.2.8.2.
 
 
    In the ClientHello message, the
@@ -1854,12 +1850,13 @@ and MUST NOT send a
    abort the handshake with an
 "illegal_parameter" alert.
 
+
+=====
 section-4.2.8.1
 Diffie-Hellman Parameters
 
    Diffie-Hellman
-[<a href="https://datatracker.ietf.org/doc/html/rfc8446#ref-DH76" title="&quot;New directions in cryptography&quot;">
-DH76</a>]
+[DH76]
  parameters for both clients and servers are
    encoded in the opaque key_exchange field
  of a KeyShareEntry in a
@@ -1867,11 +1864,9 @@ DH76</a>]
  contains the Diffie-Hellman
    public value (Y = g^X mod p) for the
  specified group (see
-[<a href="https://datatracker.ietf.org/doc/html/rfc7919" title="&quot;
-Negotiated Finite Field Diffie-Hellman
+[rfc7919 Negotiated Finite Field Diffie-Hellman
  Ephemeral Parameters for Transport Layer
- Security (TLS)&quot;">
-RFC7919</a>]
+ Security (TLS) RFC7919]
    for group definitions) encoded as a
  big-endian integer and padded to
    the left with zeros to the size of p in bytes.
@@ -1927,14 +1922,10 @@ necessary.  For P-384, they
    valid point on the elliptic curve.  The
  appropriate validation
    procedures are defined in Section 4.3.7 of
- [<a href="https://datatracker.ietf.org/doc/html/rfc8446#ref-ECDSA" title="&quot;
-Public Key Cryptography for the Financial
- Services Industry: The Elliptic Curve Digital
- Signature Algorithm (ECDSA)&quot;">ECDSA</a>]
+ [ECDSA]
  and alternatively
    in Section 5.6.2.3 of
-[<a href="https://datatracker.ietf.org/doc/html/rfc8446#ref-KEYAGREEMENT">
-KEYAGREEMENT</a>].  This process consists of
+[KEYAGREEMENT].  This process consists of
  three
    steps: (1) verify that Q is not the point
  at infinity (O), (2) verify
