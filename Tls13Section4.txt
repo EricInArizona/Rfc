@@ -1717,7 +1717,7 @@ Section 4.1.4).
       are determined by the specified group
  and its corresponding
       definition.  Finite Field Diffie-Hellman
- [New directions in cryptography DH76]
+ [DH76]
  parameters are
       described in
 Section 4.2.8.1; Elliptic Curve Diffie-Hellman
@@ -1883,6 +1883,7 @@ remote peer is properly behaved
  into a small subgroup.
 
 
+=====
 section-4.2.8.2
 ECDHE Parameters
 

@@ -1821,11 +1821,11 @@ ECDH, ECDSA, and RSA Computations
  computation.)
 
    All ECDSA computations MUST be performed
- according to ANSI X9.62 
+ according to ANSI X9.62
 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-7" title="&quot;Public Key Cryptography For The Financial Services Industry: The Elliptic Curve Digital Signature Algorithm (ECDSA)&quot;">7</a>]
    or its successors.  Data to be
  signed/verified is hashed, and the
-   result run directly through the ECDSA 
+   result run directly through the ECDSA
 algorithm with no additional
    hashing.  The default hash function
  is SHA-1 [<a href="https://datatracker.ietf.org/doc/html/rfc4492#ref-10" title="&quot;Secure Hash Standard&quot;">10</a>], and sha_size (see
