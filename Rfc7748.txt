@@ -2,6 +2,7 @@ RFC 7748
 Elliptic Curves for Security
 
 
+=======
 
 Abstract
 
@@ -81,7 +82,7 @@ Introduction
  Elliptic Curve Cryptography (ECC
    [Fundamental Elliptic Curve Cryptography
  Algorithms RFC6090]) in [SEC 1: Elliptic Curve
- Cryptography SEC1], there has been 
+ Cryptography SEC1], there has been
 significant progress related to
    both efficiency and security of curves
  and implementations.  Notable
@@ -105,7 +106,7 @@ significant progress related to
  is resistant to a wide
    range of side-channel attacks, including
  timing and cache attacks.
-   They are Montgomery curves 
+   They are Montgomery curves
 (where v^2 = u^3 + A*u^2 + u) and thus
    have birationally equivalent Edwards
  versions.  Edwards curves
@@ -139,37 +140,48 @@ Requirements Language
 section-3
 Notation
 
-   Throughout this document, the following notation is used:
+   Throughout this document, the following
+ notation is used:
 
-   p        Denotes the prime number defining the underlying field.
+   p        Denotes the prime number defining
+the underlying field.
 
    GF(p)    The finite field with p elements.
 
-   A        An element in the finite field GF(p), not equal to -2 or 2.
+   A        An element in the finite field
+ GF(p), not equal to -2 or 2.
 
-   d        A non-zero element in the finite field GF(p), not equal to
-            1, in the case of an Edwards curve, or not equal to -1, in
+   d        A non-zero element in the finite
+ field GF(p), not equal to
+            1, in the case of an Edwards curve,
+ or not equal to -1, in
             the case of a twisted Edwards curve.
 
    order    The order of the prime-order subgroup.
 
-   P        A generator point defined over GF(p) of prime order.
+   P        A generator point defined over GF(p)
+ of prime order.
 
-   U(P)     The u-coordinate of the elliptic curve point P on a
+   U(P)     The u-coordinate of the elliptic
+ curve point P on a
             Montgomery curve.
 
-   V(P)     The v-coordinate of the elliptic curve point P on a
+   V(P)     The v-coordinate of the elliptic
+ curve point P on a
             Montgomery curve.
 
-   X(P)     The x-coordinate of the elliptic curve point P on a
+   X(P)     The x-coordinate of the elliptic
+ curve point P on a
             (twisted) Edwards curve.
 
-   Y(P)     The y-coordinate of the elliptic curve point P on a
+   Y(P)     The y-coordinate of the elliptic
+ curve point P on a
             (twisted) Edwards curve.
 
    u, v     Coordinates on a Montgomery curve.
 
-   x, y     Coordinates on a (twisted) Edwards curve.
+   x, y     Coordinates on a (twisted)
+ Edwards curve.
 
 
 
@@ -179,12 +191,18 @@ Recommended Curves
 section-4.1
 Curve25519
 
-   For the ~128-bit security level, the prime 2^255 - 19 is recommended
-   for performance on a wide range of architectures.  Few primes of the
-   form 2^c-s with s small exist between 2^250 and 2^521, and other
-   choices of coefficient are not as competitive in performance.  This
-   prime is congruent to 1 mod 4, and the derivation procedure in
-   <a href="https://datatracker.ietf.org/doc/html/rfc7748#appendix-A">Appendix A</a> results in the following Montgomery curve
+   For the ~128-bit security level, the
+prime 2^255 - 19 is recommended
+   for performance on a wide range of
+ architectures.  Few primes of the
+   form 2^c-s with s small exist between
+ 2^250 and 2^521, and other
+   choices of coefficient are not as
+competitive in performance.  This
+   prime is congruent to 1 mod 4, and the
+ derivation procedure in
+   Appendix A results in the following
+ Montgomery curve
    v^2 = u^3 + A*u^2 + u, called "curve25519":
 
    p  2^255 - 19
@@ -197,28 +215,35 @@ Curve25519
 
    U(P)  9
 
-   V(P)  147816194475895447910205935684099868872646061346164752889648818
+   V(P)  1478161944758954479102059356840998688
+72646061346164752889648818
       37755586237401
 
-   The base point is u = 9, v = 1478161944758954479102059356840998688726
+   The base point is u = 9, v = 1478161944758
+954479102059356840998688726
    4606134616475288964881837755586237401.
 
-   This curve is birationally equivalent to a twisted Edwards curve -x^2
-   + y^2 = 1 + d*x^2*y^2, called "edwards25519", where:
+   This curve is birationally equivalent
+ to a twisted Edwards curve -x^2
+   + y^2 = 1 + d*x^2*y^2, called "edwards25519",
+ where:
 
    p  2^255 - 19
 
-   d  370957059346694393431380835087545651895421138798432190163887855330
+   d  370957059346694393431380835087545651895
+421138798432190163887855330
       85940283555
 
    order  2^252 + 0x14def9dea2f79cd65812631a5cf5d3ed
 
    cofactor  8
 
-   X(P)  151122213495354007725011514095885315114540126930418572060461132
+   X(P)  151122213495354007725011514095885315
+114540126930418572060461132
       83949847762202
 
-   Y(P)  463168356949264781694283940034751631413079938662562256157830336
+   Y(P)  4631683569492647816942839400347516
+31413079938662562256157830336
       03165251855960
 
    The birational maps are:
@@ -226,17 +251,22 @@ Curve25519
      (u, v) = ((1+y)/(1-y), sqrt(-486664)*u/x)
      (x, y) = (sqrt(-486664)*u/v, (u-1)/(u+1))
 
-   The Montgomery curve defined here is equal to the one defined in
-   [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-curve25519">curve25519</a>], and the equivalent twisted Edwards curve is equal to
-   the one defined in [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-ed25519" title="&quot;High-Speed High-Security Signatures&quot;">ed25519</a>].
+   The Montgomery curve defined here is equal
+ to the one defined in
+   [curve25519], and the equivalent
+ twisted Edwards curve is equal to
+   the one defined in [High-Speed High-Security
+ Signatures ed25519].
 
 
 
 section-4.2
 Curve448
 
-   For the ~224-bit security level, the prime 2^448 - 2^224 - 1 is
-   recommended for performance on a wide range of architectures.  This
+   For the ~224-bit security level, the
+ prime 2^448 - 2^224 - 1 is
+   recommended for performance on a wide
+ range of architectures.  This
    prime is congruent to 3 mod 4, and the derivation procedure in
    <a href="https://datatracker.ietf.org/doc/html/rfc7748#appendix-A">Appendix A</a> results in the following Montgomery curve, called
    "curve448":
@@ -312,40 +342,63 @@ Curve448
                -(u^5 - 2*u^3 - 4*u*v^2 + u)/
                (u^5 - 2*u^2*v^2 - 2*u^3 - 2*v^2 + u))
 
-   The curve edwards448 defined here is also called "Goldilocks" and is
-   equal to the one defined in [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-goldilocks">goldilocks</a>].
+   The curve edwards448 defined here is
+ also called "Goldilocks" and is
+   equal to the one defined in
+ [goldilocks].
 
 
 
 section-5
 The X25519 and X448 Functions
 
-   The "X25519" and "X448" functions perform scalar multiplication on
-   the Montgomery form of the above curves.  (This is used when
-   implementing Diffie-Hellman.)  The functions take a scalar and a
-   u-coordinate as inputs and produce a u-coordinate as output.
-   Although the functions work internally with integers, the inputs and
-   outputs are 32-byte strings (for X25519) or 56-byte strings (for
-   X448) and this specification defines their encoding.
+   The "X25519" and "X448" functions perform
+ scalar multiplication on
+   the Montgomery form of the above curves.
+  (This is used when
+   implementing Diffie-Hellman.)  The
+ functions take a scalar and a
+   u-coordinate as inputs and produce a
+ u-coordinate as output.
+   Although the functions work internally
+ with integers, the inputs and
+   outputs are 32-byte strings (for X25519)
+ or 56-byte strings (for
+   X448) and this specification defines
+ their encoding.
 
-   The u-coordinates are elements of the underlying field GF(2^255 - 19)
-   or GF(2^448 - 2^224 - 1) and are encoded as an array of bytes, u, in
-   little-endian order such that u[0] + 256*u[1] + 256^2*u[2] + ... +
-   256^(n-1)*u[n-1] is congruent to the value modulo p and u[n-1] is
-   minimal.  When receiving such an array, implementations of X25519
-   (but not X448) MUST mask the most significant bit in the final byte.
-   This is done to preserve compatibility with point formats that
-   reserve the sign bit for use in other protocols and to increase
+   The u-coordinates are elements of the
+ underlying field GF(2^255 - 19)
+   or GF(2^448 - 2^224 - 1) and are encoded
+ as an array of bytes, u, in
+   little-endian order such that
+ u[0] + 256*u[1] + 256^2*u[2] + ... +
+   256^(n-1)*u[n-1] is congruent to the
+ value modulo p and u[n-1] is
+   minimal.  When receiving such an array,
+ implementations of X25519
+   (but not X448) MUST mask the most
+ significant bit in the final byte.
+   This is done to preserve compatibility
+ with point formats that
+   reserve the sign bit for use in other
+ protocols and to increase
    resistance to implementation fingerprinting.
 
-   Implementations MUST accept non-canonical values and process them as
-   if they had been reduced modulo the field prime.  The non-canonical
-   values are 2^255 - 19 through 2^255 - 1 for X25519 and 2^448 - 2^224
+   Implementations MUST accept non-canonical
+ values and process them as
+   if they had been reduced modulo the
+ field prime.  The non-canonical
+   values are 2^255 - 19 through 2^255 - 1 for
+ X25519 and 2^448 - 2^224
    - 1 through 2^448 - 1 for X448.
 
-   The following functions implement this in Python, although the Python
-   code is not intended to be performant nor side-channel free.  Here,
-   the "bits" parameter should be set to 255 for X25519 and 448 for
+   The following functions implement this
+ in Python, although the Python
+   code is not intended to be performant
+ nor side-channel free.  Here,
+   the "bits" parameter should be set to
+ 255 for X25519 and 448 for
    X448:
 
    &lt;CODE BEGINS&gt;
@@ -366,16 +419,26 @@ The X25519 and X448 Functions
    &lt;CODE ENDS&gt;
 
 
-   Scalars are assumed to be randomly generated bytes.  For X25519, in
-   order to decode 32 random bytes as an integer scalar, set the three
-   least significant bits of the first byte and the most significant bit
-   of the last to zero, set the second most significant bit of the last
-   byte to 1 and, finally, decode as little-endian.  This means that the
-   resulting integer is of the form 2^254 plus eight times a value
-   between 0 and 2^251 - 1 (inclusive).  Likewise, for X448, set the two
-   least significant bits of the first byte to 0, and the most
-   significant bit of the last byte to 1.  This means that the resulting
-   integer is of the form 2^447 plus four times a value between 0 and
+   Scalars are assumed to be randomly
+ generated bytes.  For X25519, in
+   order to decode 32 random bytes as an
+ integer scalar, set the three
+   least significant bits of the first
+ byte and the most significant bit
+   of the last to zero, set the second
+ most significant bit of the last
+   byte to 1 and, finally, decode as
+ little-endian.  This means that the
+   resulting integer is of the form 2^254
+ plus eight times a value
+   between 0 and 2^251 - 1 (inclusive).
+  Likewise, for X448, set the two
+   least significant bits of the first
+ byte to 0, and the most
+   significant bit of the last byte to 1.
+  This means that the resulting
+   integer is of the form 2^447 plus four
+ times a value between 0 and
    2^445 - 1 (inclusive).
 
    &lt;CODE BEGINS&gt;
@@ -393,12 +456,18 @@ The X25519 and X448 Functions
        return decodeLittleEndian(k_list, 448)
    &lt;CODE ENDS&gt;
 
-   To implement the X25519(k, u) and X448(k, u) functions (where k is
-   the scalar and u is the u-coordinate), first decode k and u and then
-   perform the following procedure, which is taken from [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-curve25519">curve25519</a>] and
-   based on formulas from [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-montgomery">montgomery</a>].  All calculations are performed
-   in GF(p), i.e., they are performed modulo p.  The constant a24 is
-   (486662 - 2) / 4 = 121665 for curve25519/X25519 and (156326 - 2) / 4
+   To implement the X25519(k, u) and
+X448(k, u) functions (where k is
+   the scalar and u is the u-coordinate),
+ first decode k and u and then
+   perform the following procedure, which
+ is taken from [curve25519] and
+   based on formulas from
+[montgomery].  All calculations are performed
+   in GF(p), i.e., they are performed modulo
+ p.  The constant a24 is
+   (486662 - 2) / 4 = 121665 for
+ curve25519/X25519 and (156326 - 2) / 4
    = 39081 for curve448/X448.
 
 
@@ -436,17 +505,23 @@ The X25519 and X448 Functions
    (z_2, z_3) = cswap(swap, z_2, z_3)
    Return x_2 * (z_2^(p - 2))
 
-   (Note that these formulas are slightly different from Montgomery's
-   original paper.  Implementations are free to use any correct
+   (Note that these formulas are slightly
+ different from Montgomery's
+   original paper.  Implementations are
+ free to use any correct
    formulas.)
 
-   Finally, encode the resulting value as 32 or 56 bytes in little-
-   endian order.  For X25519, the unused, most significant bit MUST be
+   Finally, encode the resulting value as
+ 32 or 56 bytes in little-
+   endian order.  For X25519, the unused,
+ most significant bit MUST be
    zero.
 
 
-   The cswap function SHOULD be implemented in constant time (i.e.,
-   independent of the swap argument).  For example, this can be done as
+   The cswap function SHOULD be implemented
+ in constant time (i.e.,
+   independent of the swap argument).
+  For example, this can be done as
    follows:
 
    cswap(swap, x_2, x_3):
@@ -455,39 +530,58 @@ The X25519 and X448 Functions
          x_3 = x_3 XOR dummy
          Return (x_2, x_3)
 
-   Where mask(swap) is the all-1 or all-0 word of the same length as x_2
-   and x_3, computed, e.g., as mask(swap) = 0 - swap.
+   Where mask(swap) is the all-1 or all-0
+ word of the same length as x_2
+   and x_3, computed, e.g., as mask(swap) = 0
+ - swap.
 
 
 
 section-5.1
 Side-Channel Considerations
 
-   X25519 and X448 are designed so that fast, constant-time
-   implementations are easier to produce.  The procedure above ensures
-   that the same sequence of field operations is performed for all
-   values of the secret key, thus eliminating a common source of side-
-   channel leakage.  However, this alone does not prevent all side-
-   channels by itself.  It is important that the pattern of memory
-   accesses and jumps not depend on the values of any of the bits of k.
-   It is also important that the arithmetic used not leak information
-   about the integers modulo p, for example by having b*c be
-   distinguishable from c*c.  On some architectures, even primitive
-   machine instructions, such as single-word division, can have variable
+   X25519 and X448 are designed so that
+ fast, constant-time
+   implementations are easier to produce.
+  The procedure above ensures
+   that the same sequence of field
+operations is performed for all
+   values of the secret key, thus
+ eliminating a common source of side-
+   channel leakage.  However, this alone
+ does not prevent all side-
+   channels by itself.  It is important
+ that the pattern of memory
+   accesses and jumps not depend on
+ the values of any of the bits of k.
+   It is also important that the
+ arithmetic used not leak information
+   about the integers modulo p, for
+ example by having b*c be
+   distinguishable from c*c.  On some
+architectures, even primitive
+   machine instructions, such as
+ single-word division, can have variable
    timing based on their inputs.
 
-   Side-channel attacks are an active research area that still sees
-   significant, new results.  Implementors are advised to follow this
+   Side-channel attacks are an active
+ research area that still sees
+   significant, new results.  Implementors
+ are advised to follow this
    research closely.
 
 
 section-5.2
 Test Vectors
 
-   Two types of tests are provided.  The first is a pair of test vectors
-   for each function that consist of expected outputs for the given
-   inputs.  The inputs are generally given as 64 or 112 hexadecimal
-   digits that need to be decoded as 32 or 56 binary bytes before
+   Two types of tests are provided.  The
+ first is a pair of test vectors
+   for each function that consist of
+ expected outputs for the given
+   inputs.  The inputs are generally given
+ as 64 or 112 hexadecimal
+   digits that need to be decoded as 32
+ or 56 binary bytes before
    processing.
 
    X25519:
@@ -559,8 +653,10 @@ Test Vectors
      ad1b3ee3a5700df34321d62077e63633c575c1c954514e99da7c179d
 
 
-   The second type of test vector consists of the result of calling the
-   function in question a specified number of times.  Initially, set k
+   The second type of test vector consists
+ of the result of calling the
+   function in question a specified
+ number of times.  Initially, set k
    and u to be the following values:
 
    For X25519:
@@ -597,35 +693,52 @@ Test Vectors
 
 
 
+
+=====
 section-6
 Diffie-Hellman
 
 section-6.1
 Curve25519
 
-   The X25519 function can be used in an Elliptic Curve Diffie-Hellman
+   The X25519 function can be used in an
+ Elliptic Curve Diffie-Hellman
    (ECDH) protocol as follows:
 
-   Alice generates 32 random bytes in a[0] to a[31] and transmits K_A =
-   X25519(a, 9) to Bob, where 9 is the u-coordinate of the base point
-   and is encoded as a byte with value 9, followed by 31 zero bytes.
+   Alice generates 32 random bytes in
+ a[0] to a[31] and transmits K_A =
+   X25519(a, 9) to Bob, where 9 is the
+ u-coordinate of the base point
+   and is encoded as a byte with value 9,
+ followed by 31 zero bytes.
 
-   Bob similarly generates 32 random bytes in b[0] to b[31], computes
+   Bob similarly generates 32 random
+ bytes in b[0] to b[31], computes
    K_B = X25519(b, 9), and transmits it to Alice.
 
-   Using their generated values and the received input, Alice computes
+   Using their generated values and the
+ received input, Alice computes
    X25519(a, K_B) and Bob computes X25519(b, K_A).
 
-   Both now share K = X25519(a, X25519(b, 9)) = X25519(b, X25519(a, 9))
-   as a shared secret.  Both MAY check, without leaking extra
-   information about the value of K, whether K is the all-zero value and
-   abort if so (see below).  Alice and Bob can then use a key-derivation
-   function that includes K, K_A, and K_B to derive a symmetric key.
+   Both now share K =
+X25519(a, X25519(b, 9)) = X25519(b, X25519(a, 9))
+   as a shared secret.  Both MAY check, without
+ leaking extra
+   information about the value of K,
+ whether K is the all-zero value and
+   abort if so (see below).  Alice and Bob
+ can then use a key-derivation
+   function that includes K, K_A, and K_B
+to derive a symmetric key.
 
-   The check for the all-zero value results from the fact that the
-   X25519 function produces that value if it operates on an input
-   corresponding to a point with small order, where the order divides
-   the cofactor of the curve (see <a href="https://datatracker.ietf.org/doc/html/rfc7748#section-7">Section 7</a>).  The check may be
+   The check for the all-zero value
+ results from the fact that the
+   X25519 function produces that value if
+ it operates on an input
+   corresponding to a point with small
+ order, where the order divides
+   the cofactor of the curve
+(see Section 7).  The check may be
    performed by ORing all the bytes together and checking whether the
    result is zero, as this eliminates standard side-channels in software
    implementations.
@@ -737,7 +850,8 @@ References</span>
 
 
 
-<span class="h3"><a class="selflink" id="section-8.1" href="https://datatracker.ietf.org/doc/html/rfc7748#section-8.1">8.1</a>.  Normative References</span>
+section-8.1
+Normative References
 
    [<a id="ref-RFC2119">RFC2119</a>]  Bradner, S., "Key words for use in RFCs to Indicate
               Requirement Levels", <a href="https://datatracker.ietf.org/doc/html/bcp14">BCP 14</a>, <a href="https://datatracker.ietf.org/doc/html/rfc2119">RFC 2119</a>,
@@ -745,19 +859,12 @@ References</span>
               &lt;<a href="https://www.rfc-editor.org/info/rfc2119">http://www.rfc-editor.org/info/rfc2119</a>&gt;.
 
 
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 16]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-17"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-<span class="h3"><a class="selflink" id="section-8.2" href="https://datatracker.ietf.org/doc/html/rfc7748#section-8.2">8.2</a>.  Informative References</span>
+section-8.2
+Informative References
 
    [<a id="ref-brainpool">brainpool</a>]
-              ECC Brainpool, "ECC Brainpool Standard Curves and Curve
+              ECC Brainpool, "ECC Brainpool
+ Standard Curves and Curve
               Generation", October 2005,
               &lt;<a href="http://www.ecc-brainpool.org/download/Domain-parameters.pdf">http://www.ecc-brainpool.org/download/</a>
               <a href="http://www.ecc-brainpool.org/download/Domain-parameters.pdf">Domain-parameters.pdf</a>&gt;.
@@ -767,7 +874,8 @@ References</span>
               &lt;<a href="https://cr.yp.to/snuffle/bruteforce-20050425.pdf">http://cr.yp.to/snuffle/bruteforce-20050425.pdf</a>&gt;.
 
    [<a id="ref-curve25519">curve25519</a>]
-              Bernstein, D., "Curve25519: new Diffie-Hellman speed
+              Bernstein, D., "Curve25519: new
+ Diffie-Hellman speed
               records", 2006,
               &lt;<a href="https://www.iacr.org/cryptodb/archive/2006/PKC/3351/3351.pdf">http://www.iacr.org/cryptodb/archive/2006/</a>
               <a href="https://www.iacr.org/cryptodb/archive/2006/PKC/3351/3351.pdf">PKC/3351/3351.pdf</a>&gt;.

@@ -625,6 +625,7 @@ ECC Parameters
    Parameter generation is out of scope
  for this note.
 
+====
    Each elliptic curve point is
  associated with a particular parameter
    set.  The elliptic curve group operation
@@ -706,6 +707,7 @@ so that it
    group.  We describe DH following the
  former reference.
 
+======
    Let G be a group, and g be a generator
  for that group, and let t
    denote the order of G.  The DH protocol
@@ -844,7 +846,7 @@ ElGamal- Signaturen HP1994], [Message Recovery
 section-5.2
 Hash Functions
 
-   ElGamal signatures must use a 
+   ElGamal signatures must use a
 collision-resistant hash function, so
    that it can sign messages of arbitrary
  length and can avoid
@@ -883,15 +885,27 @@ Section 10.4.  (This is true for all
 section-5.3
 KT-IV Signatures
 
-   Koyama and Tsuruoka described a signature method based on Elliptic
-   Curve ElGamal, in which the first signature component is the
-   x-coordinate of an elliptic curve point reduced modulo q [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-KT1994" title="&quot;Digital signature system based on elliptic curve and signer device and verifier device for said system&quot;">KT1994</a>].
-   In this section, we recall that method, which we refer to as KT-IV.
+   Koyama and Tsuruoka described a signature
+ method based on Elliptic
+   Curve ElGamal, in which the first
+ signature component is the
+   x-coordinate of an elliptic curve point
+ reduced modulo q [Digital signature
+system based on elliptic curve and signer
+ device and verifier device for said
+ system KT1994].
+   In this section, we recall that method,
+ which we refer to as KT-IV.
 
-   The algorithm uses an elliptic curve group, as described in
-   <a href="https://www.rfc-editor.org/rfc/rfc6090#section-3.3">Section 3.3</a>, with prime field order p and curve equation parameters a
-   and b.  We denote the generator as alpha, and the order of the
-   generator as q.  We follow [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-FIPS186" title="&quot;DIGITAL SIGNATURE STANDARD&quot;">FIPS186</a>] in checking for exceptional
+   The algorithm uses an elliptic curve group,
+ as described in
+  Section 3.3, with prime field order p
+ and curve equation parameters a
+   and b.  We denote the generator as alpha,
+ and the order of the
+   generator as q.  We follow
+[DIGITAL SIGNATURE STANDARD FIPS186] in
+ checking for exceptional
    cases.
 
 
@@ -899,13 +913,17 @@ KT-IV Signatures
 section-5.3.1
 Keypair Generation
 
-   The private key z is an integer between 1 and q-1, inclusive,
-   generated uniformly at random.  (See <a href="https://www.rfc-editor.org/rfc/rfc6090#appendix-B">Appendix B</a> regarding random
-   integers.)  The public key is the group element Y = alpha^z.  Each
+   The private key z is an integer between
+ 1 and q-1, inclusive,
+   generated uniformly at random.  (See
+Appendix B regarding random
+   integers.)  The public key is the group
+ element Y = alpha^z.  Each
 
 
-   public key is associated with a particular parameter set as per
-   <a href="https://www.rfc-editor.org/rfc/rfc6090#section-3.3">Section 3.3</a>.
+   public key is associated with a particular
+ parameter set as per
+Section 3.3.
 
 
 
@@ -972,13 +990,20 @@ KT-I Signatures
    in the same manner as that of the Digital Signature Algorithm.  In
    this section, we describe this method, which we refer to as KT-I.
 
-<span class="h4"><a class="selflink" id="section-5.4.1" href="https://www.rfc-editor.org/rfc/rfc6090#section-5.4.1">5.4.1</a>.  Keypair Generation</span>
-
-   Keypairs and keypair generation are exactly as in <a href="https://www.rfc-editor.org/rfc/rfc6090#section-5.3.1">Section 5.3.1</a>.
 
 
+section-5.4.1
+Keypair Generation
 
-<span class="h4"><a class="selflink" id="section-5.4.2" href="https://www.rfc-editor.org/rfc/rfc6090#section-5.4.2">5.4.2</a>.  Signature Creation</span>
+
+   Keypairs and keypair generation are
+ exactly as in Section 5.3.1.
+
+
+
+
+section-5.4.2
+Signature Creation
 
    To compute a KT-I signature for a message m using the private key z:
 
@@ -1003,7 +1028,8 @@ KT-I Signatures
 
 
 
-<span class="h4"><a class="selflink" id="section-5.4.3" href="https://www.rfc-editor.org/rfc/rfc6090#section-5.4.3">5.4.3</a>.  Signature Verification</span>
+section-5.4.3
+Signature Verification
 
    Given the message m, the public key Y, and the signature (s1, s2),
    verification is as follows:
@@ -1030,7 +1056,9 @@ KT-I Signatures
 
 
 
-section-5.5" href="https://www.rfc-editor.org/rfc/rfc6090#section-5.5">5.5</a>.  Converting KT-IV Signatures to KT-I Signatures</span>
+section-5.5
+Converting KT-IV Signatures to KT-I Signatures
+
 
    A KT-IV signature for a message m and a public key Y can easily be
    converted into a KT-I signature for the same message and public key.
@@ -1046,24 +1074,37 @@ section-5.5" href="https://www.rfc-editor.org/rfc/rfc6090#section-5.5">5.5</a>. 
 
 
 
-<span class="h3"><a class="selflink" id="section-5.6" href="https://www.rfc-editor.org/rfc/rfc6090#section-5.6">5.6</a>.  Rationale</span>
+section-5.6
+Rationale
 
-   This subsection is not normative for this specification and is
+   This subsection is not normative for
+ this specification and is
    provided only as background information.
 
-   [<a id="ref-HMP1994">HMP1994</a>] presents many generalizations of ElGamal signatures.
-   Equation (5) of that reference shows the general signature equation
+   [HMP1994] presents many generalizations
+ of ElGamal signatures.
+   Equation (5) of that reference shows
+ the general signature equation
 
       A = x_A * B + k * C (mod q)
 
-   where x_A is the private key, k is the secret value, and A, B, and C
-   are determined by the Type of the equation, as shown in Table 1 of
-   [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-HMP1994" title="&quot;Meta-ElGamal signature schemes&quot;">HMP1994</a>].  DSA [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-FIPS186" title="&quot;DIGITAL SIGNATURE STANDARD&quot;">FIPS186</a>] is an EG-I.1 signature method (as is KT-I),
-   with A = m, B = -r, and C = s.  (Here we use the notation of
-   [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-HMP1994" title="&quot;Meta-ElGamal signature schemes&quot;">HMP1994</a>] in which the first signature component is r and the second
-   signature component is s; in KT-I and KT-IV these components are
-   denoted as s1 and s2, respectively.  The private key x_A corresponds
-   to the private key z.)  Its signature equation is
+   where x_A is the private key, k is the
+ secret value, and A, B, and C
+   are determined by the Type of the
+ equation, as shown in Table 1 of
+   [Meta-ElGamal signature schemes HMP1994].
+  DSA [DIGITAL SIGNATURE STANDARD FIPS186]
+ is an EG-I.1 signature method (as is KT-I),
+   with A = m, B = -r, and C = s.  (Here we
+ use the notation of
+   [HMP1994] in which the first signature
+ component is r and the second
+   signature component is s; in KT-I
+ and KT-IV these components are
+   denoted as s1 and s2, respectively.
+  The private key x_A corresponds
+   to the private key z.)  Its signature 
+equation is
 
       m = -r * z + s * k (mod q).
 
@@ -1112,12 +1153,19 @@ section-6
 Converting between Integers and Octet
  Strings
 
-   A method for the conversion between integers and octet strings is
-   specified in this section, following the established conventions of
-   public key cryptography [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-R1993" title="&quot;PKCS#1: RSA Encryption Standard&quot;">R1993</a>].  This method allows integers to be
-   represented as octet strings that are suitable for transmission or
-   storage.  This method SHOULD be used when representing an elliptic
-   curve point or an elliptic curve coordinate as they are defined in
+   A method for the conversion between
+ integers and octet strings is
+   specified in this section, following the
+ established conventions of
+   public key cryptography [PKCS#1: RSA
+ Encryption Standard R1993].  This method
+ allows integers to be
+   represented as octet strings that are
+ suitable for transmission or
+   storage.  This method SHOULD be used
+when representing an elliptic
+   curve point or an elliptic curve
+ coordinate as they are defined in
    this note.
 
 
@@ -1125,70 +1173,116 @@ Converting between Integers and Octet
 section-6.1
 Octet-String-to-Integer Conversion
 
-   The octet string S shall be converted to an integer x as follows.
-   Let S1, ..., Sk be the octets of S from first to last.  Then the
+   The octet string S shall be converted
+ to an integer x as follows.
+   Let S1, ..., Sk be the octets of S from
+ first to last.  Then the
    integer x shall satisfy
 
                           k
                     x =  SUM  2^(8(k-i)) Si .
                         i = 1
 
-   In other words, the first octet of S has the most significance in the
-   integer and the last octet of S has the least significance.
+   In other words, the first octet of S
+ has the most significance in the
+   integer and the last octet of S has the
+ least significance.
 
-   Note: the integer x satisfies 0 &lt;= x &lt; 2^(8*k).
+   Note: the integer x satisfies 0
+ &lt;= x &lt; 2^(8*k).
 
 
 
 section-6.2
 Integer-to-Octet-String Conversion
 
-   The integer x shall be converted to an octet string S of length k as
+   The integer x shall be converted to an
+ octet string S of length k as
    follows.  The string S shall satisfy
 
                           k
                     y =  SUM  2^(8(k-i)) Si .
                         i = 1
 
-   where S1, ..., Sk are the octets of S from first to last.
+   where S1, ..., Sk are the octets of S
+from first to last.
 
-   In other words, the first octet of S has the most significance in the
-   integer, and the last octet of S has the least significance.
+   In other words, the first octet of S has
+ the most significance in the
+   integer, and the last octet of S has the
+least significance.
 
 
 
 section-7
 Interoperability
 
-   The algorithms in this note can be used to interoperate with some
-   other ECC specifications.  This section provides details for each
+   The algorithms in this note can be used
+to interoperate with some
+   other ECC specifications.  This section
+ provides details for each
    algorithm.
 
-<span class="h3"><a class="selflink" id="section-7.1" href="https://www.rfc-editor.org/rfc/rfc6090#section-7.1">7.1</a>.  ECDH</span>
-
-   <a href="https://www.rfc-editor.org/rfc/rfc6090#section-4">Section 4</a> can be used with the Internet Key Exchange (IKE) versions
-   one [<a href="https://www.rfc-editor.org/rfc/rfc2409" title="&quot;The Internet Key Exchange (IKE)&quot;">RFC2409</a>] or two [<a href="https://www.rfc-editor.org/rfc/rfc5996" title="&quot;Internet Key Exchange Protocol Version 2 (IKEv2)&quot;">RFC5996</a>].  These algorithms are compatible with
-   the ECP groups defined by [<a href="https://www.rfc-editor.org/rfc/rfc5903" title="&quot;Elliptic Curve Groups modulo a Prime (ECP Groups) for IKE and IKEv2&quot;">RFC5903</a>], [<a href="https://www.rfc-editor.org/rfc/rfc5114" title="&quot;Additional Diffie-Hellman Groups for Use with IETF Standards&quot;">RFC5114</a>], [<a href="https://www.rfc-editor.org/rfc/rfc2409" title="&quot;The Internet Key Exchange (IKE)&quot;">RFC2409</a>], and
-   [<a href="https://www.rfc-editor.org/rfc/rfc2412" title="&quot;The OAKLEY Key Determination Protocol&quot;">RFC2412</a>].  The group definition in this protocol uses an affine
-   coordinate representation of the public key.  [<a href="https://www.rfc-editor.org/rfc/rfc5903" title="&quot;Elliptic Curve Groups modulo a Prime (ECP Groups) for IKE and IKEv2&quot;">RFC5903</a>] uses the
-   compact output of <a href="https://www.rfc-editor.org/rfc/rfc6090#section-4.2">Section 4.2</a>, while [<a href="https://www.rfc-editor.org/rfc/rfc4753" title="&quot;ECP Groups For IKE and IKEv2&quot;">RFC4753</a>] (which was obsoleted
-   by <a href="https://www.rfc-editor.org/rfc/rfc5903">RFC 5903</a>) does not.  Neither of those RFCs use compact
-   representation.  Note that some groups indicate that the curve
-   parameter "a" is negative; these values are to be interpreted modulo
-   the order of the field.  For example, a parameter of a = -3 is equal
-   to p - 3, where p is the order of the field.  The test cases in
 
 
-   <a href="https://www.rfc-editor.org/rfc/rfc5903#section-8">Section&nbsp;8 of [RFC5903]</a> can be used to test an implementation; these
-   cases use the multiplicative notation, as does this note.  The KEi
-   and KEr payloads are equal to g^j and g^k, respectively, with 64 bits
+section-7.1
+ECDH
+
+Section 4 can be used with the Internet
+ Key Exchange (IKE) versions
+   one [The Internet Key Exchange (IKE) RFC2409]
+ or two [Internet Key Exchange Protocol
+ Version 2 (IKEv2) RFC5996].  These
+ algorithms are compatible with
+   the ECP groups defined by [Elliptic
+Curve Groups modulo a Prime (ECP Groups)
+ for IKE and IKEv2 RFC5903], [Additional
+ Diffie-Hellman Groups for Use with IETF
+ Standards RFC5114], [The Internet Key
+ Exchange (IKE) RFC2409], and
+   [The OAKLEY Key Determination
+ Protocol RFC2412].  The group
+definition in this protocol uses an affine
+   coordinate representation of the
+ public key.  [Elliptic Curve Groups modulo
+ a Prime (ECP Groups) for IKE and IKEv2 
+RFC5903] uses the
+   compact output of Section 4.2, while
+ [ECP Groups For IKE and IKEv2 RFC4753]
+ (which was obsoleted
+   by RFC 5903) does not.  Neither of
+ those RFCs use compact
+   representation.  Note that some groups
+ indicate that the curve
+   parameter "a" is negative; these values
+ are to be interpreted modulo
+   the order of the field.  For example,
+ a parameter of a = -3 is equal
+   to p - 3, where p is the order of the
+ field.  The test cases in
+
+Section 8 of [RFC5903] can be used to
+ test an implementation; these
+   cases use the multiplicative notation,
+ as does this note.  The KEi
+   and KEr payloads are equal to 
+g^j and g^k, respectively, with 64 bits
    of encoding data prepended to them.
 
-   The algorithms in <a href="https://www.rfc-editor.org/rfc/rfc6090#section-4">Section 4</a> can be used to interoperate with the IEEE
-   [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-P1363" title="&quot;Standard Specifications for Public Key Cryptography&quot;">P1363</a>] and ANSI [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-X9.62" title="&quot;Public Key Cryptography for the Financial Services Industry: The Elliptic Curve Digital Signature Algorithm (ECDSA)&quot;">X9.62</a>] standards for ECDH based on fields of
-   characteristic greater than three.  IEEE P1363 ECDH can be used in a
-   manner that will interoperate with this note, with the following
-   options and parameter choices from that specification:
+   The algorithms in Section 4 can be
+ used to interoperate with the IEEE
+   [Standard Specifications for Public
+ Key Cryptography P1363] and ANSI
+ [Public Key Cryptography for the Financial
+ Services Industry: The Elliptic Curve
+ Digital Signature Algorithm (ECDSA) X9.62]
+ standards for ECDH based on fields of
+   characteristic greater than three. 
+ IEEE P1363 ECDH can be used in a
+   manner that will interoperate with
+ this note, with the following
+   options and parameter choices from 
+that specification:
 
       prime curves with a cofactor of 1,
 
@@ -1247,9 +1341,11 @@ Validating an Implementation</span>
 
 
 
-<span class="h3"><a class="selflink" id="section-8.1" href="https://www.rfc-editor.org/rfc/rfc6090#section-8.1">8.1</a>.  ECDH</span>
+section-8.1
+ECDH
 
-   An ECDH implementation can be validated using the known answer test
+   An ECDH implementation can be validated
+ using the known answer test
    cases from [<a href="https://www.rfc-editor.org/rfc/rfc5903" title="&quot;Elliptic Curve Groups modulo a Prime (ECP Groups) for IKE and IKEv2&quot;">RFC5903</a>] or [<a href="https://www.rfc-editor.org/rfc/rfc5114" title="&quot;Additional Diffie-Hellman Groups for Use with IETF Standards&quot;">RFC5114</a>].  The correspondence between the
    notation in <a href="https://www.rfc-editor.org/rfc/rfc5903">RFC 5903</a> and the notation in this note is summarized in
    the following table.  (Refer to Sections <a href="https://www.rfc-editor.org/rfc/rfc6090#section-3.3">3.3</a> and <a href="https://www.rfc-editor.org/rfc/rfc6090#section-4">4</a>; the generator g
@@ -2046,4 +2142,3 @@ Normative References
    It thus turns out that the point at infinity is the identity element
    and for P1=(X,Y,Z) not equal to this point at infinity, P2=(X,-Y,Z)
    represents P1^-1.
-
