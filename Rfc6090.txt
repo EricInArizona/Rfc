@@ -1103,7 +1103,7 @@ Rationale
  and KT-IV these components are
    denoted as s1 and s2, respectively.
   The private key x_A corresponds
-   to the private key z.)  Its signature 
+   to the private key z.)  Its signature
 equation is
 
       m = -r * z + s * k (mod q).
@@ -1245,7 +1245,7 @@ Curve Groups modulo a Prime (ECP Groups)
 definition in this protocol uses an affine
    coordinate representation of the
  public key.  [Elliptic Curve Groups modulo
- a Prime (ECP Groups) for IKE and IKEv2 
+ a Prime (ECP Groups) for IKE and IKEv2
 RFC5903] uses the
    compact output of Section 4.2, while
  [ECP Groups For IKE and IKEv2 RFC4753]
@@ -1265,7 +1265,7 @@ Section 8 of [RFC5903] can be used to
  test an implementation; these
    cases use the multiplicative notation,
  as does this note.  The KEi
-   and KEr payloads are equal to 
+   and KEr payloads are equal to
 g^j and g^k, respectively, with 64 bits
    of encoding data prepended to them.
 
@@ -1277,11 +1277,11 @@ g^j and g^k, respectively, with 64 bits
  Services Industry: The Elliptic Curve
  Digital Signature Algorithm (ECDSA) X9.62]
  standards for ECDH based on fields of
-   characteristic greater than three. 
+   characteristic greater than three.
  IEEE P1363 ECDH can be used in a
    manner that will interoperate with
  this note, with the following
-   options and parameter choices from 
+   options and parameter choices from
 that specification:
 
       prime curves with a cofactor of 1,
