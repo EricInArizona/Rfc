@@ -314,8 +314,10 @@ Curve448
      (u, v) = ((y-1)/(y+1), sqrt(156324)*u/x)
      (x, y) = (sqrt(156324)*u/v, (1+u)/(1-u))
 
-   Both of those curves are also 4-isogenous to the following Edwards
-   curve x^2 + y^2 = 1 + d*x^2*y^2, called "edwards448", where:
+   Both of those curves are also 4-isogenous
+ to the following Edwards
+   curve x^2 + y^2 = 1 + d*x^2*y^2, called
+ "edwards448", where:
 
    p  2^448 - 2^224 - 1
 
@@ -334,7 +336,8 @@ Curve448
       372331506189835876003536878655418784733982303233503462500531545062
       832660
 
-   The 4-isogeny maps between the Montgomery curve and this Edwards
+   The 4-isogeny maps between the Montgomery
+ curve and this Edwards
    curve are:
 
      (u, v) = (y^2/x^2, (2 - x^2 - y^2)*y/x^3)
@@ -403,7 +406,8 @@ The X25519 and X448 Functions
 
    &lt;CODE BEGINS&gt;
    def decodeLittleEndian(b, bits):
-       return sum([b[i] &lt;&lt; 8*i for i in range((bits+7)/8)])
+       return sum([b[i] &lt;&lt; 8*i for i in
+                         range((bits+7)/8)])
 
    def decodeUCoordinate(u, bits):
        u_list = [ord(b) for b in u]
@@ -665,8 +669,10 @@ Test Vectors
      05000000000000000000000000000000000000000000000000000000
      00000000000000000000000000000000000000000000000000000000
 
-   For each iteration, set k to be the result of calling the function
-   and u to be the old value of k.  The final result is the value left
+   For each iteration, set k to be the result
+ of calling the function
+   and u to be the old value of k.  The
+ final result is the value left
    in k.
 
    X25519:
@@ -739,8 +745,10 @@ to derive a symmetric key.
  order, where the order divides
    the cofactor of the curve
 (see Section 7).  The check may be
-   performed by ORing all the bytes together and checking whether the
-   result is zero, as this eliminates standard side-channels in software
+   performed by ORing all the bytes together
+ and checking whether the
+   result is zero, as this eliminates standard
+ side-channels in software
    implementations.
 
    Test vector:
@@ -791,64 +799,105 @@ Curve448
      07fff4181ac6cc95ec1c16a94a0f74d12da232ce40a77552281d282b
      b60c0b56fd2464c335543936521c24403085d59a449a5037514a879d
 
-<span class="h2"><a class="selflink" id="section-7" href="https://datatracker.ietf.org/doc/html/rfc7748#section-7">7</a>.  Security Considerations</span>
-
-   The security level (i.e., the number of "operations" needed for a
-   brute-force attack on a primitive) of curve25519 is slightly under
-   the standard 128-bit level.  This is acceptable because the standard
-   security levels are primarily driven by much simpler, symmetric
-   primitives where the security level naturally falls on a power of
-   two.  For asymmetric primitives, rigidly adhering to a power-of-two
-   security level would require compromises in other parts of the
-   design, which we reject.  Additionally, comparing security levels
-   between types of primitives can be misleading under common threat
-   models where multiple targets can be attacked concurrently
-   [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-bruteforce">bruteforce</a>].
 
 
-   The ~224-bit security level of curve448 is a trade-off between
-   performance and paranoia.  Large quantum computers, if ever created,
-   will break both curve25519 and curve448, and reasonable projections
-   of the abilities of classical computers conclude that curve25519 is
-   perfectly safe.  However, some designs have relaxed performance
-   requirements and wish to hedge against some amount of analytical
-   advance against elliptic curves and thus curve448 is also provided.
+section-7
+Security Considerations
 
-   Protocol designers using Diffie-Hellman over the curves defined in
-   this document must not assume "contributory behaviour".  Specially,
-   contributory behaviour means that both parties' private keys
-   contribute to the resulting shared key.  Since curve25519 and
-   curve448 have cofactors of 8 and 4 (respectively), an input point of
-   small order will eliminate any contribution from the other party's
-   private key.  This situation can be detected by checking for the all-
-   zero output, which implementations MAY do, as specified in <a href="https://datatracker.ietf.org/doc/html/rfc7748#section-6">Section 6</a>.
-   However, a large number of existing implementations do not do this.
+   The security level (i.e., the number of
+ "operations" needed for a
+   brute-force attack on a primitive) of
+ curve25519 is slightly under
+   the standard 128-bit level.  This is
+acceptable because the standard
+   security levels are primarily driven by
+ much simpler, symmetric
+   primitives where the security level
+ naturally falls on a power of
+   two.  For asymmetric primitives, rigidly
+ adhering to a power-of-two
+   security level would require compromises
+ in other parts of the
+   design, which we reject.  Additionally,
+ comparing security levels
+   between types of primitives can be
+ misleading under common threat
+   models where multiple targets can be
+ attacked concurrently
+   [bruteforce].
 
-   Designers using these curves should be aware that for each public
-   key, there are several publicly computable public keys that are
-   equivalent to it, i.e., they produce the same shared secrets.  Thus
-   using a public key as an identifier and knowledge of a shared secret
-   as proof of ownership (without including the public keys in the key
+   The ~224-bit security level of curve448
+ is a trade-off between
+   performance and paranoia.  Large quantum
+ computers, if ever created,
+   will break both curve25519 and curve448,
+ and reasonable projections
+   of the abilities of classical computers
+ conclude that curve25519 is
+   perfectly safe.  However, some designs have
+ relaxed performance
+   requirements and wish to hedge against
+ some amount of analytical
+   advance against elliptic curves and thus
+ curve448 is also provided.
+
+   Protocol designers using Diffie-Hellman
+ over the curves defined in
+   this document must not assume "contributory
+ behaviour".  Specially,
+   contributory behaviour means that both
+ parties' private keys
+   contribute to the resulting shared key.
+  Since curve25519 and
+   curve448 have cofactors of 8 and 4
+ (respectively), an input point of
+   small order will eliminate any
+ contribution from the other party's
+   private key.  This situation can be
+ detected by checking for the all-
+   zero output, which implementations MAY
+ do, as specified in Section 6.
+   However, a large number of existing
+ implementations do not do this.
+
+   Designers using these curves should be
+ aware that for each public
+   key, there are several publicly computable
+ public keys that are
+   equivalent to it, i.e., they produce
+ the same shared secrets.  Thus
+   using a public key as an identifier
+ and knowledge of a shared secret
+   as proof of ownership (without
+ including the public keys in the key
    derivation) might lead to subtle vulnerabilities.
 
-   Designers should also be aware that implementations of these curves
-   might not use the Montgomery ladder as specified in this document,
-   but could use generic, elliptic-curve libraries instead.  These
-   implementations could reject points on the twist and could reject
-   non-minimal field elements.  While not recommended, such
-   implementations will interoperate with the Montgomery ladder
-   specified here but may be trivially distinguishable from it.  For
-   example, sending a non-canonical value or a point on the twist may
-   cause such implementations to produce an observable error while an
-   implementation that follows the design in this text would
+   Designers should also be aware that
+implementations of these curves
+   might not use the Montgomery ladder as
+ specified in this document,
+   but could use generic, elliptic-curve
+ libraries instead.  These
+   implementations could reject points on
+ the twist and could reject
+   non-minimal field elements.  While not
+ recommended, such
+   implementations will interoperate with
+ the Montgomery ladder
+   specified here but may be trivially
+ distinguishable from it.  For
+   example, sending a non-canonical value
+ or a point on the twist may
+   cause such implementations to produce
+ an observable error while an
+   implementation that follows the design
+ in this text would
    successfully produce a shared key.
 
 
 
 section-8
-References</span>
-
-
+References
 
 section-8.1
 Normative References
@@ -877,8 +926,9 @@ Informative References
               Bernstein, D., "Curve25519: new
  Diffie-Hellman speed
               records", 2006,
-              &lt;<a href="https://www.iacr.org/cryptodb/archive/2006/PKC/3351/3351.pdf">http://www.iacr.org/cryptodb/archive/2006/</a>
-              <a href="https://www.iacr.org/cryptodb/archive/2006/PKC/3351/3351.pdf">PKC/3351/3351.pdf</a>&gt;.
+https://www.iacr.org/cryptodb/archive/2006/PKC/3351/3351.pdf">http://www.iacr.org/cryptodb/archive/2006/</a>
+https://www.iacr.org/cryptodb/archive/2006/PKC/3351/3351.pdf">PKC/3351/3351.pdf
+
 
    [<a id="ref-ed25519">ed25519</a>]  Bernstein, D., Duif, N., Lange, T., Schwabe, P., and B.
               Yang, "High-Speed High-Security Signatures", 2011,
@@ -913,10 +963,6 @@ Informative References
 
 
 
-<span class="grey">Langley, et al.               Informational                    [Page 17]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-18"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
 
    [<a id="ref-safecurves">safecurves</a>]
               Bernstein, D. and T. Lange, "SafeCurves: choosing safe
@@ -941,64 +987,50 @@ Informative References
 
 
 
+Appendix A
+Deterministic Generation
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 18]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-19"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-span class="h2"><a class="selflink" id="appendix-A" href="https://datatracker.ietf.org/doc/html/rfc7748#appendix-A">Appendix A</a>.  Deterministic Generation</span>
-
-   This section specifies the procedure that was used to generate the
-   above curves; specifically, it defines how to generate the parameter
-   A of the Montgomery curve y^2 = x^3 + A*x^2 + x.  This procedure is
-   intended to be as objective as can reasonably be achieved so that
-   it's clear that no untoward considerations influenced the choice of
-   curve.  The input to this process is p, the prime that defines the
-   underlying field.  The size of p determines the amount of work needed
-   to compute a discrete logarithm in the elliptic curve group, and
-   choosing a precise p depends on many implementation concerns.  The
-   performance of the curve will be dominated by operations in GF(p), so
-   carefully choosing a value that allows for easy reductions on the
-   intended architecture is critical.  This document does not attempt to
+   This section specifies the procedure
+ that was used to generate the
+   above curves; specifically, it defines
+ how to generate the parameter
+   A of the Montgomery curve y^2 = x^3 + A*x^2 + x.
+  This procedure is
+   intended to be as objective as can
+reasonably be achieved so that
+   it's clear that no untoward considerations
+ influenced the choice of
+   curve.  The input to this process
+is p, the prime that defines the
+   underlying field.  The size of p
+ determines the amount of work needed
+   to compute a discrete logarithm in the
+ elliptic curve group, and
+   choosing a precise p depends on many
+ implementation concerns.  The
+   performance of the curve will be
+ dominated by operations in GF(p), so
+   carefully choosing a value that allows
+ for easy reductions on the
+   intended architecture is critical.
+  This document does not attempt to
    articulate all these considerations.
 
-   The value (A-2)/4 is used in several of the elliptic curve point
-   arithmetic formulas.  For simplicity and performance reasons, it is
-   beneficial to make this constant small, i.e., to choose A so that
-   (A-2) is a small integer that is divisible by four.
+   The value (A-2)/4 is used in several
+ of the elliptic curve point
+   arithmetic formulas.  For simplicity
+ and performance reasons, it is
+   beneficial to make this constant small,
+ i.e., to choose A so that
+   (A-2) is a small integer that is
+ divisible by four.
 
    For each curve at a specific security level:
 
-   1.  The trace of Frobenius MUST NOT be in {0, 1} in order to rule out
-       the attacks described in [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-smart" title="&quot;The Discrete Logarithm Problem on Elliptic Curves of Trace One&quot;">smart</a>], [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-satoh" title="&quot;Fermat quotients and the polynomial time discrete log algorithm for anomalous elliptic curves&quot;">satoh</a>], and [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-semaev" title="&quot;Evaluation of discrete logarithms on some elliptic curves&quot;">semaev</a>], as in
+   1.  The trace of Frobenius MUST NOT be in
+ {0, 1} in order to rule out
+       the attacks described in
+[<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-smart" title="&quot;The Discrete Logarithm Problem on Elliptic Curves of Trace One&quot;">smart</a>], [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-satoh" title="&quot;Fermat quotients and the polynomial time discrete log algorithm for anomalous elliptic curves&quot;">satoh</a>], and [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-semaev" title="&quot;Evaluation of discrete logarithms on some elliptic curves&quot;">semaev</a>], as in
        [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-brainpool">brainpool</a>] and [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-safecurves">safecurves</a>].
 
    2.  MOV Degree [<a href="https://datatracker.ietf.org/doc/html/rfc7748#ref-reducing" title="&quot;Reducing elliptic curve logarithms to logarithms in a finite field&quot;">reducing</a>]: the embedding degree MUST be greater than
@@ -1021,16 +1053,8 @@ span class="h2"><a class="selflink" id="appendix-A" href="https://datatracker.ie
 
 
 
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 19]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-20"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-<span class="h3"><a class="selflink" id="appendix-A.1" href="https://datatracker.ietf.org/doc/html/rfc7748#appendix-A.1">A.1</a>.  p = 1 mod 4</span>
+appendix-A.1
+p = 1 mod 4
 
    For primes congruent to 1 mod 4, the minimal cofactors of the curve
    and its twist are either {4, 8} or {8, 4}.  We choose a curve with
@@ -1073,20 +1097,9 @@ span class="h2"><a class="selflink" id="appendix-A" href="https://datatracker.ie
                    Generating a curve where p = 1 mod 4
 
 
+appendix-A.2
+p = 3 mod 4
 
-
-
-
-
-
-
-
-<span class="grey">Langley, et al.               Informational                    [Page 20]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-21"></span>
-<span class="grey"><a href="https://datatracker.ietf.org/doc/html/rfc7748">RFC 7748</a>              Elliptic Curves for Security          January 2016</span>
-
-
-<span class="h3"><a class="selflink" id="appendix-A.2" href="https://datatracker.ietf.org/doc/html/rfc7748#appendix-A.2">A.2</a>.  p = 3 mod 4</span>
 
    For a prime congruent to 3 mod 4, both the curve and twist cofactors
    can be 4, and this is minimal.  Thus, we choose the curve with these

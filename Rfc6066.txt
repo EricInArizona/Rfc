@@ -86,7 +86,8 @@ section-10.1">10.1</a>. pkipath MIME Type
  HandshakeTypes, and
             ExtensionTypes ...........................................<a href="https://datatracker.ietf.org/doc/html/rfc6066#page-19">19</a>
 section-11">11</a>. Security Considerations .......................................<a href="https://datatracker.ietf.org/doc/html/rfc6066#page-19">19</a>
-section-11.1">11.1</a>. Security Considerations for server_name ..................<a href="https://datatracker.ietf.org/doc/html/rfc6066#page-19">19</a>
+section-11.1">11.1</a>. Security Considerations for
+ server_name ..................<a href="https://datatracker.ietf.org/doc/html/rfc6066#page-19">19</a>
 section-11.2">11.2</a>. Security Considerations for max_fragment_length ..........<a href="https://datatracker.ietf.org/doc/html/rfc6066#page-20">20</a>
 section-11.3">11.3</a>. Security Considerations for client_certificate_url .......<a href="https://datatracker.ietf.org/doc/html/rfc6066#page-20">20</a>
 section-11.4">11.4</a>. Security Considerations for trusted_ca_keys ..............<a href="https://datatracker.ietf.org/doc/html/rfc6066#page-21">21</a>

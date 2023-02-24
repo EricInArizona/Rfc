@@ -511,7 +511,7 @@ Section 3.3.1).  A point on
    pair will satisfy the curve equation,
  while an invalid pair will not.
 
-
+=====
 section-3.1
 Homogeneous Coordinates
 
@@ -625,7 +625,6 @@ ECC Parameters
    Parameter generation is out of scope
  for this note.
 
-====
    Each elliptic curve point is
  associated with a particular parameter
    set.  The elliptic curve group operation
@@ -1383,7 +1382,9 @@ ECDH
 
 
 
-<span class="h3"><a class="selflink" id="section-8.2" href="https://www.rfc-editor.org/rfc/rfc6090#section-8.2">8.2</a>.  KT-I</span>
+section-8.2
+KT-I
+
 
    A KT-I implementation can be validated using the known answer test
    cases from [<a href="https://www.rfc-editor.org/rfc/rfc4754" title="&quot;IKE and IKEv2 Authentication Using the Elliptic Curve Digital Signature Algorithm (ECDSA)&quot;">RFC4754</a>].  The correspondence between the notation in
@@ -1422,7 +1423,8 @@ ECDH
 
 
 
-<span class="h3"><a class="selflink" id="section-9.1" href="https://www.rfc-editor.org/rfc/rfc6090#section-9.1">9.1</a>.  Disclaimer</span>
+section-9.1
+Disclaimer
 
    This document is not intended as legal advice.  Readers are advised
    to consult their own legal advisers if they would like a legal
@@ -1436,108 +1438,196 @@ ECDH
 
 
 
-<span class="h2"><a class="selflink" id="section-10" href="https://www.rfc-editor.org/rfc/rfc6090#section-10">10</a>.  Security Considerations</span>
+section-10
+Security Considerations
 
-   The security level of an elliptic curve cryptosystem is determined by
-   the cryptanalytic algorithm that is the least expensive for an
-   attacker to implement.  There are several algorithms to consider.
+   The security level of an elliptic curve
+ cryptosystem is determined by
+   the cryptanalytic algorithm that is the
+ least expensive for an
+   attacker to implement.  There are several
+ algorithms to consider.
 
-   The Pohlig-Hellman method is a divide-and-conquer technique [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-PH1978" title="&quot;An Improved Algorithm for Computing Logarithms over GF(p) and its Cryptographic Significance&quot;">PH1978</a>].
+   The Pohlig-Hellman method is a divide-and-
+conquer technique [An Improved Algorithm for
+ Computing Logarithms over GF(p) and its
+ Cryptographic Significance PH1978].
    If the group order n can be factored as
 
       n = q1 * q2 * ... * qz,
 
-   then the discrete log problem over the group can be solved by
-   independently solving a discrete log problem in groups of order q1,
-   q2, ..., qz, then combining the results using the Chinese remainder
-   theorem.  The overall computational cost is dominated by that of the
-   discrete log problem in the subgroup with the largest order.
+   then the discrete log problem over the
+ group can be solved by
+   independently solving a discrete log
+ problem in groups of order q1,
+   q2, ..., qz, then combining the results
+ using the Chinese remainder
+   theorem.  The overall computational cost
+ is dominated by that of the
+   discrete log problem in the subgroup
+ with the largest order.
 
-   Shanks' algorithm [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-K1981v3" title="&quot;The Art of Computer Programming, Vol. 3: Sorting and Searching&quot;">K1981v3</a>] computes a discrete logarithm in a group
-   of order n using O(sqrt(n)) operations and O(sqrt(n)) storage.  The
-   Pollard rho algorithm [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-P1978" title="&quot;Monte Carlo methods for index computation mod p&quot;">P1978</a>] computes a discrete logarithm in a
-   group of order n using O(sqrt(n)) operations, with a negligible
-   amount of storage, and can be efficiently parallelized [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-VW1994" title="&quot;Parallel Collision Search with Application to Hash Functions and Discrete Logarithms&quot;">VW1994</a>].
+   Shanks' algorithm [The Art of Computer
+ Programming, Vol. 3: Sorting and
+ Searching K1981v3] computes a discrete
+ logarithm in a group
+   of order n using O(sqrt(n)) operations
+ and O(sqrt(n)) storage.  The
+   Pollard rho algorithm [Monte Carlo methods
+ for index computation mod p P1978] computes
+ a discrete logarithm in a
+   group of order n using O(sqrt(n)) operations,
+ with a negligible
+   amount of storage, and can be efficiently
+ parallelized [Parallel Collision Search
+ with Application to Hash Functions and
+ Discrete Logarithms VW1994].
 
-   The Pollard lambda algorithm [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-P1978" title="&quot;Monte Carlo methods for index computation mod p&quot;">P1978</a>] can solve the discrete logarithm
-   problem using O(sqrt(w)) operations and O(log(w)) storage, when the
-   exponent is known to lie in an interval of width w.
+   The Pollard lambda algorithm [Monte Carlo
+ methods for index computation mod p P1978]
+ can solve the discrete logarithm
+   problem using O(sqrt(w)) operations and
+ O(log(w)) storage, when the
+   exponent is known to lie in an interval 
+of width w.
 
-   The algorithms described above work in any group.  There are
-   specialized algorithms that specifically target elliptic curve
-   groups.  There are no known subexponential algorithms against general
-   elliptic curve groups, though there are methods that target certain
-   special elliptic curve groups; see [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-MOV1993" title="&quot;Reducing Elliptic Curve Logarithms to Logarithms in a Finite Field&quot;">MOV1993</a>] and [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-FR1994" title="&quot;A remark concerning m-divisibility and the discrete logarithm in the divisor class group of curves.&quot;">FR1994</a>].
+   The algorithms described above work in
+ any group.  There are
+   specialized algorithms that specifically
+ target elliptic curve
+   groups.  There are no known
+ subexponential algorithms against general
+   elliptic curve groups, though there are
+ methods that target certain
+   special elliptic curve groups; see
+ [Reducing Elliptic Curve Logarithms to
+ Logarithms in a Finite Field MOV1993] and
+ [A remark concerning m-divisibility and
+ the discrete logarithm in the divisor
+ class group of curves.&quot;">FR1994</a>].
 
-<span class="h3"><a class="selflink" id="section-10.1" href="https://www.rfc-editor.org/rfc/rfc6090#section-10.1">10.1</a>.  Subgroups</span>
 
-   A group consisting of a nonempty set of elements S with associated
-   group operation * is a subgroup of the group with the set of elements
-   G, if the latter group uses the same group operation and S is a
-   subset of G.  For each elliptic curve equation, there is an elliptic
-   curve group whose group order is equal to the order of the elliptic
-   curve; that is, there is a group that contains every point on the
+
+section-10.1
+Subgroups
+
+
+   A group consisting of a nonempty set of
+ elements S with associated
+   group operation * is a subgroup of the
+ group with the set of elements
+   G, if the latter group uses the same
+ group operation and S is a
+   subset of G.  For each elliptic curve
+ equation, there is an elliptic
+   curve group whose group order is equal
+ to the order of the elliptic
+   curve; that is, there is a group that
+ contains every point on the
    curve.
 
-   The order m of the elliptic curve is divisible by the order n of the
-   group associated with the generator; that is, for each elliptic curve
-   group, m = n * c for some number c.  The number c is called the
-   "cofactor" [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-P1363" title="&quot;Standard Specifications for Public Key Cryptography&quot;">P1363</a>].  Each ECC parameter set as in <a href="https://www.rfc-editor.org/rfc/rfc6090#section-3.3">Section 3.3</a> is
+   The order m of the elliptic curve is
+ divisible by the order n of the
+   group associated with the generator;
+ that is, for each elliptic curve
+   group, m = n * c for some number c.
+  The number c is called the
+   "cofactor" [Standard Specifications for
+ Public Key Cryptography P1363].  Each ECC
+ parameter set as in Section 3.3 is
    associated with a particular cofactor.
 
 
 
-   It is possible and desirable to use a cofactor equal to 1.
+   It is possible and desirable to use a
+ cofactor equal to 1.
 
-<span class="h3"><a class="selflink" id="section-10.2" href="https://www.rfc-editor.org/rfc/rfc6090#section-10.2">10.2</a>.  Diffie-Hellman</span>
 
-   Note that the key exchange protocol as defined in <a href="https://www.rfc-editor.org/rfc/rfc6090#section-4">Section 4</a> does not
-   protect against active attacks; Party A must use some method to
-   ensure that (g^k) originated with the intended communicant B, rather
-   than an attacker, and Party B must do the same with (g^j).
 
-   It is not sufficient to authenticate the shared secret g^(j*k), since
-   this leaves the protocol open to attacks that manipulate the public
-   keys.  Instead, the values of the public keys g^x and g^y that are
-   exchanged should be directly authenticated.  This is the strategy
-   used by protocols that build on Diffie-Hellman and that use end-
+section-10.2
+Diffie-Hellman
+
+   Note that the key exchange protocol as
+ defined in Section 4 does not
+   protect against active attacks; Party A
+ must use some method to
+   ensure that (g^k) originated with the 
+intended communicant B, rather
+   than an attacker, and Party B must do the
+ same with (g^j).
+
+   It is not sufficient to authenticate
+ the shared secret g^(j*k), since
+   this leaves the protocol open to attacks
+ that manipulate the public
+   keys.  Instead, the values of the public
+ keys g^x and g^y that are
+   exchanged should be directly authenticated.
+  This is the strategy
+   used by protocols that build on 
+Diffie-Hellman and that use end-
    entity authentication to protect against active attacks, such as
    OAKLEY [<a href="https://www.rfc-editor.org/rfc/rfc2412" title="&quot;The OAKLEY Key Determination Protocol&quot;">RFC2412</a>] and the Internet Key Exchange [<a href="https://www.rfc-editor.org/rfc/rfc2409" title="&quot;The Internet Key Exchange (IKE)&quot;">RFC2409</a>] [<a href="https://www.rfc-editor.org/rfc/rfc4306" title="&quot;Internet Key Exchange (IKEv2) Protocol&quot;">RFC4306</a>]
    [<a href="https://www.rfc-editor.org/rfc/rfc5996" title="&quot;Internet Key Exchange Protocol Version 2 (IKEv2)&quot;">RFC5996</a>].
 
-   When the cofactor of a group is not equal to 1, there are a number of
-   attacks that are possible against ECDH.  See [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-VW1996" title="&quot;On Diffie-Hellman key agreement with short exponents&quot;">VW1996</a>], [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-AV1996" title="&quot;Minding Your P&#39;s and Q&#39;s&quot;">AV1996</a>], and
+   When the cofactor of a group is not equal to 1,
+ there are a number of
+   attacks that are possible against ECDH.
+  See [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-VW1996" title="&quot;On Diffie-Hellman key agreement with short exponents&quot;">VW1996</a>], [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-AV1996" title="&quot;Minding Your P&#39;s and Q&#39;s&quot;">AV1996</a>], and
    [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-LL1997" title="&quot;A Key Recovery Attack on Discrete Log-based Schemes Using a Prime Order Subgroup&quot;">LL1997</a>].
 
-<span class="h3"><a class="selflink" id="section-10.3" href="https://www.rfc-editor.org/rfc/rfc6090#section-10.3">10.3</a>.  Group Representation and Security</span>
 
-   The elliptic curve group operation does not explicitly incorporate
-   the parameter b from the curve equation.  This opens the possibility
-   that a malicious attacker could learn information about an ECDH
-   private key by submitting a bogus public key [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-BMM2000" title="&quot;Differential fault analysis on elliptic curve cryptosystems&quot;">BMM2000</a>].  An attacker
-   can craft an elliptic curve group G' that has identical parameters to
-   a group G that is being used in an ECDH protocol, except that b is
-   different.  An attacker can submit a point on G' into a run of the
-   ECDH protocol that is using group G, and gain information from the
-   fact that the group operations using the private key of the device
-   under attack are effectively taking place in G' instead of G.
 
-   This attack can gain useful information about an ECDH private key
-   that is associated with a static public key, i.e., a public key that
-   is used in more than one run of the protocol.  However, it does not
-   gain any useful information against ephemeral keys.
+section-10.3
+Group Representation and Security
 
-   This sort of attack is thwarted if an ECDH implementation does not
-   assume that each pair of coordinates in Zp is actually a point on the
+   The elliptic curve group operation does
+ not explicitly incorporate
+   the parameter b from the curve equation. 
+ This opens the possibility
+   that a malicious attacker could learn
+ information about an ECDH
+   private key by submitting a bogus public
+ key [Differential fault analysis on
+ elliptic curve cryptosystems BMM2000]. 
+ An attacker
+   can craft an elliptic curve group G' that
+ has identical parameters to
+   a group G that is being used in an ECDH
+ protocol, except that b is
+   different.  An attacker can submit a 
+point on G' into a run of the
+   ECDH protocol that is using group G,
+ and gain information from the
+   fact that the group operations using
+ the private key of the device
+   under attack are effectively taking
+ place in G' instead of G.
+
+   This attack can gain useful information
+ about an ECDH private key
+   that is associated with a static public
+ key, i.e., a public key that
+   is used in more than one run of the
+ protocol.  However, it does not
+   gain any useful information against
+ ephemeral keys.
+
+   This sort of attack is thwarted if an
+ ECDH implementation does not
+   assume that each pair of coordinates in
+ Zp is actually a point on the
    appropriate elliptic curve.
 
-   These considerations also apply when ECDH is used with compact
-   representation (see <a href="https://www.rfc-editor.org/rfc/rfc6090#appendix-C">Appendix C</a>).
+   These considerations also apply when
+ ECDH is used with compact
+   representation (see Appendix C.
 
 
 
 
-<span class="h3"><a class="selflink" id="section-10.4" href="https://www.rfc-editor.org/rfc/rfc6090#section-10.4">10.4</a>.  Signatures</span>
+section-10.4
+Signatures
 
    Elliptic curve parameters should only be used if they come from a
    trusted source; otherwise, some attacks are possible [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-AV1996" title="&quot;Minding Your P&#39;s and Q&#39;s&quot;">AV1996</a>]
@@ -1567,7 +1657,11 @@ ECDH
    should be equal or close to the number of bits needed to represent
    the group order.
 
-<span class="h2"><a class="selflink" id="section-11" href="https://www.rfc-editor.org/rfc/rfc6090#section-11">11</a>.  Acknowledgements</span>
+
+
+section-11
+Acknowledgements
+
 
    The author expresses his thanks to the originators of elliptic curve
    cryptography, whose work made this note possible, and all of the
@@ -1654,7 +1748,10 @@ Normative References
    [<a id="ref-S1986">S1986</a>]      Silverman, J., "The Arithmetic of Elliptic Curves",
                 Springer-Verlag, New York, 1986.
 
-<span class="h3"><a class="selflink" id="section-12.2" href="https://www.rfc-editor.org/rfc/rfc6090#section-12.2">12.2</a>.  Informative References</span>
+
+
+section-12.2
+Informative References
 
    [<a id="ref-A1992">A1992</a>]      Anderson, J., "Response to the proposed DSS",
                 Communications of the ACM, v. 35, n. 7, p. 50-52,
@@ -1688,15 +1785,6 @@ Normative References
                 fields", Advances in Cryptology - CRYPTO '84
                 Proceedings, Springer Lecture Notes in Computer Science
                 (LNCS), volume 196, 1984.
-
-
-
-
-
-
-<span class="grey">McGrew, et al.                Informational                    [Page 25]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-26"></span>
-<span class="grey"><a href="https://www.rfc-editor.org/rfc/rfc6090">RFC 6090</a>                     Fundamental ECC               February 2011</span>
 
 
    [<a id="ref-E1985">E1985</a>]      ElGamal, T., "A public key cryptosystem and a signature
@@ -1746,13 +1834,6 @@ Normative References
 
    [<a id="ref-P1978">P1978</a>]      Pollard, J., "Monte Carlo methods for index computation
                 mod p", Mathematics of Computation, Vol. 32, 1978.
-
-
-
-
-<span class="grey">McGrew, et al.                Informational                    [Page 26]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-27"></span>
-<span class="grey"><a href="https://www.rfc-editor.org/rfc/rfc6090">RFC 6090</a>                     Fundamental ECC               February 2011</span>
 
 
    [<a id="ref-PH1978">PH1978</a>]     Pohlig, S. and M. Hellman, "An Improved Algorithm for
@@ -1805,12 +1886,6 @@ Normative References
                 June 2010.
 
 
-
-<span class="grey">McGrew, et al.                Informational                    [Page 27]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-28"></span>
-<span class="grey"><a href="https://www.rfc-editor.org/rfc/rfc6090">RFC 6090</a>                     Fundamental ECC               February 2011</span>
-
-
    [<a id="ref-RFC5996">RFC5996</a>]    Kaufman, C., Hoffman, P., Nir, Y., and P. Eronen,
                 "Internet Key Exchange Protocol Version 2 (IKEv2)",
                 <a href="https://www.rfc-editor.org/rfc/rfc5996">RFC 5996</a>, September 2010.
@@ -1840,38 +1915,16 @@ Normative References
 
 
 
+Appendix A
+Key Words
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="grey">McGrew, et al.                Informational                    [Page 28]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-29"></span>
-<span class="grey"><a href="https://www.rfc-editor.org/rfc/rfc6090">RFC 6090</a>                     Fundamental ECC               February 2011</span>
-
-
-<span class="h2"><a class="selflink" id="appendix-A" href="https://www.rfc-editor.org/rfc/rfc6090#appendix-A">Appendix A</a>.  Key Words</span>
-
-   The definitions of these key words are quoted from [<a href="https://www.rfc-editor.org/rfc/rfc2119" title="&quot;Key words for use in RFCs to Indicate Requirement Levels&quot;">RFC2119</a>] and are
-   commonly used in Internet standards.  They are reproduced in this
-   note in order to avoid a normative reference from after 1994.
+   The definitions of these key words are
+ quoted from [Key words for use in RFCs to 
+Indicate Requirement Levels RFC2119] and are
+   commonly used in Internet standards. 
+ They are reproduced in this
+   note in order to avoid a normative
+ reference from after 1994.
 
    1.  MUST - This word, or the terms "REQUIRED" or "SHALL", means that
        the definition is an absolute requirement of the specification.
@@ -1904,24 +1957,16 @@ Normative References
        with another implementation which does not include the option
        (except, of course, for the feature the option provides.)
 
-<span class="h2"><a class="selflink" id="appendix-B" href="https://www.rfc-editor.org/rfc/rfc6090#appendix-B">Appendix B</a>.  Random Integer Generation</span>
+
+
+Appendix B
+Random Integer Generation
 
    It is easy to generate an integer uniformly at random between zero
    and (2^t)-1, inclusive, for some positive integer t.  Generate a
    random bit string that contains exactly t bits, and then convert the
    bit string to a non-negative integer by treating the bits as the
    coefficients in a base-2 expansion of an integer.
-
-
-
-
-
-
-
-<span class="grey">McGrew, et al.                Informational                    [Page 29]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-30"></span>
-<span class="grey"><a href="https://www.rfc-editor.org/rfc/rfc6090">RFC 6090</a>                     Fundamental ECC               February 2011</span>
-
 
    It is sometimes necessary to generate an integer r uniformly at
    random so that r satisfies a certain property P, for example, lying
@@ -1942,41 +1987,51 @@ Normative References
    Recommendations on how to generate random bit strings are provided in
    [<a href="https://www.rfc-editor.org/rfc/rfc4086" title="&quot;Randomness Requirements for Security&quot;">RFC4086</a>].
 
-<span class="h2"><a class="selflink" id="appendix-C" href="https://www.rfc-editor.org/rfc/rfc6090#appendix-C">Appendix C</a>.  Why Compact Representation Works</span>
 
-   In the affine representation, the x-coordinate of the point P^i does
-   not depend on the y-coordinate of the point P, for any non-negative
-   exponent i and any point P.  This fact can be seen as follows.  When
-   given only the x-coordinate of a point P, it is not possible to
-   determine exactly what the y-coordinate is, but the y value will be a
+
+Appendix C
+Why Compact Representation Works
+
+   In the affine representation, the
+ x-coordinate of the point P^i does
+   not depend on the y-coordinate of the
+ point P, for any non-negative
+   exponent i and any point P.  This fact
+ can be seen as follows.  When
+   given only the x-coordinate of a point P,
+ it is not possible to
+   determine exactly what the y-coordinate is,
+ but the y value will be a
    solution to the curve equation
 
       y^2 = x^3 + a*x + b (mod p).
 
-   There are at most two distinct solutions y = w and y = -w mod p, and
-   the point P must be either Q=(x,w) or Q^-1=(x,-w).  Thus P^n is equal
-   to either Q^n or (Q^-1)^n = (Q^n)^-1.  These values have the same
-   x-coordinate.  Thus, the x-coordinate of a point P^i can be computed
-   from the x-coordinate of a point P by computing one of the possible
-   values of the y coordinate of P, then computing the ith power of P,
-   and then ignoring the y-coordinate of that result.
+   There are at most two distinct solutions
+ y = w and y = -w mod p, and
+   the point P must be either Q=(x,w) or
+ Q^-1=(x,-w).  Thus P^n is equal
+   to either Q^n or (Q^-1)^n = (Q^n)^-1. 
+ These values have the same
+   x-coordinate.  Thus, the x-coordinate of
+ a point P^i can be computed
+   from the x-coordinate of a point P by
+ computing one of the possible
+   values of the y coordinate of P, then
+ computing the ith power of P,
+   and then ignoring the y-coordinate of
+ that result.
 
-   In general, it is possible to compute a square root modulo p by using
-   Shanks' method [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-K1981v2" title="&quot;The Art of Computer Programming, Vol. 2: Seminumerical Algorithms&quot;">K1981v2</a>]; simple methods exist for some values of p.
-   When p = 3 (mod 4), the square roots of z mod p are w and -w mod p,
+   In general, it is possible to compute a
+ square root modulo p by using
+   Shanks' method [The Art of Computer
+ Programming, Vol. 2: Seminumerical
+ Algorithms K1981v2]; simple methods exist
+ for some values of p.
+   When p = 3 (mod 4), the square roots of
+ z mod p are w and -w mod p,
    where
 
       w = z ^ ((p+1)/4) (mod p);
-
-
-
-
-
-
-
-<span class="grey">McGrew, et al.                Informational                    [Page 30]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-31"></span>
-<span class="grey"><a href="https://www.rfc-editor.org/rfc/rfc6090">RFC 6090</a>                     Fundamental ECC               February 2011</span>
 
 
    this observation is due to Lehmer [<a href="https://www.rfc-editor.org/rfc/rfc6090#ref-L1969" title="&quot;Computer technology applied to the theory of numbers&quot;">L1969</a>].  When p satisfies this
@@ -1997,7 +2052,10 @@ Normative References
    The primes used in the P-256, P-384, and P-521 curves described in
    [<a href="https://www.rfc-editor.org/rfc/rfc5903" title="&quot;Elliptic Curve Groups modulo a Prime (ECP Groups) for IKE and IKEv2&quot;">RFC5903</a>] all have the property that p = 3 (mod 4).
 
-<span class="h2"><a class="selflink" id="appendix-D" href="https://www.rfc-editor.org/rfc/rfc6090#appendix-D">Appendix D</a>.  Example ECC Parameter Set</span>
+
+
+Appendix D
+Example ECC Parameter Set
 
    For concreteness, we recall an elliptic curve defined by Solinas and
    Fu in [<a href="https://www.rfc-editor.org/rfc/rfc5903" title="&quot;Elliptic Curve Groups modulo a Prime (ECP Groups) for IKE and IKEv2&quot;">RFC5903</a>] and referred to as P-256, which is believed to
@@ -2023,24 +2081,17 @@ Normative References
 
 
 
+Appendix E
+Additive and Multiplicative Notation
 
-
-
-
-
-
-
-<span class="grey">McGrew, et al.                Informational                    [Page 31]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-32"></span>
-<span class="grey"><a href="https://www.rfc-editor.org/rfc/rfc6090">RFC 6090</a>                     Fundamental ECC               February 2011</span>
-
-
-<span class="h2"><a class="selflink" id="appendix-E" href="https://www.rfc-editor.org/rfc/rfc6090#appendix-E">Appendix E</a>.  Additive and Multiplicative Notation</span>
-
-   The early publications on elliptic curve cryptography used
-   multiplicative notation, but most modern publications use additive
-   notation.  This section includes a table mapping between those two
-   conventions.  In this section, a and b are elements of an elliptic
+   The early publications on elliptic curve
+ cryptography used
+   multiplicative notation, but most modern
+ publications use additive
+   notation.  This section includes a table
+ mapping between those two
+   conventions.  In this section, a and b are
+ elements of an elliptic
    curve group, and N is an integer.
 
             +-------------------------+-----------------------+
@@ -2056,17 +2107,27 @@ Normative References
             | a^-1                    | -a                    |
             +-------------------------+-----------------------+
 
-<span class="h2"><a class="selflink" id="appendix-F" href="https://www.rfc-editor.org/rfc/rfc6090#appendix-F">Appendix F</a>.  Algorithms</span>
 
-   This section contains a pseudocode description of the elliptic curve
-   group operation.  Text that follows the symbol "//" is to be
+
+Appendix F
+Algorithms
+
+   This section contains a pseudocode
+ description of the elliptic curve
+   group operation.  Text that follows the
+ symbol "//" is to be
    interpreted as comments rather than instructions.
 
-<span class="h3"><a class="selflink" id="appendix-F.1" href="https://www.rfc-editor.org/rfc/rfc6090#appendix-F.1">F.1</a>.  Affine Coordinates</span>
 
-   To an arbitrary pair of elliptic curve points P and Q specified by
-   their affine coordinates P=(x1,y1) and Q=(x2,y2), the group operation
-   assigns a third point R = P*Q with the coordinates (x3,y3).  These
+appendix-F.1
+Affine Coordinates
+
+   To an arbitrary pair of elliptic curve
+ points P and Q specified by
+   their affine coordinates P=(x1,y1) and
+ Q=(x2,y2), the group operation
+   assigns a third point R = P*Q with the
+ coordinates (x3,y3).  These
    coordinates are computed as follows:
 
      if P is (@,@),
@@ -2086,11 +2147,6 @@ Normative References
 
 
 
-<span class="grey">McGrew, et al.                Informational                    [Page 32]</span></pre>
-<hr class="noprint"><!--NewPage--><pre class="newpage"><span id="page-33"></span>
-<span class="grey"><a href="https://www.rfc-editor.org/rfc/rfc6090">RFC 6090</a>                     Fundamental ECC               February 2011</span>
-
-
    From the first and second case, it follows that the point at infinity
    is the neutral element of this operation, which is its own inverse.
 
@@ -2101,27 +2157,43 @@ Normative References
 
    Note: The fifth and sixth case are known as "point squaring".
 
-<span class="h3"><a class="selflink" id="appendix-F.2" href="https://www.rfc-editor.org/rfc/rfc6090#appendix-F.2">F.2</a>.  Homogeneous Coordinates</span>
 
-   An elliptic curve point (x,y) (other than the point at infinity
-   (@,@)) is equivalent to a point (X,Y,Z) in homogeneous coordinates
-   (with X, Y, and Z in Fp and not all three being zero at once)
-   whenever x=X/Z and y=Y/Z. "Homogenous coordinates" means that two
-   triples (X,Y,Z) and (X',Y',Z') are regarded as "equal" (i.e.,
-   representing the same point) if there is some nonzero s in Fp such
-   that X'=s*X, Y'=s*Y, and Z'=s*Z.  The point at infinity (@,@) is
-   regarded as equivalent to the homogenous coordinates (0,1,0), i.e.,
-   it can be represented by any triple (0,Y,0) with nonzero Y in Fp.
+
+appendix-F.2
+Homogeneous Coordinates
+
+   An elliptic curve point (x,y) (other than
+ the point at infinity
+   (@,@)) is equivalent to a point (X,Y,Z) 
+in homogeneous coordinates
+   (with X, Y, and Z in Fp and not all three
+ being zero at once)
+   whenever x=X/Z and y=Y/Z. "Homogenous
+ coordinates" means that two
+   triples (X,Y,Z) and (X',Y',Z') are 
+regarded as "equal" (i.e.,
+   representing the same point) if there is
+ some nonzero s in Fp such
+   that X'=s*X, Y'=s*Y, and Z'=s*Z.  The
+ point at infinity (@,@) is
+   regarded as equivalent to the homogenous
+ coordinates (0,1,0), i.e.,
+   it can be represented by any triple
+ (0,Y,0) with nonzero Y in Fp.
 
    Let P1=(X1,Y1,Z1) and P2=(X2,Y2,Z2) be points on the elliptic curve,
    and let u = Y2 * Z1 - Y1 * Z2 and v = X2 * Z1 - X1 * Z2.
 
-   We observe that the points P1 and P2 are equal if and only if u and v
-   are both equal to zero.  Otherwise, if either P1 or P2 are equal to
-   the point at infinity, v is zero and u is nonzero (but the converse
+   We observe that the points P1 and P2 are
+ equal if and only if u and v
+   are both equal to zero.  Otherwise, if
+ either P1 or P2 are equal to
+   the point at infinity, v is zero and u
+ is nonzero (but the converse
    implication does not hold).
 
-   Then, the product P3=(X3,Y3,Z3) = P1 * P2 is given by:
+   Then, the product P3=(X3,Y3,Z3) = P1 * P2
+ is given by:
 
      if P1 is the point at infinity,
         P3 = P2
@@ -2139,6 +2211,11 @@ Normative References
         Y3 = 4 * Y1^2 * Z1 * (3 * w * X1 - 2 * Y1^2 * Z1) - w^3
         Z3 = 8 * (Y1 * Z1)^3
 
-   It thus turns out that the point at infinity is the identity element
-   and for P1=(X,Y,Z) not equal to this point at infinity, P2=(X,-Y,Z)
+   It thus turns out that the point at 
+infinity is the identity element
+   and for P1=(X,Y,Z) not equal to this
+ point at infinity, P2=(X,-Y,Z)
    represents P1^-1.
+
+
+
