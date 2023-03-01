@@ -1,0 +1,3015 @@
+RFC Index
+
+This is an interesting index to the history
+of the Internet, which goes back to the ARPA
+Network, starting in 1969.  For example the
+first File Transfer Protocol (FTP) goes back
+to RFC0114 in 1971.  And the first email
+protocol was RFC0196, Mail Box Protocol,
+in 1971.  In 1969 there were four computers
+on the Intenet: The University of Utah,
+Stanford Research Institute, UCLA, and UCSB.
+
+
+
+
+RFC Index:
+https://www.rfc-editor.org/rfc-index.html
+
+
+RFC0001
+<b>Host Software</b> S. Crocker
+            [ April 1969 ]
+
+RFC0002
+<b>Host software</b> B. Duvall
+            [ April 1969 ]
+
+RFC0003
+<b>Documentation conventions</b> S.D. Crocker
+            [ April 1969 ]
+
+RFC0004
+<b>Network timetable</b> E.B. Shapiro
+            [ March 1969 ]
+
+RFC0005
+<b>Decode Encode Language (DEL)</b> J. Rulifson
+            [ June 1969 ]
+
+RFC0006
+<b>Conversation with Bob Kahn</b> S.D. Crocker
+            [ April 1969 ]
+
+RFC0007
+<b>Host-IMP interface</b> G. Deloche
+            [ May 1969 ]
+
+RFC0008
+<b>ARPA Network Functional Specifications</b> G. Deloche
+            [ May 1969 ]
+
+RFC0009
+<b>Host Software</b> G. Deloche
+            [ May 1969 ]
+
+RFC0010
+<b>Documentation conventions</b> S.D. Crocker
+            [ July 1969 ]
+
+RFC0011
+<b>Implementation of the Host - Host Software Procedures in GORDO</b> G. Deloche
+            [ August 1969 ]
+
+RFC0012
+<b>IMP-Host interface flow diagrams</b> M. Wingfield
+            [ August 1969 ]
+
+RFC0013
+<b>Zero Text Length EOF Message</b> V. Cerf
+            [ August 1969 ]
+
+RFC0014
+Not Issued
+
+RFC0015
+<b>Network subsystem for time sharing hosts</b> C.S. Carr
+            [ September 1969 ]
+
+RFC0016
+<b>M.I.T</b> S. Crocker
+            [ August 1969 ]
+
+RFC0017
+<b>Some questions re: Host-IMP Protocol</b> J.E. Kreznar
+            [ August 1969 ]
+
+RFC0018
+<b>IMP-IMP and HOST-HOST Control Links</b> V. Cerf
+            [ September 1969 ]
+
+RFC0019
+<b>Two protocol suggestions to reduce congestion at swap bound nodes</b> J.E. Kreznar
+            [ October 1969 ]
+
+RFC0020
+<b>ASCII format for network interchange</b> V.G. Cerf
+            [ October 1969 ]
+
+RFC0021
+<b>Network meeting</b> V.G. Cerf
+            [ October 1969 ]
+
+RFC0022
+<b>Host-host control message formats</b> V.G. Cerf
+            [ October 1969 ]
+
+RFC0023
+<b>Transmission of Multiple Control Messages</b> G. Gregg
+            [ October 1969 ]
+
+RFC0024
+<b>Documentation Conventions</b> S.D. Crocker
+            [ November 1969 ]
+
+RFC0025
+<b>No High Link Numbers</b> S.D. Crocker
+            [ October 1969 ]
+
+RFC0026
+Not Issued
+
+RFC0027
+<b>Documentation Conventions</b> S.D. Crocker
+            [ December 1969 ]
+
+RFC0028
+<b>Time Standards</b> W.K. English
+            [ January 1970 ]
+
+RFC0029
+<b>Response to RFC 28</b> R.E. Kahn
+            [ January 1970 ]
+
+RFC0030
+<b>Documentation Conventions</b> S.D. Crocker
+            [ February 1970 ]
+
+RFC0031
+<b>Binary Message Forms in Computer</b> D. Bobrow, W.R. Sutherland
+            [ February 1968 ]
+
+RFC0032
+<b>Some Thoughts on SRI's Proposed Real Time Clock</b> J. Cole
+            [ February 1970 ]
+
+RFC0033
+<b>New Host-Host Protocol</b> S.D. Crocker
+            [ February 1970 ]
+
+RFC0034
+<b>Some Brief Preliminary Notes on the Augmentation Research Center Clock</b> W.K. English
+            [ February 1970 ]
+
+RFC0035
+<b>Network Meeting</b> S.D. Crocker
+            [ March 1970 ]
+
+RFC0036
+<b>Protocol Notes</b> S.D. Crocker
+            [ March 1970 ]
+
+RFC0037
+<b>Network Meeting Epilogue, etc</b> S.D. Crocker
+            [ March 1970 ]
+
+RFC0038
+Comments on Network Protocol from NWG/RFC #36</b> S.M. Wolfe
+            [ March 1970 ]
+
+RFC0039
+<b>Comments on Protocol Re: NWG/RFC #36</b> E. Harslem, J.F. Heafner
+            [ March 1970 ]
+
+RFC0040
+<b>More Comments on the Forthcoming Protocol</b> E. Harslem, J.F. Heafner
+            [ March 1970 ]
+
+RFC0041
+<b>IMP-IMP Teletype Communication</b> J.T. Melvin
+            [ March 1970 ]
+
+RFC0042
+<b>Message Data Types</b> E. Ancona
+            [ March 1970 ]
+
+RFC0043
+<b>Proposed Meeting</b> A.G. Nemeth
+            [ April 1970 ]
+
+RFC0044
+<b>Comments on NWG/RFC 33 and 36
+</b> A. Shoshani, R. Long, A. Landsberg
+            [ April 1970 ]
+
+RFC0045
+<b>New Protocol is Coming</b> J. Postel, S.D. Crocker
+            [ April 1970 ]
+
+RFC0046
+<b>ARPA Network protocol notes</b> E. Meyer
+            [ April 1970 ]
+
+RFC0047
+<b>BBN's Comments on NWG/RFC #33</b> J. Postel, S. Crocker
+            [ April 1970 ]
+RFC0048
+<b>Possible protocol plateau</b> J. Postel, S.D. Crocker
+            [ April 1970 ]
+
+RFC0049
+<b>Conversations with S. Crocker (UCLA)</b> E. Meyer
+            [ April 1970 ]
+
+RFC0050
+<b>Comments on the Meyer Proposal</b> E. Harslen, J. Heafner
+            [ April 1970 ]
+
+RFC0051
+<b>Proposal for a Network Interchange Language</b> M. Elie
+            [ May 1970 ]
+
+RFC0052
+<b>Updated distribution list</b> J. Postel, S.D. Crocker
+            [ July 1970 ]
+
+RFC0053
+<b>Official protocol mechanism</b> S.D. Crocker
+            [ June 1970 ]
+
+RFC0054
+<b>Official Protocol Proffering</b> S.D. Crocker, J. Postel, J. Newkirk, M. Kraley
+            [ June 1970 ]
+
+RFC0055
+<b>Prototypical implementation of the NCP</b> J. Newkirk, M. Kraley, J. Postel, S.D. Crocker
+            [ June 1970 ]
+
+RFC0056
+<b>Third Level Protocol: Logger Protocol</b> E. Belove, D. Black, R. Flegal, L.G. Farquar
+            [ June 1970 ]
+
+RFC0057
+<b>Thoughts and Reflections on NWG/RFC 54</b> M. Kraley, J. Newkirk
+            [ June 1970 ]
+
+RFC0058
+<b>Logical Message Synchronization</b> T.P. Skinner
+            [ June 1970 ]
+RFC0059
+<b>Flow Control - Fixed Versus Demand Allocation</b> E. Meyer
+            [ June 1970 ]
+
+RFC0060
+<b>A Simplified NCP Protocol</b> R. Kalin
+            [ July 1970 ]
+
+RFC0061
+<b>Note on Interprocess Communication in a Resource Sharing Computer Network</b> D.C. Walden
+            [ July 1970 ]
+
+RFC0062
+<b>Systems for Interprocess Communication in a Resource Sharing Computer Network</b> D.C. Walden
+            [ August 1970 ]
+
+RFC0063
+<b>Belated Network Meeting Report</b> V.G. Cerf
+            [ July 1970 ]
+
+RFC0064
+<b>Getting rid of marking</b> M. Elie
+            [ July 1970 ]
+
+RFC0065
+<b>Comments on Host/Host Protocol document #1</b> D.C. Walden
+            [ August 1970 ]
+
+RFC0066
+<b>NIC - third level ideas and other noise</b> S.D. Crocker
+            [ August 1970 ]
+
+RFC0067
+<b>Proposed Change to Host/IMP Spec to Eliminate Marking</b> W.R. Crowther
+            [ January 1970 ]
+
+RFC0068
+<b>Comments on Memory Allocation Control Commands: CEASE, ALL, GVB, RET, and RFNM</b> M. Elie
+            [ August 1970 ]
+
+RFC0069
+<b>Distribution List Change for MIT</b> A.K. Bhushan
+            [ September 1970 ]
+
+RFC0070
+<b>Note on Padding</b> S.D. Crocker
+            [ October 1970 ]
+
+RFC0071
+<b>Reallocation in Case of Input Error</b> T. Schipper
+            [ September 1970 ]
+
+RFC0072
+<b>Proposed Moratorium on Changes to Network Protocol</b> R.D. Bressler
+            [ September 1970 ]
+
+RFC0073
+<b>Response to NWG/RFC 67</b> S.D. Crocker
+            [ September 1970 ]
+
+RFC0074
+<b>Specifications for Network Use of the UCSB
+          On-Line System</b> J.E. White
+            [ October 1970 ]
+
+RFC0075
+<b>Network Meeting</b> S.D. Crocker
+            [ October 1970 ]
+RFC0076
+<b>Connection by name: User oriented protocol</b> J. Bouknight, J. Madden, G.R. Grossman
+            [ October 1970 ]
+
+RFC0077
+<b>Network meeting report</b> J. Postel
+            [ November 1970 ]
+
+RFC0078
+<b>NCP Status Report: UCSB/Rand</b> E. Harslem, J.F. Heafner, J.E. White
+            [ October 1970 ]
+
+RFC0079
+<b>Logger Protocol error</b> E. Meyer
+            [ November 1970 ]
+
+RFC0080
+<b>Protocols and Data Formats</b> E. Harslem, J.F. Heafner
+            [ December 1970 ]
+
+RFC0081
+<b>Request for Reference Information</b> J. Bouknight
+            [ December 1970 ]
+
+RFC0082
+<b>Network Meeting Notes</b> E. Meyer
+            [ December 1970 ]
+
+RFC0083
+<b>Language-machine for data reconfiguration</b> R.H. Anderson, E. Harslem, J.F. Heafner
+            [ December 1970 ]
+
+RFC0084
+<b>List of NWG/RFC's 1-80</b> J.B. North
+            [ December 1970 ]
+
+RFC0085
+<b>Network Working Group meeting</b> S.D. Crocker
+            [ December 1970 ]
+
+RFC0086
+<b>Proposal for a Network Standard Format for a Data Stream to Control Graphics Display</b> S.D. Crocker
+            [ January 1971 ]
+
+RFC0087
+<b>Topic for Discussion at the Next Network Working Group Meeting</b> A. Vezza
+            [ January 1971 ]
+
+RFC0088
+<b>NETRJS: A third level protocol for Remote Job Entry</b> R.T. Braden, S.M. Wolfe
+            [ January 1971 ]
+
+RFC0089
+<b>Some historic moments in networking</b> R.M. Metcalfe
+            [ January 1971 ]
+
+RFC0090
+<b>CCN as a Network Service Center</b> R.T. Braden
+            [ January 1971 ]
+
+RFC0091
+<b>Proposed User-User Protocol</b> G.H. Mealy
+            [ December 1970 ]
+
+RFC0092
+Not Issued
+
+
+RFC0093
+<b>Initial Connection Protocol</b> A.M. McKenzie
+            [ January 1971 ]
+
+RFC0094
+<b>Some thoughts on Network Graphics</b> E. Harslem, J.F. Heafner
+            [ February 1971 ]
+
+RFC0095
+<b>Distribution of NWG/RFC's through the NIC</b> S. Crocker
+            [ February 1971 ]
+
+RFC0096');
+<b>An Interactive Network Experiment to Study Modes of Access the Network Information Center</b> R.W. Watson
+            [ February 1971 ]
+
+RFC0097
+<b>First Cut at a Proposed Telnet Protocol</b> J.T. Melvin, R.W. Watson
+            [ February 1971 ]
+
+RFC0098
+<b>Logger Protocol Proposal</b> E. Meyer, T. Skinner
+            [ February 1971 ]
+
+RFC0099
+<b>Network Meeting</b> P.M. Karp
+            [ February 1971 ]
+
+RFC0100
+<b>Categorization and guide to NWG/RFCs</b> P.M. Karp
+            [ February 1971 ]
+
+RFC0101
+<b>Notes on the Network Working Group meeting, Urbana, Illinois, February 17, 1971</b> R.W. Watson
+            [ February 1971 ]
+
+RFC0102
+<b>Output of the Host-Host Protocol glitch cleaning committee</b> S.D. Crocker
+            [ February 1971 ]
+
+RFC0103');
+<b>Implementation of Interrupt Keys</b> R.B. Kalin
+            [ February 1971 ]
+
+RFC0104
+<b>Link 191</b> J.B. Postel, S.D. Crocker
+            [ February 1971 ]
+
+RFC0105
+<b>Network Specifications for Remote Job Entry and Remote Job Output Retrieval at UCSB</b> J.E. White
+            [ March 1971 ]
+
+RFC0106
+<b>User/Server Site Protocol Network Host Questionnaire</b> T.C. O'Sullivan
+            [ March 1971 ]
+
+RFC0107
+<b>Output of the Host-Host Protocol Glitch Cleaning Committee</b> R.D. Bressler, S.D. Crocker, W.R. Crowther, G.R. Grossman, R.S. Tomlinson, J.E. White
+            [ March 1971 ]
+
+RFC0108
+<b>Attendance list at the Urbana NWG meeting, February 17-19, 1971</b> R.W. Watson
+            [ March 1971 ]
+
+RFC0109
+<b>Level III Server Protocol for the Lincoln Laboratory 360/67 Host</b> J. Winett
+            [ March 1971 ]
+
+RFC0110
+<b>Conventions for Using an IBM 2741 Terminal as a User Console for Access to Network Server Hosts</b> J. Winett
+            [ March 1971 ]
+
+RFC0111
+<b>Pressure from the Chairman</b> S.D. Crocker
+            [ March 1971 ]
+
+RFC0112
+User/Server Site Protocol: Network Host
+ Questionnaire</b> T.C. O'Sullivan
+            [ April 1971 ]
+
+RFC0113
+<b>Network activity report: UCSB Rand
+</b> E. Harslem, J.F. Heafner, J.E. White
+            [ April 1971 ]
+
+RFC0114
+<b>File Transfer Protocol</b> A.K. Bhushan
+            [ April 1971 ]
+
+RFC0115
+<b>Some Network Information Center policies on handling documents</b> R.W. Watson, J.B. North
+            [ April 1971 ]
+
+RFC0116
+<b>Structure of the May NWG Meeting</b> S.D. Crocker
+            [ April 1971 ]
+
+RFC0117
+<b>Some comments on the official protocol</b> J. Wong
+            [ April 1971 ]
+
+RFC0118
+<b>Recommendations for facility documentation</b> R.W. Watson
+            [ April 1971 ]
+
+RFC0119
+<b>Network Fortran Subprograms</b> M. Krilanovich
+            [ April 1971 ]
+
+RFC0120
+<b>Network PL1 subprograms</b> M. Krilanovich
+            [ April 1971 ]
+
+RFC0121
+<b>Network on-line operators</b> M. Krilanovich
+            [ April 1971 ]
+
+RFC0122
+<b>Network specifications for UCSB's
+ Simple-Minded File System</b> J.E. White
+            [ April 1971 ]
+
+RFC0123
+<b>Proffered Official ICP</b> S.D. Crocker
+            [ April 1971 ]
+
+RFC0124
+<b>Typographical error in RFC 107</b> J.T. Melvin
+            [ April 1971 ]
+
+RFC0125
+<b>Response to RFC 86: Proposal for Network
+ Standard Format for a Graphics Data Stream</b> J. McConnell
+            [ April 1971 ]
+
+RFC0126
+<b>Graphics Facilities at Ames Research Center</b> J. McConnell
+            [ April 1971 ]
+
+RFC0127
+<b>Comments on RFC 123</b> J. Postel
+            [ April 1971 ]
+
+RFC0128
+<b>Bytes</b> J. Postel
+            [ April 1971 ]
+
+RFC0129
+<b>Request for comments on socket name structure</b> E. Harslem, J. Heafner, E. Meyer
+            [ April 1971 ]
+
+RFC0130
+<b>Response to RFC 111: Pressure from the chairman</b> J.F. Heafner
+            [ April 1971 ]
+
+RFC0131
+<b>Response to RFC 116: May NWG meeting</b> E. Harslem, J.F. Heafner
+            [ April 1971 ]
+
+RFC0132
+<b>Typographical Error in RFC 107</b> J.E. White
+            [ April 1971 ]
+
+RFC0133
+<b>File Transfer and Error Recovery</b> R.L. Sunberg
+            [ April 1971 ]
+
+RFC0134
+<b>Network Graphics meeting</b> A. Vezza
+            [ April 1971 ]
+
+RFC0135
+<b>Response to NWG/RFC 110</b> W. Hathaway
+            [ April 1971 ]
+
+RFC0136
+<b>Host accounting and administrative procedures</b> R.E. Kahn
+            [ April 1971 ]
+
+RFC0137
+<b>Telnet Protocol - a proposed document</b> T.C. O'Sullivan
+            [ April 1971 ]
+
+RFC0138
+<b>Status report on proposed Data Reconfiguration Service</b> R.H. Anderson, V.G. Cerf, E. Harslem, J.F. Heafner, J. Madden, R.M. Metcalfe, A. Shoshani, J.E. White, D.C.M. Wood
+            [ April 1971 ]
+
+RFC0139
+<b>Discussion of Telnet Protocol</b> T.C. O'Sullivan
+            [ May 1971 ]
+
+RFC0140
+<b>Agenda for the May NWG meeting</b> S.D. Crocker
+            [ May 1971 ]
+
+RFC0141
+<b>Comments on RFC 114: A File Transfer Protocol</b> E. Harslem, J.F. Heafner
+            [ April 1971 ]
+
+RFC0142
+<b>Time-Out Mechanism in the Host-Host Protocol</b> C. Kline, J. Wong
+            [ May 1971 ]
+
+RFC0143
+<b>Regarding proffered official ICP</b> W. Naylor, J. Wong, C. Kline, J. Postel
+            [ May 1971 ]
+
+RFC0144
+<b>Data sharing on computer networks</b> A. Shoshani
+            [ April 1971 ]
+
+RFC0145
+<b>Initial Connection Protocol Control Commands</b> J. Postel
+            [ May 1971 ]
+
+RFC0146
+<b>Views on issues relevant to data sharing on computer networks</b> P.M. Karp, D.B. McKay, D.C.M. Wood
+            [ May 1971 ]
+
+RFC0147
+<b>Definition of a socket</b> J.M. Winett
+            [ May 1971 ]
+
+RFC0148
+<b>Comments on RFC 123</b> A.K. Bhushan
+            [ May 1971 ]
+
+RFC0149
+<b>Best Laid Plans</b> S.D. Crocker
+            [ May 1971 ]
+
+RFC0150
+<b>Use of IPC Facilities: A Working Paper</b> R.B. Kalin
+            [ May 1971 ]
+
+RFC0151
+<b>Comments on a proffered official ICP: RFCs 123, 127</b> A. Shoshani
+            [ May 1971 ]
+
+RFC0152
+<b>SRI Artificial Intelligence status report</b> M. Wilber
+            [ May 1971 ]
+
+RFC0153
+<b>SRI ARC-NIC status</b> J.T. Melvin, R.W. Watson
+            [ May 1971 ]
+
+RFC0154
+<b>Exposition Style</b> S.D. Crocker
+            [ May 1971 ]
+
+RFC0155
+<b>ARPA Network mailing lists</b> J.B. North
+            [ May 1971 ]
+
+RFC0156
+<b>Status of the Illinois site: Response to RFC 116</b> J. Bouknight
+            [ April 1971 ]
+
+RFC0157
+<b>Invitation to the Second Symposium on Problems in the Optimization of Data Communications Systems</b> V.G. Cerf
+            [ May 1971 ]
+
+RFC0158
+<b>Telnet Protocol: A Proposed Document</b> T.C. O'Sullivan
+            [ May 1971 ]
+
+RFC0159
+Not Issued
+
+RFC0160
+<b>RFC brief list</b> Network Information Center. Stanford Research Institute
+            [ May 1971 ]
+
+RFC0161
+<b>Solution to the race condition in the ICP</b> A. Shoshani
+            [ May 1971 ]
+
+RFC0162
+<b>NETBUGGER3</b> M. Kampe
+            [ May 1971 ]
+
+RFC0163
+<b>Data transfer protocols</b> V.G. Cerf
+            [ May 1971 ]
+
+RFC0164
+<b>Minutes of Network Working Group meeting, 5/16 through 5/19/71</b> J.F. Heafner
+            [ May 1971 ]
+
+RFC0165
+<b>Proffered Official Initial Connection Protocol</b> J. Postel
+            [ May 1971 ]
+
+RFC0166
+<b>Data Reconfiguration Service: An implementation specification</b> R.H. Anderson, V.G. Cerf, E. Harslem, J.F. Heafner, J. Madden, R.M. Metcalfe, A. Shoshani, J.E. White, D.C.M. Wood
+            [ May 1971 ]
+
+RFC0167
+<b>Socket conventions reconsidered</b> A.K. Bhushan, R.M. Metcalfe, J.M. Winett
+            [ May 1971 ]
+
+RFC0168
+<b>ARPA Network mailing lists</b> J.B. North
+            [ May 1971 ]
+
+RFC0169
+<b>COMPUTER NETWORKS</b> S.D. Crocker
+            [ May 1971 ]
+
+RFC0170
+<b>RFC List by Number</b> Network Information Center. Stanford Research Institute
+            [ June 1971 ]
+
+RFC0171
+<b>The Data Transfer Protocol</b> A. Bhushan, B. Braden, W. Crowther, E. Harslem, J. Heafner, A. McKenize, J. Melvin, B. Sundberg, D. Watson, J. White
+            [ June 1971 ]
+
+RFC0172
+<b>The File Transfer Protocol</b> A. Bhushan, B. Braden, W. Crowther, E. Harslem, J. Heafner, A. McKenzie, J. Melvin, B. Sundberg, D. Watson, J. White
+            [ June 1971 ]
+
+RFC0173
+<b>Network Data Management Committee Meeting Announcement</b> P.M. Karp, D.B. McKay
+            [ June 1971 ]
+
+RFC0174
+<b>UCLA - Computer Science Graphics Overview</b> J. Postel, V.G. Cerf
+            [ June 1971 ]
+
+RFC0175
+<b>Comments on "Socket Conventions Reconsidered"</b> E. Harslem, J.F. Heafner
+            [ June 1971 ]
+
+RFC0176
+<b>Comments on "Byte size for connections"</b> A.K. Bhushan, R. Kanodia, R.M. Metcalfe, J. Postel
+            [ June 1971 ]
+
+RFC0177
+<b>Device independent graphical display description</b> J. McConnell
+            [ June 1971 ]
+
+RFC0178
+<b>Network graphic attention handling</b> I.W. Cotton
+            [ June 1971 ]
+
+RFC0179
+<b>Link Number Assignments</b> A.M. McKenzie
+            [ June 1971 ]
+
+RFC0180
+<b>File system questionnaire</b> A.M. McKenzie
+            [ June 1971 ]
+
+RFC0181
+<b>Modifications to RFC 177</b> J. McConnell
+            [ July 1971 ]
+
+RFC0182
+<b>Compilation of list of relevant site reports</b> J.B. North
+            [ June 1971 ]
+
+RFC0183
+<b>EBCDIC Codes and Their Mapping to ASCII</b> J.M. Winett
+            [ July 1971 ]
+
+RFC0184
+<b>Proposed graphic display modes</b> K.C. Kelley
+            [ July 1971 ]
+
+RFC0185
+<b>NIC distribution of manuals and handbooks</b> J.B. North
+            [ July 1971 ]
+
+RFC0186
+<b>Network graphics loader</b> J.C. Michener
+            [ July 1971 ]
+
+RFC0187
+<b>Network/440 Protocol Concept</b> D.B. McKay, D.P. Karp
+            [ July 1971 ]
+
+RFC0188
+<b>Data management meeting announcement</b> P.M. Karp, D.B. McKay
+            [ January 1971 ]
+
+RFC0189
+<b>Interim NETRJS specifications</b> R.T. Braden
+            [ July 1971 ]
+
+RFC0190
+<b>DEC PDP-10-IMLAC communications system</b> L.P. Deutsch
+            [ July 1971 ]
+
+RFC0191
+<b>Graphics implementation and conceptualization at Augmentation Research Center</b> C.H. Irby
+            [ July 1971 ]
+
+RFC0192
+<b>Some factors which a Network Graphics Protocol must consider</b> R.W. Watson
+            [ July 1971 ]
+
+RFC0193
+<b>NETWORK CHECKOUT</b> E. Harslem, J.F. Heafner
+            [ July 1971 ]
+
+RFC0194
+<b>The Data Reconfiguration Service -- Compiler/Interpreter Implementation Notes</b> V. Cerf, E. Harslem, J. Heafner, B. Metcalfe, J. White
+            [ July 1971 ]
+
+RFC0195
+<b>Data computers-data descriptions and access language</b> G.H. Mealy
+            [ July 1971 ]
+
+RFC0196
+<b>Mail Box Protocol</b> R.W. Watson
+            [ July 1971 ]
+
+RFC0197
+<b>Initial Connection Protocol - Reviewed</b> A. Shoshani, E. Harslem
+            [ July 1971 ]
+
+RFC0198
+<b>Site Certification - Lincoln Labs 360/67</b> J.F. Heafner
+            [ July 1971 ]
+
+RFC0199
+<b>Suggestions for a Network Data-Tablet Graphics Protocol</b> T. Williams
+            [ July 1971 ]
+
+RFC0200
+<b>RFC list by number</b> J.B. North
+            [ August 1971 ]
+
+RFC0201
+Not Issued
+
+RFC0202
+<b>Possible Deadlock in ICP</b> S.M. Wolfe, J. Postel
+            [ July 1971 ]
+
+RFC0203
+<b>Achieving reliable communication</b> R.B. Kalin
+            [ August 1971 ]
+
+RFC0204
+<b>Sockets in use</b> J. Postel
+            [ August 1971 ]
+
+RFC0205
+<b>NETCRT - a character display protocol</b> R.T. Braden
+            [ August 1971 ]
+
+RFC0206
+<b>A User TELNET Description of an Initial Implementation</b> J. White
+            [ August 1971 ]
+
+RFC0207
+<b>September Network Working Group meeting</b> A. Vezza
+            [ August 1971 ]
+
+RFC0208
+<b>Address tables</b> A.M. McKenzie
+            [ August 1971 ]
+
+RFC0209
+<b>Host/IMP interface documentation</b> B. Cosell
+            [ August 1971 ]
+
+RFC0210
+<b>Improvement of Flow Control</b> W. Conrad
+            [ August 1971 ]
+
+RFC0211
+<b>ARPA Network Mailing Lists</b> J.B. North
+            [ August 1971 ]
+
+RFC0212
+<b>NWG meeting on network usage</b> Information Sciences Institute University of Southern California
+            [ August 1971 ]
+
+RFC0213
+<b>IMP System change notification</b> B. Cosell
+            [ August 1971 ]
+
+RFC0214
+<b>Network checkpoint</b> E. Harslem
+            [ August 1971 ]
+
+RFC0215
+<b>NCP, ICP, and Telnet: The Terminal IMP implementation</b> A.M. McKenzie
+            [ August 1971 ]
+
+RFC0216
+<b>Telnet Access to UCSB's On-Line System</b> J.E. White
+            [ September 1971 ]
+
+RFC0217
+<b>Specifications changes for OLS, RJE/RJOR, and SMFS</b> J.E. White
+            [ September 1971 ]
+
+RFC0218
+<b>Changing the IMP status reporting facility</b> B. Cosell
+            [ September 1971 ]
+
+RFC0219
+<b>User's View of the Datacomputer</b> R. Winter
+            [ September 1971 ]
+
+RFC0220
+Not Issued
+
+RFC0221
+<b>Mail Box Protocol: Version 2</b> R.W. Watson
+            [ August 1971 ]
+
+RFC0222
+<b>Subject: System programmer's workshop</b> R.M. Metcalfe
+            [ September 1971 ]
+
+RFC0223
+<b>Network Information Center schedule for network users</b> J.T. Melvin, R.W. Watson
+            [ September 1971 ]
+
+RFC0224
+<b>Comments on Mailbox Protocol</b> A.M. McKenzie
+            [ September 1971 ]
+
+RFC0225
+<b>Rand/UCSB network graphics experiment</b> E. Harslem, R. Stoughton
+            [ September 1971 ]
+
+RFC0226
+<b>Standardization of host mnemonics</b> P.M. Karp
+            [ September 1971 ]
+
+RFC0227
+<b>Data transfer rates (Rand/UCLA)</b> J.F. Heafner, E. Harslem
+            [ September 1971 ]
+
+RFC0228
+<b>Clarification</b> D.C. Walden
+            [ September 1971 ]
+
+RFC0229
+<b>Standard host names</b> J. Postel
+            [ September 1971 ]
+
+RFC0230
+<b>Toward reliable operation of minicomputer-based terminals on a TIP</b> T. Pyke
+            [ September 1971 ]
+
+RFC0231
+<b>Service center standards for remote usage: A user's view</b> J.F. Heafner, E. Harslem
+            [ September 1971 ]
+
+RFC0232
+<b>Postponement of network graphics meeting</b> A. Vezza
+            [ September 1971 ]
+
+RFC0233
+<b>Standardization of host call letters</b> A. Bhushan, R. Metcalfe
+            [ September 1971 ]
+
+RFC0234
+<b>Network Working Group meeting schedule</b> A. Vezza
+            [ October 1971 ]
+
+RFC0235
+<b>Site status</b> E. Westheimer
+            [ September 1971 ]
+
+RFC0236
+<b>Standard host names</b> J. Postel
+            [ September 1971 ]
+
+RFC0237
+<b>NIC view of standard host names</b> R.W. Watson
+            [ October 1971 ]
+
+RFC0238
+<b>Comments on DTP and FTP proposals</b> R.T. Braden
+            [ September 1971 ]
+
+RFC0239
+<b>Host mnemonics proposed in RFC 226 (NIC 7625)</b> R.T. Braden
+            [ September 1971 ]
+
+RFC0240
+<b>Site Status</b> A.M. McKenzie
+            [ September 1971 ]
+
+RFC0241
+<b>Connecting computers to MLC ports</b> A.M. McKenzie
+            [ September 1971 ]
+
+RFC0242
+<b>Data Descriptive Language for Shared Data</b> L. Haibt, A.P. Mullery
+            [ July 1971 ]
+
+RFC0243
+<b>Network and data sharing bibliography</b> A.P. Mullery
+            [ October 1971 ]
+
+RFC0244
+Not Issued
+
+RFC0245
+<b>Reservations for Network Group meeting</b> C. Falls
+            [ October 1971 ]
+
+RFC0246
+<b>Network Graphics meeting</b> A. Vezza
+            [ October 1971 ]
+
+RFC0247
+<b>Proffered set of standard host names</b> P.M. Karp
+            [ October 1971 ]
+
+RFC0248
+Not Issued
+
+RFC0249
+<b>Coordination of equipment and supplies purchase</b> R.F. Borelli
+            [ October 1971 ]
+
+RFC0250
+>Some thoughts on file transfer</b> H. Brodie
+            [ October 1971 ]
+
+RFC0251
+<b>Weather data</b> D. Stern
+            [ October 1971 ]
+
+RFC0252
+<b>Network host status</b> E. Westheimer
+            [ October 1971 ]
+
+RFC0253
+<b>Second Network Graphics meeting details</b> J.A. Moorer
+            [ October 1971 ]
+
+RFC0254
+<b>Scenarios for using ARPANET computers</b> A. Bhushan
+            [ October 1971 ]
+
+RFC0255
+<b>Status of network hosts</b> E. Westheimer
+            [ October 1971 ]
+
+RFC0256
+<b>IMPSYS change notification</b> B. Cosell
+            [ November 1971 ]
+
+RFC0257
+Not Issued
+
+RFC0258
+Not Issued
+
+RFC0259
+Not Issued
+
+RFC0260
+Not Issued
+
+RFC0261
+Not Issued
+
+RFC0262
+Not Issued
+
+RFC0263
+<b>"Very Distant" Host interface</b> A.M. McKenzie
+            [ December 1971 ]
+
+RFC0264
+<b>The Data Transfer Protocol</b> A. Bhushan, B. Braden, W. Crowther, E. Harslem, J. Heafner, A. McKenize, B. Sundberg, D. Watson, J. White
+            [ January 1972 ]
+
+RFC0265
+<b>The File Transfer Protocol</b> A. Bhushan, B. Braden, W. Crowther, E. Harslem, J. Heafner, A. McKenzie, J. Melvin, B. Sundberg, D. Watson, J. White
+            [ November 1971 ]
+
+RFC0266
+<b>Network host status</b> E. Westheimer
+            [ November 1971 ]
+
+RFC0267
+<b>Network Host Status</b> E. Westheimer
+            [ November 1971 ]
+
+RFC0268
+<b>Graphics facilities information</b> J. Postel
+            [ November 1971 ]
+
+RFC0269
+<b>Some Experience with File Transfer</b> H. Brodie
+            [ December 1971 ]
+
+RFC0270
+<b>Correction to BBN Report No. 1822 (NIC NO 7958)</b> A.M. McKenzie
+            [ January 1972 ]
+
+RFC0271
+<b>IMP System change notifications</b> B. Cosell
+            [ January 1972 ]
+
+RFC0272
+Not Issued
+
+RFC0273
+<b>More on standard host names</b> R.W. Watson
+            [ October 1971 ]
+
+RFC0274
+<b>Establishing a local guide for network usage</b> E. Forman
+            [ November 1971 ]
+
+RFC0275
+Not Issued
+
+RFC0276
+<b>NIC course</b> R.W. Watson
+            [ November 1971 ]
+
+RFC0277
+Not Issued
+
+RFC0278
+<b>Revision of the Mail Box Protocol</b> A.K. Bhushan, R.T. Braden, E. Harslem, J.F. Heafner, A.M. McKenzie, J.T. Melvin, R.L. Sundberg, R.W. Watson, J.E. White
+            [ November 1971 ]
+
+RFC0279
+Not Issued
+
+RFC0280
+<b>A Draft of Host Names</b> R.W. Watson
+            [ November 1971 ]
+
+RFC0281
+<b>Suggested addition to File Transfer Protocol</b> A.M. McKenzie
+            [ December 1971 ]
+
+RFC0282
+<b>Graphics meeting report</b> M.A. Padlipsky
+            [ December 1971 ]
+
+RFC0283
+<b>NETRJT: Remote Job Service Protocol for TIPS</b> R.T. Braden
+            [ December 1971 ]
+
+RFC0284
+Not Issued
+
+RFC0285
+<b>Network graphics</b> D. Huff
+            [ December 1971 ]
+
+RFC0286
+<b>Network Library Information System</b> E. Forman
+            [ December 1971 ]
+
+RFC0287
+<b>Status of Network Hosts</b> E. Westheimer
+            [ December 1971 ]
+
+RFC0288
+<b>Network host status</b> E. Westheimer
+            [ January 1972 ]
+
+RFC0289
+<b>What we hope is an official list of host names</b> R.W. Watson
+            [ December 1971 ]
+
+RFC0290
+<b>Computer networks and data sharing: A bibliography</b> A.P. Mullery
+            [ January 1972 ]
+
+RFC0291
+<b>Data Management Meeting Announcement</b> D.B. McKay
+            [ January 1972 ]
+
+RFC0292
+<b>Graphics Protocol: Level 0 only</b> J.C. Michener, I.W. Cotton, K.C. Kelley, D.E. Liddle, E. Meyer
+            [ January 1972 ]
+
+RFC0293
+<b>Network Host Status</b> E. Westheimer
+            [ January 1972 ]
+
+RFC0294
+<b>The Use of "Set Data Type" Transaction in File Transfer Protocol</b> A.K. Bhushan
+            [ January 1972 ]
+
+RFC0295
+<b>Report of the Protocol Workshop, 12 October 1971</b> J. Postel
+            [ January 1972 ]
+
+RFC0296
+<b>DS-1 Display System</b> D.E. Liddle
+            [ January 1972 ]
+
+RFC0297
+<b>TIP Message Buffers</b> D.C. Walden
+            [ January 1972 ]
+
+RFC0298
+<b>Network host status</b> E. Westheimer
+            [ February 1972 ]
+
+RFC0299
+<b>Information Management System</b> D. Hopkin
+            [ February 1972 ]
+
+RFC0300
+<b>ARPA Network mailing lists</b> J.B. North
+            [ January 1972 ]
+
+
+RFC0301
+<b>BBN IMP (#5) and NCC Schedule March 4, 1971</b> R. Alter
+            [ February 1972 ]
+
+RFC0302
+<b>Exercising The ARPANET</b> R.F. Bryan
+            [ February 1972 ]
+
+RFC0303
+<b>ARPA Network mailing lists</b> Network Information Center. Stanford Research Institute
+            [ March 1972 ]
+
+RFC0304
+<b>Data Management System Proposal for the ARPA Network</b> D.B. McKay
+            [ February 1972 ]
+
+RFC0305
+<b>Unknown Host Numbers</b> R. Alter
+            [ February 1972 ]
+
+RFC0306
+<b>Network host status</b> E. Westheimer
+            [ February 1972 ]
+
+RFC0307
+<b>Using network Remote Job Entry</b> E. Harslem
+            [ February 1972 ]
+
+RFC0308
+<b>ARPANET host availability data</b> M. Seriff
+            [ March 1972 ]
+
+RFC0309
+<b>Data and File Transfer Workshop Announcement</b> A.K. Bhushan
+            [ March 1972 ]
+
+RFC0310
+<b>Another Look at Data and File Transfer Protocols</b> A.K. Bhushan
+            [ April 1972 ]
+
+RFC0311
+<b>New Console Attachments to the USCB Host</b> R.F. Bryan
+            [ February 1972 ]
+
+RFC0312
+<b>Proposed Change in IMP-to-Host Protocol</b> A.M. McKenzie
+            [ March 1972 ]
+
+RFC0313
+<b>Computer based instruction</b> T.C. O'Sullivan
+            [ March 1972 ]
+
+RFC0314
+<b>Network Graphics Working Group Meeting</b> I.W. Cotton
+            [ March 1972 ]
+
+RFC0315
+<b>Network Host Status</b> E. Westheimer
+            [ March 1972 ]
+
+RFC0316
+<b>ARPA Network Data Management Working Group</b> D.B. McKay, A.P. Mullery
+            [ February 1972 ]
+
+RFC0317
+<b>Official Host-Host Protocol Modification:
+Assigned Link Numbers</b> J. Postel
+            [ March 1972 ]
+
+RFC0318
+<b>Telnet Protocols</b> J. Postel
+            [ April 1972 ]
+
+RFC0319
+<b>Network Host Status</b> E. Westheimer
+            [ March 1972 ]
+
+RFC0320
+<b>Workshop on Hard Copy Line Graphics</b> R. Reddy
+            [ March 1972 ]
+
+RFC0321
+<b>CBI Networking Activity at MITRE</b> P.M. Karp
+            [ March 1972 ]
+
+RFC0322
+<b>Well known socket numbers</b> V. Cerf, J. Postel
+            [ March 1972 ]
+
+RFC0323
+<b>Formation of Network Measurement Group (NMG)</b> V. Cerf
+            [ March 1972 ]
+
+RFC0324
+<b>RJE Protocol meeting</b> J. Postel
+            [ April 1972 ]
+
+RFC0325
+<b>Network Remote Job Entry program - NETRJS</b> G. Hicks
+            [ April 1972 ]
+
+RFC0326
+<b>Network Host Status</b> E. Westheimer
+            [ April 1972 ]
+
+RFC0327
+<b>Data and File Transfer workshop notes</b> A.K. Bhushan
+            [ April 1972 ]
+
+RFC0328
+<b>Suggested Telnet Protocol Changes</b> J. Postel
+            [ April 1972 ]
+
+RFC0329
+<b>ARPA Network Mailing Lists</b> Network Information Center. Stanford Research Institute
+            [ May 1972 ]
+
+RFC0330
+<b>Network Host Status</b> E. Westheimer
+            [ April 1972 ]
+
+RFC0331
+<b>IMP System Change Notification</b> J.M. McQuillan
+            [ April 1972 ]
+
+RFC0332
+<b>Network Host Status</b> E. Westheimer
+            [ April 1972 ]
+
+RFC0333
+<b>Proposed experiment with a Message Switching Protocol</b> R.D. Bressler, D. Murphy, D.C. Walden
+            [ May 1972 ]
+
+RFC0334
+<b>Network Use on May 8</b> A.M. McKenzie
+            [ May 1972 ]
+
+RFC0335
+<b>New Interface - IMP/360</b> R.F. Bryan
+            [ May 1972 ]
+
+RFC0336
+<b>Level 0 Graphic Input Protocol</b> I.W. Cotton
+            [ May 1972 ]
+
+RFC0337
+Not Issued
+
+RFC0338
+<b>EBCDIC/ASCII Mapping for Network RJE</b> R.T. Braden
+            [ May 1972 ]
+
+RFC0339
+<b>MLTNET: A "Multi Telnet" Subsystem for Tenex</b> R. Thomas
+            [ May 1972 ]
+
+RFC0340
+<b>Proposed Telnet Changes</b> T.C. O'Sullivan
+            [ May 1972 ]
+
+RFC0341
+Not Issued
+RFC0342
+<b>Network Host Status</b> E. Westheimer
+            [ May 1972 ]
+
+RFC0343
+<b>IMP System change notification</b> A.M. McKenzie
+            [ May 1972 ]
+
+RFC0344
+<b>Network Host Status</b> E. Westheimer
+            [ May 1972 ]
+
+RFC0345
+<b>Interest in Mixed Integer Programming
+       (MPSX on NIC 360/91 at CCN)</b> K.C. Kelley
+            [ May 1972 ]
+
+RFC0346
+<b>Satellite Considerations</b> J. Postel
+            [ May 1972 ]
+
+RFC0347
+<b>Echo process</b> J. Postel
+            [ May 1972 ]
+
+RFC0348
+<b>Discard Process</b> J. Postel
+            [ May 1972 ]
+
+RFC0349
+<b>Proposed Standard Socket Numbers</b> J. Postel
+            [ May 1972 ]
+
+RFC0350
+<b>User Accounts for UCSB On-Line System</b> R. Stoughton
+            [ May 1972 ]
+
+RFC0351
+<b>Graphics information form for the ARPANET graphics resources notebook</b> D. Crocker
+            [ June 1972 ]
+
+RFC0352
+<b>TIP Site Information Form</b> D. Crocker
+            [ June 1972 ]
+
+RFC0353
+<b>Network host status</b> E. Westheimer
+            [ June 1972 ]
+
+RFC0354
+<b>File Transfer Protocol</b> A.K. Bhushan
+            [ July 1972 ]
+
+RFC0355
+<b>Response to NWG/RFC 346</b> J. Davidson
+            [ June 1972 ]
+
+RFC0356
+<b>ARPA Network Control Center</b> R. Alter
+            [ June 1972 ]
+
+RFC0357
+<b>Echoing strategy for satellite links</b> J. Davidson
+            [ June 1972 ]
+
+RFC0358
+Not Issued
+RFC0359
+<b>Status of the Release of the New IMP System (2600)</b> D.C. Walden
+            [ June 1972 ]
+
+RFC0360
+<b>Proposed Remote Job Entry Protocol</b> C. Holland
+            [ June 1972 ]
+
+RFC0361
+<b>Deamon Processes on Host 106</b> R.D. Bressler
+            [ July 1972 ]
+
+RFC0362
+<b>Network Host Status</b> E. Westheimer
+            [ June 1972 ]
+
+RFC0363
+<b>ARPA Network mailing lists</b> Network Information Center. Stanford Research Institute
+            [ August 1972 ]
+
+RFC0364
+<b>Serving remote users on the ARPANET</b> M.D. Abrams
+            [ July 1972 ]
+
+RFC0365
+<b>Letter to All TIP Users</b> D.C. Walden
+            [ July 1972 ]
+
+RFC0366
+<b>Network Host Status</b> E. Westheimer
+            [ July 1972 ]
+
+RFC0367
+<b>Network host status</b> E. Westheimer
+            [ July 1972 ]
+
+RFC0368
+<b>Comments on "Proposed Remote Job Entry Protocol"</b> R.T. Braden
+            [ July 1972 ]
+
+RFC0369
+<b>Evaluation of ARPANET services January-March, 1972</b> J.R. Pickens
+            [ July 1972 ]
+
+RFC0370
+<b>Network Host Status</b> E. Westheimer
+            [ July 1972 ]
+
+RFC0371
+<b>Demonstration at International Computer Communications Conference</b> R.E. Kahn
+            [ July 1972 ]
+
+RFC0372
+<b>Notes on a Conversation with Bob Kahn on the ICCC</b> R.W. Watson
+            [ July 1972 ]
+
+
+RFC0373
+<b>Arbitrary Character Sets</b> J. McCarthy
+            [ July 1972 ]
+
+RFC0374
+<b>IMP System Announcement</b> A.M. McKenzie
+            [ July 1972 ]
+
+RFC0375
+Not Issued
+
+RFC0376
+<b>Network Host Status</b> E. Westheimer
+            [ August 1972 ]
+
+RFC0377
+<b>Using TSO via ARPA Network Virtual Terminal</b> R.T. Braden
+            [ August 1972 ]
+
+RFC0378
+<b>Traffic statistics (July 1972)</b> A.M. McKenzie
+            [ August 1972 ]
+
+RFC0379
+<b>Using TSO at CCN</b> R. Braden
+            [ August 1972 ]
+
+RFC0380
+Not Issued
+
+RFC0381
+<b>Three aids to improved network operation</b> J.M. McQuillan
+            [ July 1972 ]
+
+RFC0382
+<b>Mathematical Software on the ARPA Network</b> L. McDaniel
+            [ August 1972 ]
+
+RFC0383
+Not Issued
+
+RFC0384
+<b>Official site idents for organizations in the ARPA Network</b> J.B. North
+            [ August 1972 ]
+
+RFC0385
+<b>Comments on the File Transfer Protocol</b> A.K. Bhushan
+            [ August 1972 ]
+
+RFC0386
+<b>Letter to TIP users-2</b> B. Cosell, D.C. Walden
+            [ August 1972 ]
+
+RFC0387
+<b>Some experiences in implementing Network Graphics Protocol Level 0</b> K.C. Kelley, J. Meir
+            [ August 1972 ]
+
+RFC0388
+<b>NCP statistics</b> V. Cerf
+            [ August 1972 ]
+
+RFC0389
+<b>UCLA Campus Computing Network Liaison Staff for ARPA Network</b> B. Noble
+            [ August 1972 ]
+
+RFC0390
+<b>TSO Scenario</b> R.T. Braden
+            [ September 1972 ]
+
+RFC0391
+<b>Traffic statistics (August 1972)</b> A.M. McKenzie
+            [ September 1972 ]
+
+RFC0392
+<b>Measurement of host costs for transmitting network data</b> G. Hicks, B.D. Wessler
+            [ September 1972 ]
+
+RFC0393
+<b>Comments on Telnet Protocol Changes</b> J.M. Winett
+            [ October 1972 ]
+
+RFC0394
+<b>Two Proposed Changes to the IMP-Host Protocol</b> J.M. McQuillan
+            [ September 1972 ]
+
+RFC0395
+<b>Switch Settings on IMPs and TIPs</b> J.M. McQuillan
+            [ October 1972 ]
+
+RFC0396
+<b>Network Graphics Working Group Meeting - Second Iteration</b> S. Bunch
+            [ November 1972 ]
+
+RFC0397
+Not Issued
+
+RFC0398
+<b>UCSB Online Graphics</b> J.R. Pickens, E. Faeh
+            [ September 1972 ]
+
+RFC0399
+<b>SMFS Login and Logout</b> M. Krilanovich
+            [ September 1972 ]
+
+RFC0400
+<b>Traffic Statistics (September 1972)</b> A.M. McKenzie
+            [ October 1972 ]
+
+RFC0401
+<b>Conversion of NGP-0 Coordinates to Device Specific Coordinates</b> J. Hansen
+            [ October 1972 ]
+
+RFC0402
+<b>ARPA Network Mailing Lists</b> J.B. North
+            [ October 1972 ]
+
+RFC0403
+<b>Desirability of a Network 1108 Service</b> G. Hicks
+            [ January 1973 ]
+
+RFC0404
+<b>Host Address Changes Involving Rand and ISI</b> A.M. McKenzie
+            [ October 1972 ]
+
+RFC0405
+<b>Correction to RFC 404</b> A.M. McKenzie
+            [ October 1972 ]
+
+RFC0406
+<b>Scheduled IMP Software Releases</b> J.M. McQuillan
+            [ October 1972 ]
+
+RFC0407
+<b>Remote Job Entry Protocol</b> R.D. Bressler, R. Guida, A.M. McKenzie
+            [ October 1972 ]
+
+RFC0408
+<b>NETBANK</b> A.D. Owen, J. Postel
+            [ October 1972 ]
+
+RFC0409
+<b>Tenex interface to UCSB's Simple-Minded File System</b> J.E. White
+            [ December 1972 ]
+
+RFC0410
+<b>Removal of the 30-Second Delay When Hosts Come Up</b> J.M. McQuillan
+            [ November 1972 ]
+
+RFC0411
+<b>New MULTICS Network Software Features</b> M.A. Padlipsky
+            [ November 1972 ]
+
+RFC0412
+<b>User FTP Documentation</b> G. Hicks
+            [ November 1972 ]
+
+RFC0413
+<b>Traffic statistics (October 1972)</b> A.M. McKenzie
+            [ November 1972 ]
+
+RFC0414
+<b>File Transfer Protocol (FTP) status and further comments</b> A.K. Bhushan
+            [ December 1972 ]
+
+RFC0415
+<b>Tenex bandwidth</b> H. Murray
+            [ November 1972 ]
+
+RFC0416
+<b>ARC System Will Be Unavailable for Use During Thanksgiving Week</b> J.C. Norton
+            [ November 1972 ]
+
+RFC0417
+<b>Link usage violation</b> J. Postel, C. Kline
+            [ December 1972 ]
+
+RFC0418
+<b>Server File Transfer Under TSS/360 At NASA-Ames Research Center</b> W. Hathaway
+            [ November 1972 ]
+
+RFC0419
+<b>To: Network liaisons and station agents</b> A. Vezza
+            [ December 1972 ]
+
+RFC0420
+<b>CCA ICCC weather demo</b> H. Murray
+            [ January 1973 ]
+
+RFC0421
+<b>Software Consulting Service for Network Users</b> A.M. McKenzie
+            [ November 1972 ]
+
+RFC0422
+<b>Traffic statistics (November 1972)</b> A.M. McKenzie
+            [ December 1972 ]
+
+RFC0423
+<b>UCLA Campus Computing Network Liaison Staff for ARPANET</b> B. Noble
+            [ December 1972 ]
+
+RFC0424
+Not Issued
+
+RFC0425
+<b>"But my NCP costs $500 a day"</b> R.D. Bressler
+            [ December 1972 ]
+
+RFC0426
+<b>Reconnection Protocol</b> R. Thomas
+            [ January 1973 ]
+
+RFC0427
+Not Issued
+
+RFC0428
+Not Issued
+
+RFC0429
+<b>Character Generator Process</b> J. Postel
+            [ December 1972 ]
+
+RFC0430
+<b>Comments on File Transfer Protocol</b> R.T. Braden
+            [ February 1973 ]
+
+
+RFC0431
+<b>Update on SMFS Login and Logout</b> M. Krilanovich
+            [ December 1972 ]
+
+RFC0432
+<b>Network logical map</b> N. Neigus
+            [ December 1972 ]
+
+RFC0433
+<b>Socket number list</b> J. Postel
+            [ December 1972 ]
+
+RFC0434
+<b>IMP/TIP memory retrofit schedule</b> A.M. McKenzie
+            [ January 1973 ]
+
+RFC0435
+<b>Telnet issues</b> B. Cosell, D.C. Walden
+            [ January 1973 ]
+
+RFC0436
+<b>Announcement of RJS at UCSB</b> M. Krilanovich
+            [ January 1973 ]
+
+RFC0437
+<b>Data Reconfiguration Service at UCSB</b> E. Faeh
+            [ June 1973 ]
+
+RFC0438
+<b>FTP server-server interaction</b> R. Thomas, R. Clements
+            [ January 1973 ]
+
+RFC0439
+<b>PARRY encounters the DOCTOR</b> V. Cerf
+            [ January 1973 ]
+
+RFC0440
+<b>Scheduled network software maintenance</b> D.C. Walden
+            [ January 1973 ]
+
+RFC0441
+<b>Inter-Entity Communication - an experiment</b> R.D. Bressler, R. Thomas
+            [ January 1973 ]
+
+RFC0442
+<b>Current flow-control scheme for IMPSYS</b> V. Cerf
+            [ January 1973 ]
+
+RFC0443
+<b>Traffic statistics (December 1972)</b> A.M. McKenzie
+            [ January 1973 ]
+
+RFC0444
+Not Issued
+
+RFC0445
+<b>IMP/TIP preventive maintenance schedule</b> A.M. McKenzie
+            [ January 1973 ]
+
+RFC0446
+<b>Proposal to consider a network program resource notebook</b> L.P. Deutsch
+            [ January 1973 ]
+
+RFC0447
+<b>IMP/TIP memory retrofit schedule</b> A.M. McKenzie
+            [ January 1973 ]
+
+RFC0448
+<b>Print files in FTP</b> R.T. Braden
+            [ February 1973 ]
+
+RFC0449
+<b>Current flow-control scheme for IMPSYS</b> D.C. Walden
+            [ January 1973 ]
+
+RFC0450
+<b>MULTICS sampling timeout change</b> M.A. Padlipsky
+            [ February 1973 ]
+
+RFC0451
+<b>Tentative proposal for a Unified User Level Protocol</b> M.A. Padlipsky
+            [ February 1973 ]
+
+RFC0452
+<b>TELNET Command at Host LL</b> J. Winett
+            [ February 1973 ]
+
+RFC0453
+<b>Meeting announcement to discuss a network mail system</b> M.D. Kudlick
+            [ February 1973 ]
+
+RFC0454
+<b>File Transfer Protocol - meeting announcement and a new proposed document</b> A.M. McKenzie
+            [ February 1973 ]
+
+RFC0455
+<b>Traffic statistics (January 1973)</b> A.M. McKenzie
+            [ February 1973 ]
+
+RFC0456
+<b>Memorandum: Date change of mail meeting</b> M.D. Kudlick
+            [ February 1973 ]
+
+RFC0457
+<b>TIPUG</b> D.C. Walden
+            [ February 1973 ]
+
+RFC0458
+<b>Mail retrieval via FTP</b> R.D. Bressler, R. Thomas
+            [ February 1973 ]
+
+RFC0459
+<b>Network questionnaires</b> W. Kantrowitz
+            [ February 1973 ]
+
+RFC0460
+<b>NCP survey</b> C. Kline
+            [ February 1973 ]
+
+RFC0461
+<b>Telnet Protocol meeting announcement</b> A.M. McKenzie
+            [ February 1973 ]
+
+RFC0462
+<b>Responding to user needs</b> J. Iseli, D. Crocker
+            [ February 1973 ]
+
+RFC0463
+<b>FTP comments and response to RFC 430</b> A.K. Bhushan
+            [ February 1973 ]
+
+RFC0464
+<b>Resource notebook framework</b> M.D. Kudlick
+            [ February 1973 ]
+
+RFC0465
+Not Issued
+
+RFC0466
+<b>Telnet logger/server for host LL-67</b> J.M. Winett
+            [ February 1973 ]
+
+RFC0467
+<b>Proposed change to Host-Host Protocol: Resynchronization of connection status</b> J.D. Burchfiel, R.S. Tomlinson
+            [ February 1973 ]
+
+RFC0468
+<b>FTP data compression</b> R.T. Braden
+            [ March 1973 ]
+
+RFC0469
+<b>Network mail meeting summary</b> M.D. Kudlick
+            [ March 1973 ]
+
+RFC0470
+<b>Change in socket for TIP news facility</b> R. Thomas
+            [ March 1973 ]
+
+RFC0471
+<b>Workshop on multi-site executive programs</b> R. Thomas
+            [ March 1973 ]
+
+RFC0472
+<b>Illinois' reply to Maxwell's request for
+ graphics information (NIC 14925)</b> S. Bunch
+            [ March 1973 ]
+
+RFC0473
+<b>MIX and MIXAL?</b> D.C. Walden
+            [ February 1973 ]
+
+RFC0474
+<b>Announcement of NGWG meeting: Call for papers</b> S. Bunch
+            [ March 1973 ]
+
+RFC0475
+<b>FTP and Network Mail System</b> A.K. Bhushan
+            [ March 1973 ]
+
+RFC0476
+<b>IMP/TIP memory retrofit schedule (rev 2)</b> A.M. McKenzie
+            [ March 1973 ]
+
+RFC0477
+<b>Remote Job Service at UCSB</b> M. Krilanovich
+            [ May 1973 ]
+
+RFC0478
+<b>FTP server-server interaction - II</b> R.D. Bressler, R. Thomas
+            [ March 1973 ]
+
+RFC0479
+<b>Use of FTP by the NIC Journal</b> J.E. White
+            [ March 1973 ]
+
+RFC0480
+<b>Host-dependent FTP parameters</b> J.E. White
+            [ March 1973 ]
+
+RFC0481
+Not Issued
+
+RFC0482
+<b>Traffic statistics (February 1973)</b> A.M. McKenzie
+            [ March 1973 ]
+
+RFC0483
+<b>Cancellation of the resource notebook framework meeting</b> M.D. Kudlick
+            [ March 1973 ]
+
+RFC0484
+Not Issued
+
+RFC0485
+<b>MIX and MIXAL at UCSB</b> J.R. Pickens
+            [ March 1973 ]
+
+RFC0486
+<b>Data transfer revisited</b> R.D. Bressler
+            [ March 1973 ]
+
+RFC0487
+<b>Free file transfer</b> R.D. Bressler
+            [ April 1973 ]
+
+RFC0488
+<b>NLS classes at network sites</b> M.F. Auerbach
+            [ March 1973 ]
+
+RFC0489
+<b>Comment on resynchronization of connection status proposal</b> J. Postel
+            [ March 1973 ]
+
+RFC0490
+<b>Surrogate RJS for UCLA-CCN</b> J.R. Pickens
+            [ March 1973 ]
+
+RFC0491
+<b>What is "Free"?</b> M.A. Padlipsky
+            [ April 1973 ]
+
+RFC0492
+<b>Response to RFC 467</b> E. Meyer
+            [ April 1973 ]
+
+RFC0493
+<b>GRAPHICS PROTOCOL</b> J.C. Michener, I.W. Cotton, K.C. Kelley, D.E. Liddle, E. Meyer
+            [ April 1973 ]
+
+RFC0494
+<b>Availability of MIX and MIXAL in the Network</b> D.C. Walden
+            [ April 1973 ]
+
+RFC0495
+<b>Telnet Protocol specifications</b> A.M. McKenzie
+            [ May 1973 ]
+
+RFC0496
+<b>TNLS quick reference card is available</b> M.F. Auerbach
+            [ April 1973 ]
+
+RFC0497
+<b>Traffic Statistics (March 1973)</b> A.M. McKenzie
+            [ April 1973 ]
+
+RFC0498
+<b>On mail service to CCN</b> R.T. Braden
+            [ April 1973 ]
+
+RFC0499
+<b>Harvard's network RJE</b> B.R. Reussow
+            [ April 1973 ]
+
+RFC0500
+<b>Integration of data management systems on a computer network</b> A. Shoshani, I. Spiegler
+            [ April 1973 ]
+
+RFC0501
+<b>Un-muddling "free file transfer"</b> K.T. Pogran
+            [ May 1973 ]
+
+RFC0502
+Not Issued
+
+RFC0503
+<b>Socket number list</b> N. Neigus, J. Postel
+            [ April 1973 ]
+
+RFC0504
+<b>Distributed resources workshop announcement</b> R. Thomas
+            [ April 1973 ]
+
+RFC0505
+<b>Two solutions to a file transfer access problem</b> M.A. Padlipsky
+            [ June 1973 ]
+
+RFC0506
+<b>FTP command naming problem</b> M.A. Padlipsky
+            [ June 1973 ]
+
+RFC0507
+Not Issued
+
+RFC0508
+<b>Real-time data transmission on the ARPANET</b> L. Pfeifer, J. McAfee
+            [ May 1973 ]
+
+RFC0509
+<b>Traffic statistics (April 1973)</b> A.M. McKenzie
+            [ April 1973 ]
+
+RFC0510
+<b>Request for network mailbox addresses</b> J.E. White
+            [ May 1973 ]
+
+RFC0511
+<b>Enterprise phone service to NIC from ARPANET sites</b> J.B. North
+            [ May 1973 ]
+
+RFC0512
+<b>More on lost message detection</b> W. Hathaway
+            [ May 1973 ]
+
+RFC0513
+<b>Comments on the new Telnet specifications</b> W. Hathaway
+            [ May 1973 ]
+
+RFC0514
+<b>Network make-work</b> W. Kantrowitz
+            [ June 1973 ]
+
+RFC0515
+<b>Specifications for Datalanguage, Version 0/9</b> R. Winter
+            [ June 1973 ]
+
+RFC0516
+<b>Lost message detection</b> J. Postel
+            [ May 1973 ]
+
+RFC0517
+Not Issued
+
+RFC0518
+<b>ARPANET accounts</b> N. Vaughan, E.J. Feinler
+            [ June 1973 ]
+
+RFC0519
+<b>Resource Evaluation</b> J.R. Pickens
+            [ June 1973 ]
+
+RFC0520
+<b>Memo to FTP group: Proposal for File Access Protocol</b> J.D. Day
+            [ June 1973 ]
+
+RFC0521
+<b>Restricted use of IMP DDT</b> A.M. McKenzie
+            [ May 1973 ]
+
+RFC0522
+<b>Traffic Statistics (May 1973)</b> A.M. McKenzie
+            [ June 1973 ]
+
+RFC0523
+<b>SURVEY is in operation again</b> A.K. Bhushan
+            [ June 1973 ]
+
+RFC0524
+<b>Proposed Mail Protocol</b> J.E. White
+            [ June 1973 ]
+
+RFC0525
+<b>MIT-MATHLAB meets UCSB-OLS -an example of resource sharing</b> W. Parrish, J.R. Pickens
+            [ June 1973 ]
+
+RFC0526
+<b>Technical meeting: Digital image processing software systems</b> W.K. Pratt
+            [ June 1973 ]
+
+RFC0527
+<b>ARPAWOCKY</b> R. Merryman
+            [ May 1973 ]
+
+RFC0528
+<b>Software checksumming in the IMP and network reliability</b> J.M. McQuillan
+            [ June 1973 ]
+
+RFC0529
+<b>Note on protocol synch sequences</b> A.M. McKenzie, R. Thomas, R.S. Tomlinson, K.T. Pogran
+            [ June 1973 ]
+
+RFC0530
+<b>Report on the Survey Project</b> A.K. Bhushan
+            [ June 1973 ]
+
+RFC0531
+<b>Feast or famine? A response to two recent
+ RFC's about network information</b> M.A. Padlipsky
+            [ June 1973 ]
+
+RFC0532
+<b>UCSD-CC Server-FTP facility</b> R.G. Merryman
+            [ July 1973 ]
+
+RFC0533
+<b>Message-ID numbers</b> D.C. Walden
+            [ July 1973 ]
+
+RFC0534
+<b>Lost message detection</b> D.C. Walden
+            [ July 1973 ]
+
+RFC0535
+<b>Comments on File Access Protocol</b> R. Thomas
+            [ July 1973 ]
+
+RFC0536
+Not Issued
+
+RFC0537
+<b>Announcement of NGG meeting July 16-17</b> S. Bunch
+            [ June 1973 ]
+
+RFC0538
+<b>Traffic statistics (June 1973)</b> A.M. McKenzie
+            [ July 1973 ]
+
+RFC0539
+<b>Thoughts on the mail protocol proposed in RFC 524</b> D. Crocker, J. Postel
+            [ July 1973 ]
+
+RFC0540
+Not Issued
+
+RFC0541
+Not Issued
+
+RFC0542
+<b>File Transfer Protocol</b> N. Neigus
+            [ August 1973 ]
+
+RFC0543
+<b>Network journal submission and delivery</b> N.D. Meyer
+            [ July 1973 ]
+
+RFC0544
+<b>Locating on-line documentation at SRI-ARC</b> N.D. Meyer, K. Kelley
+            [ July 1973 ]
+
+RFC0545
+<b>Of what quality be the UCSB resources evaluators?</b> J.R. Pickens
+            [ July 1973 ]
+
+RFC0546
+<b>Tenex load averages for July 1973</b> R. Thomas
+            [ August 1973 ]
+
+RFC0547
+<b>Change to the Very Distant Host specification</b> D.C. Walden
+            [ August 1973 ]
+
+RFC0548
+<b>Hosts using the IMP Going Down message</b> D.C. Walden
+            [ August 1973 ]
+
+RFC0549
+<b>Minutes of Network Graphics Group meeting, 15-17 July 1973</b> J.C. Michener
+            [ July 1973 ]
+
+RFC0550
+<b>NIC NCP experiment</b> L.P. Deutsch
+            [ August 1973 ]
+
+RFC0551
+<b>NYU, ANL, and LBL Joining the Net</b> Y. Feinroth, R. Fink
+            [ August 1973 ]
+
+RFC0552
+<b>Single access to standard protocols</b> A.D. Owen
+            [ July 1973 ]
+
+RFC0553
+<b>Draft design for a text/graphics protocol</b> C.H. Irby, K. Victor
+            [ July 1973 ]
+
+RFC0554
+Not Issued
+
+RFC0555
+<b>Responses to critiques of the proposed mail protocol</b> J.E. White
+            [ July 1973 ]
+
+RFC0556
+<b>Traffic Statistics (July 1973)</b> A.M. McKenzie
+            [ August 1973 ]
+
+RFC0557
+<b>REVELATIONS IN NETWORK HOST MEASUREMENTS</b> B.D. Wessler
+            [ August 1973 ]
+
+RFC0558
+Not Issued
+
+RFC0559
+<b>Comments on The New Telnet Protocol and its Implementation</b> A.K. Bushan
+            [ August 1973 ]
+
+RFC0560
+<b>Remote Controlled Transmission and Echoing Telnet option</b> D. Crocker, J. Postel
+            [ August 1973 ]
+
+RFC0561
+<b>Standardizing Network Mail Headers</b> A.K. Bhushan, K.T. Pogran, R.S. Tomlinson, J.E. White
+            [ September 1973 ]
+
+RFC0562
+<b>Modifications to the TELNET Specification</b> A.M. McKenzie
+            [ August 1973 ]
+
+RFC0563
+<b>Comments on the RCTE Telnet option</b> J. Davidson
+            [ August 1973 ]
+
+RFC0564
+Not Issued
+
+RFC0565
+<b>Storing network survey data at the datacomputer</b> D. Cantor
+            [ August 1973 ]
+
+RFC0566
+<b>Traffic statistics (August 1973)</b> A.M. McKenzie
+            [ September 1973 ]
+
+RFC0567
+<b>Cross Country Network Bandwidth</b> L.P. Deutsch
+            [ September 1973 ]
+
+RFC0568
+<b>Response to RFC 567 - cross country network bandwidth</b> J.M. McQuillan
+            [ September 1973 ]
+
+RFC0569
+<b>NETED: A Common Editor for the ARPA Network</b> M.A. Padlipsky
+            [ October 1973 ]
+
+RFC0570
+<b>Experimental input mapping between NVT ASCII and UCSB On Line System</b> J.R. Pickens
+            [ October 1973 ]
+
+RFC0571
+<b>TENEX FTP PROBLEM</b> R. Braden
+            [ November 1973 ]
+
+RFC0572
+Not Issued
+
+RFC0573
+<b>DATA AND FILE TRANSFER - SOME MEASUREMENT RESULTS</b> A. Bhushan
+            [ September 1973 ]
+
+RFC0574
+<b>Announcement of a Mail Facility at UCSB</b> M. Krilanovich
+            [ September 1973 ]
+
+RFC0575
+Not Issued
+
+RFC0576
+<b>Proposal for modifying linking</b> K. Victor
+            [ September 1973 ]
+
+RFC0577
+<b>Mail priority</b> D. Crocker
+            [ October 1973 ]
+
+RFC0578
+<b>Using MIT-Mathlab MACSYMA from MIT-DMS Muddle</b> A.K. Bhushan, N.D. Ryan
+            [ October 1973 ]
+
+RFC0579
+<b>Traffic statistics (September 1973)</b> A.M. McKenzie
+            [ November 1973 ]
+
+RFC0580
+<b>Note to Protocol Designers and Implementers</b> J. Postel
+            [ October 1973 ]
+
+RFC0581
+<b>Corrections to RFC 560: Remote Controlled Transmission and Echoing Telnet Option</b> D. Crocker, J. Postel
+            [ November 1973 ]
+
+RFC0582
+<b>Comments on RFC 580: Machine readable protocols</b> R. Clements
+            [ November 1973 ]
+
+RFC0583
+Not Issued
+
+RFC0584
+<b>Charter for ARPANET Users Interest Working Group</b> J. Iseli, D. Crocker, N. Neigus
+            [ November 1973 ]
+
+RFC0585
+<b>ARPANET users interest working group meeting</b> D. Crocker, N. Neigus, E.J. Feinler, J. Iseli
+            [ November 1973 ]
+
+RFC0586
+<b>Traffic statistics (October 1973)</b> A.M. McKenzie
+            [ November 1973 ]
+
+RFC0587
+<b>Announcing New Telnet Options</b> J. Postel
+            [ November 1973 ]
+
+RFC0588
+<b>London Node Is Now Up</b> A. Stokes
+            [ October 1973 ]
+
+RFC0589
+<b>CCN NETRJS server messages to remote user</b> R.T. Braden
+            [ November 1973 ]
+
+RFC0590
+<b>MULTICS address change</b> M.A. Padlipsky
+            [ November 1973 ]
+
+RFC0591
+<b>Addition to the Very Distant Host specifications</b> D.C. Walden
+            [ November 1973 ]
+
+RFC0592
+<b>Some thoughts on system design to facilitate resource sharing</b> R.W. Watson
+            [ November 1973 ]
+
+RFC0593
+<b>Telnet and FTP implementation schedule change</b> A.M. McKenzie, J. Postel
+            [ November 1973 ]
+
+RFC0594
+<b>Speedup of Host-IMP interface</b> J.D. Burchfiel
+            [ December 1973 ]
+
+RFC0595
+<b>Second thoughts in defense of the Telnet Go-Ahead</b> W. Hathaway
+            [ December 1973 ]
+
+RFC0596
+<b>Second thoughts on Telnet Go-Ahead</b> E.A. Taft
+            [ December 1973 ]
+
+RFC0597
+<b>Host status</b> N. Neigus, E.J. Feinler
+            [ December 1973 ]
+
+RFC0598
+<b>RFC index - December 5, 1973</b> Network Information Center. Stanford Research Institute
+            [ December 1973 ]
+
+RFC0599
+<b>Update on NETRJS</b> R.T. Braden
+            [ December 1973 ]
+
+RFC0600
+<b>Interfacing an Illinois plasma terminal to the ARPANET</b> A. Berggreen
+            [ November 1973 ]
+
+RFC0601
+<b>Traffic statistics (November 1973)</b> A.M. McKenzie
+            [ December 1973 ]
+
+RFC0602
+<b>"The stockings were hung by the chimney with care"</b> R.M. Metcalfe
+            [ December 1973 ]
+
+RFC0603
+<b>Response to RFC 597: Host status</b> J.D. Burchfiel
+            [ December 1973 ]
+
+RFC0604
+<b>Assigned link numbers</b> J. Postel
+            [ December 1973 ]
+
+RFC0605
+Not Issued
+
+RFC0606
+<b>Host names on-line</b> L.P. Deutsch
+            [ December 1973 ]
+
+RFC0607
+<b>Comments on the File Transfer Protocol</b> M. Krilanovich, G. Gregg
+            [ January 1974 ]
+
+RFC0608
+<b>Host names on-line</b> M.D. Kudlick
+            [ January 1974 ]
+
+RFC0609
+<b>Statement of upcoming move of NIC/NLS service</b> B. Ferguson
+            [ January 1974 ]
+
+RFC0610
+<b>Further datalanguage design concepts</b> R. Winter, J. Hill, W. Greiff
+            [ December 1973 ]
+
+RFC0611
+<b>Two changes to the IMP/Host Protocol to improve user/network communications</b> D.C. Walden
+            [ February 1974 ]
+
+RFC0612
+<b>Traffic statistics (December 1973)</b> A.M. McKenzie
+            [ January 1974 ]
+
+RFC0613
+<b>Network connectivity: A response to RFC 603</b> A.M. McKenzie
+            [ January 1974 ]
+
+RFC0614
+<b>Response to RFC 607: "Comments on the File Transfer Protocol"</b> K.T. Pogran, N. Neigus
+            [ January 1974 ]
+
+RFC0615
+<b>Proposed Network Standard Data Pathname syntax</b> D. Crocker
+            [ March 1974 ]
+
+RFC0616
+<b>LATEST NETWORK MAPS</b> D. Walden
+            [ February 1973 ]
+
+RFC0617
+<b>Note on socket number assignment</b> E.A. Taft
+            [ February 1974 ]
+
+RFC0618
+<b>Few observations on NCP statistics</b> E.A. Taft
+            [ February 1974 ]
+
+RFC0619
+<b>Mean round-trip times in the ARPANET</b> W. Naylor, H. Opderbeck
+            [ March 1974 ]
+
+RFC0620
+<b>Request for monitor host table updates</b> B. Ferguson
+            [ March 1974 ]
+
+RFC0621
+<b>NIC user directories at SRI ARC</b> M.D. Kudlick
+            [ March 1974 ]
+
+RFC0622
+<b>Scheduling IMP/TIP down time</b> A.M. McKenzie
+            [ March 1974 ]
+
+RFC0623
+<b>Comments on on-line host name service</b> M. Krilanovich
+            [ February 1974 ]
+
+RFC0624
+<b>Comments on the File Transfer Protocol</b> M. Krilanovich, G. Gregg, W. Hathaway, J.E. White
+            [ February 1974 ]
+
+RFC0625
+<b>On-line hostnames service</b> M.D. Kudlick, E.J. Feinler
+            [ March 1974 ]
+
+RFC0626
+<b>On a possible lockup condition in IMP subnet due to message sequencing</b> L. Kleinrock, H. Opderbeck
+            [ March 1974 ]
+
+RFC0627
+<b>ASCII text file of hostnames</b> M.D. Kudlick, E.J. Feinler
+            [ March 1974 ]
+
+RFC0628
+<b>Status of RFC numbers and a note on pre-assigned
+ journal numbers</b> M.L. Keeney
+            [ March 1974 ]
+
+RFC0629
+<b>Scenario for using the Network Journal</b> J.B. North
+            [ March 1974 ]
+
+RFC0630
+<b>FTP error code usage for more reliable mail service</b> J. Sussman
+            [ April 1974 ]
+
+RFC0631
+<b>International meeting on minicomputers and data communication: Call for papers</b> A. Danthine
+            [ April 1974 ]
+
+RFC0632
+<b>Throughput degradations for single packet messages</b> H. Opderbeck
+            [ May 1974 ]
+
+RFC0633
+<b>IMP/TIP preventive maintenance schedule</b> A.M. McKenzie
+            [ March 1974 ]
+
+RFC0634
+<b>Change in network address for Haskins Lab</b> A.M. McKenzie
+            [ April 1974 ]
+
+RFC0635
+<b>Assessment of ARPANET protocols</b> V. Cerf
+            [ April 1974 ]
+
+RFC0636
+<b>TIP/Tenex reliability improvements</b> J.D. Burchfiel, B. Cosell, R.S. Tomlinson, D.C. Walden
+            [ June 1974 ]
+
+RFC0637
+<b>Change of network address for SU-DSL</b> A.M. McKenzie
+            [ April 1974 ]
+
+RFC0638
+<b>IMP/TIP preventive maintenance schedule</b> A.M. McKenzie
+            [ April 1974 ]
+
+RFC0639
+Not Issued
+
+RFC0640
+<b>Revised FTP reply codes</b> J. Postel
+            [ June 1974 ]
+
+RFC0641
+Not Issued
+
+RFC0642
+<b>Ready line philosophy and implementation</b> J.D. Burchfiel
+            [ July 1974 ]
+
+RFC0643
+<b>Network Debugging Protocol</b> E. Mader
+            [ July 1974 ]
+
+RFC0644
+<b>On the problem of signature authentication for network mail</b> R. Thomas
+            [ July 1974 ]
+
+RFC0645
+<b>Network Standard Data Specification syntax</b> D. Crocker
+            [ June 1974 ]
+
+RFC0646
+Not Issued
+
+RFC0647
+<b>Proposed protocol for connecting host computers
+ to ARPA-like networks via front end processors</b> M.A. Padlipsky
+            [ November 1974 ]
+
+RFC0648
+Not Issued
+
+RFC0649
+Not Issued
+
+RFC0650
+Not Issued
+
+RFC0651
+<b>Revised Telnet status option</b> D. Crocker
+            [ October 1974 ]
+
+RFC0652
+<b>Telnet output carriage-return disposition option</b> D. Crocker
+            [ October 1974 ]
+
+RFC0653
+<b>Telnet output horizontal tabstops option</b> D. Crocker
+            [ October 1974 ]
+
+RFC0654
+<b>Telnet output horizontal tab disposition option</b> D. Crocker
+            [ October 1974 ]
+
+RFC0655
+<b>Telnet output formfeed disposition option</b> D. Crocker
+            [ October 1974 ]
+
+RFC0656
+<b>Telnet output vertical tabstops option</b> D. Crocker
+            [ October 1974 ]
+
+RFC0657
+<b>Telnet output vertical tab disposition option</b> D. Crocker
+            [ October 1974 ]
+
+RFC0658
+<b>Telnet output linefeed disposition</b> D. Crocker
+            [ October 1974 ]
+
+RFC0659
+<b>Announcing additional Telnet options</b> J. Postel
+            [ October 1974 ]
+
+RFC0660
+<b>Some changes to the IMP and the IMP/Host interface</b> D.C. Walden
+            [ October 1974 ]
+
+RFC0661
+<b>Protocol information</b> J. Postel
+            [ November 1974 ]
+
+RFC0662
+<b>Performance improvement in ARPANET file transfers from Multics</b> R. Kanodia
+            [ November 1974 ]
+
+RFC0663
+<b>Lost message detection and recovery protocol</b> R. Kanodia
+            [ November 1974 ]
+
+RFC0664
+Not Issued
+
+RFC0665
+Not Issued
+
+RFC0666
+<b>Specification of the Unified User-Level Protocol</b> M.A. Padlipsky
+            [ November 1974 ]
+
+RFC0667
+<b>Host Ports</b> S.G. Chipman
+            [ December 1974 ]
+
+RFC0668
+Not Issued
+
+RFC0669
+<b>November, 1974, survey of New-Protocol Telnet servers</b> D.W. Dodds
+            [ December 1974 ]
+
+RFC0670
+Not Issued
+
+RFC0671
+<b>Note on Reconnection Protocol</b> R. Schantz
+            [ December 1974 ]
+
+RFC0672
+<b>Multi-site data collection facility</b> R. Schantz
+            [ December 1974 ]
+
+RFC0673
+Not Issued
+
+RFC0674
+<b>Procedure call documents: Version 2</b> J. Postel, J.E. White
+            [ December 1974 ]
+
+RFC0675
+<b>Specification of Internet Transmission
+ Control Program</b> V. Cerf, Y. Dalal, C. Sunshine
+            [ December 1974 ]
+
+RFC0676
+Not Issued
+
+RFC0677
+<b>Maintenance of duplicate databases</b> P.R. Johnson, R. Thomas
+            [ January 1975 ]
+
+RFC0678
+<b>Standard file formats</b> J. Postel
+            [ December 1974 ]
+
+RFC0679
+<b>February, 1975, survey of New-Protocol Telnet servers</b> D.W. Dodds
+            [ February 1975 ]
+
+RFC0680
+<b>Message Transmission Protocol</b> T.H. Myer, D.A. Henderson
+            [ April 1975 ]
+
+RFC0681
+<b>Network UNIX</b> S. Holmgren
+            [ March 1975 ]
+
+RFC0682
+Not Issued
+
+RFC0683
+<b>FTPSRV - Tenex extension for paged files</b> R. Clements
+            [ April 1975 ]
+
+RFC0684
+<b>Commentary on procedure calling as a network protocol</b> R. Schantz
+            [ April 1975 ]
+
+RFC0685
+<b>Response time in cross network debugging</b> M. Beeler
+            [ April 1975 ]
+
+RFC0686
+<b>Leaving well enough alone</b> B. Harvey
+            [ May 1975 ]
+
+RFC0687
+<b>IMP/Host and Host/IMP Protocol changes</b> D.C. Walden
+            [ June 1975 ]
+
+RFC0688
+<b>Tentative schedule for the new Telnet implementation for the TIP</b> D.C. Walden
+            [ June 1975 ]
+
+RFC0689
+<b>Tenex NCP finite state machine for connections</b> R. Clements
+            [ May 1975 ]
+
+RFC0690
+<b>Comments on the proposed Host/IMP Protocol changes</b> J. Postel
+            [ June 1975 ]
+
+RFC0691
+<b>One more try on the FTP</b> B. Harvey
+            [ June 1975 ]
+
+RFC0692
+<b>Comments on IMP/Host Protocol changes (RFCs 687 and 690)</b> S.M. Wolfe
+            [ June 1975 ]
+
+RFC0693
+Not Issued
+
+RFC0694
+<b>Protocol information</b> J. Postel
+            [ June 1975 ]
+
+RFC0695
+<b>Official change in Host-Host Protocol</b> M. Krilanovich
+            [ July 1975 ]
+
+RFC0696
+<b>Comments on the IMP/Host and Host/IMP Protocol changes</b> V.G. Cerf
+            [ July 1975 ]
+
+RFC0697
+<b>CWD command of FTP</b> J. Lieb
+
+RFC0698
+<b>Telnet extended ASCII option</b> T. Mock
+            [ July 1975 ]
+
+RFC0699
+<b>Request For Comments summary notes: 600-699</b> J. Postel, J. Vernon
+            [ November 1982 ]
+
+RFC0700
+<b>Protocol experiment</b> E. Mader, W.W. Plummer, R.S. Tomlinson
+            [ August 1974 ]
+
+RFC0701
+<b>August, 1974, survey of New-Protocol Telnet servers</b> D.W. Dodds
+            [ August 1974 ]
+
+RFC0702
+<b>September, 1974, survey of New-Protocol Telnet servers</b> D.W. Dodds
+            [ September 1974 ]
+
+RFC0703
+<b>July, 1975, survey of New-Protocol Telnet Servers</b> D.W. Dodds
+            [ July 1975 ]
+
+RFC0704
+<b>IMP/Host and Host/IMP Protocol change</b> P.J. Santos
+            [ September 1975 ]
+
+RFC0705
+<b>Front-end Protocol B6700 version</b> R.F. Bryan
+            [ November 1975 ]
+
+RFC0706
+<b>On the junk mail problem</b> J. Postel
+            [ November 1975 ]
+
+RFC0707
+<b>High-level framework for network-based resource sharing</b> J.E. White
+            [ December 1975 ]
+
+RFC0708
+<b>Elements of a Distributed Programming System</b> J.E. White
+            [ January 1976 ]
+
+RFC0709
+Not Issued
+
+RFC0710
+Not Issued
+
+RFC0711
+Not Issued
+
+RFC0712
+<b>Distributed Capability Computing System (DCCS)</b> J.E. Donnelley
+            [ February 1976 ]
+
+RFC0713
+<b>MSDTP-Message Services Data Transmission Protocol</b> J. Haverty
+            [ April 1976 ]
+
+RFC0714
+<b>Host-Host Protocol for an ARPANET-Type Network</b> A.M. McKenzie
+            [ April 1976 ]
+
+RFC0715
+Not Issued
+
+RFC0716
+<b>Interim Revision to Appendix F of BBN 1822</b> D.C. Walden, J. Levin
+            [ May 1976 ]
+
+RFC0717
+<b>Assigned Network Numbers</b> J. Postel
+            [ July 1976 ]
+
+RFC0718
+<b>Comments on RCTE from the Tenex Implementation Experience</b> J. Postel
+            [ June 1976 ]
+
+RFC0719
+<b>Discussion on RCTE</b> J. Postel
+            [ July 1976 ]
+
+RFC0720
+<b>Address Specification Syntax for Network Mail</b> D. Crocker
+            [ August 1976 ]
+
+RFC0721
+<b>Out-of-Band Control Signals in a Host-to-Host Protocol</b> L.L. Garlick
+            [ September 1976 ]
+
+RFC0722
+<b>Thoughts on Interactions in Distributed Services</b> J. Haverty
+            [ September 1976 ]
+
+RFC0723
+Not Issued
+
+RFC0724
+<b>Proposed official standard for the format
+ of ARPA Network messages</b> D. Crocker, K.T. Pogran, J. Vittal, D.A. Henderson
+            [ May 1977 ]
+
+RFC0725
+<b>RJE protocol for a resource sharing network</b> J.D. Day, G.R. Grossman
+            [ March 1977 ]
+
+RFC0726
+<b>Remote Controlled Transmission and Echoing Telnet option</b> J. Postel, D. Crocker
+            [ March 1977 ]
+
+RFC0727
+<b>Telnet logout option</b> M.R. Crispin
+            [ April 1977 ]
+
+RFC0728
+<b>Minor pitfall in the Telnet Protocol</b> J.D. Day
+            [ April 1977 ]
+
+RFC0729
+<b>Telnet byte macro option</b> D. Crocker
+            [ May 1977 ]
+
+RFC0730
+<b>Extensible field addressing</b> J. Postel
+            [ May 1977 ]
+
+RFC0731
+<b>Telnet Data Entry Terminal option</b> J.D. Day
+            [ June 1977 ]
+
+RFC0732
+<b>Telnet Data Entry Terminal option</b> J.D. Day
+            [ September 1977 ]
+
+RFC0733
+<b>Standard for the format of ARPA network text messages</b> D. Crocker, J. Vittal, K.T. Pogran, D.A. Henderson
+            [ November 1977 ]
+
+RFC0734
+<b>SUPDUP Protocol</b> M.R. Crispin
+            [ October 1977 ]
+
+RFC0735
+<b>Revised Telnet byte macro option</b> D. Crocker, R.H. Gumpertz
+            [ November 1977 ]
+
+RFC0736
+<b>Telnet SUPDUP option</b> M.R. Crispin
+            [ October 1977 ]
+
+RFC0737
+<b>FTP extension: XSEN</b> K. Harrenstien
+            [ October 1977 ]
+
+RFC0738
+<b>Time server</b> K. Harrenstien
+            [ October 1977 ]
+
+RFC0739
+<b>Assigned numbers</b> J. Postel
+            [ November 1977 ]
+
+RFC0740
+<b>NETRJS Protocol</b> R.T. Braden
+            [ November 1977 ]
+
+RFC0741
+<b>Specifications for the Network Voice Protocol (NVP)</b> D. Cohen
+            [ November 1977 ]
+
+RFC0742
+<b>NAME/FINGER Protocol</b> K. Harrenstien
+            [ December 1977 ]
+
+RFC0743
+<b>FTP extension: XRSQ/XRCP</b> K. Harrenstien
+            [ December 1977 ]
+
+RFC0744
+<b>MARS - a Message Archiving and Retrieval Service</b> J. Sattley
+            [ January 1978 ]
+
+RFC0745
+<b>JANUS interface specifications</b> M. Beeler
+            [ March 1978 ]
+
+RFC0746
+<b>SUPDUP graphics extension</b> R. Stallman
+            [ March 1978 ]
+
+RFC0747
+<b>Recent extensions to the SUPDUP Protocol</b> M.R. Crispin
+            [ March 1978 ]
+
+RFC0748
+<b>Telnet randomly-lose option</b> M.R. Crispin
+            [ 1 April 1978 ]
+
+RFC0749
+<b>Telnet SUPDUP-Output option</b> B. Greenberg
+            [ September 1978 ]
+
+RFC0750
+<b>Assigned numbers</b> J. Postel
+            [ September 1978 ]
+
+RFC0751
+<b>Survey of FTP mail and MLFL</b> P.D. Lebling
+            [ December 1978 ]
+
+RFC0752
+<b>Universal host table</b> M.R. Crispin
+            [ January 1979 ]
+
+=====
+RFC0753
+<b>Internet Message Protocol</b> J. Postel
+            [ March 1979 ]
+
+RFC0754
+<b>Out-of-net host addresses for mail</b> J. Postel
+            [ April 1979 ]
+
+RFC0755
+<b>Assigned numbers</b> J. Postel
+            [ May 1979 ]
+
+RFC0756
+<b>NIC name server - a datagram-based information utility</b> J.R. Pickens, E.J. Feinler, J.E. Mathis
+            [ July 1979 ]
+
+RFC0757
+<b>Suggested solution to the naming, addressing,
+ and delivery problem for ARPANET message systems</b> D.P. Deutsch
+            [ September 1979 ]
+
+RFC0758
+<b>Assigned numbers</b> J. Postel
+            [ August 1979 ]
+
+
+=====
+RFC0759
+<b>Internet Message Protocol</b> J. Postel
+            [ August 1980 ]
+
+RFC0760
+<b>DoD standard Internet Protocol</b> J. Postel
+            [ January 1980 ]
+
+RFC0761
+<b>DoD standard Transmission Control Protocol</b> J. Postel
+            [ January 1980 ]
+
+
